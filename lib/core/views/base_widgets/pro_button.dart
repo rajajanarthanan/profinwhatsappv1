@@ -1,12 +1,12 @@
 // elevated_button.dart
 import 'package:flutter/material.dart';
 
-abstract class ProElevatedButton extends StatelessWidget {
-  final String text;
+abstract class Pro_ElevatedButton extends StatelessWidget {
+ // final String text;
   final VoidCallback onPressed;
 
  
- static const ProElevatedButton;
+ // static const Pro_ElevatedButton;
  
     //required Key key,
     //required this.text,
@@ -14,7 +14,7 @@ abstract class ProElevatedButton extends StatelessWidget {
 
   const ProElevatedButton({super.key, required this.text, required this.onPressed}) {
     
-   key,
+   key?key
   required void Function()? onPressed,
   void Function()? onLongPress,
   void Function(bool)? onHover,
@@ -39,7 +39,7 @@ abstract class ProElevatedButton extends StatelessWidget {
 
        Key? key,
   required, text: 'null', 
-  void Function()? onPressed,
+   required Function()? onPressed,
   void Function()? onLongPress,
   void Function(bool)? onHover,
   void Function(bool)? onFocusChange,
@@ -51,11 +51,6 @@ abstract class ProElevatedButton extends StatelessWidget {
   required Widget? child,
   IconAlignment iconAlignment = IconAlignment.start,
 });
-    var proElevatedButton4 = proElevatedButton5;
-    var proElevatedButton3 = proElevatedButton4;
-    var proElevatedButton2 = proElevatedButton3;
-    var proElevatedButton = proElevatedButton2;
-    return proElevatedButton
-    );
+   
   }
 }
