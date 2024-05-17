@@ -5,7 +5,7 @@ class Pro_ElevatedButton extends StatelessWidget {
   Pro_ElevatedButton(
       {Key? prokey,
       required Text text,
-      required void Function()? onPressed,
+      required void Function()? pro_onPressed,
       void Function()? onLongPress,
       void Function(bool)? onHover,
       void Function(bool)? onFocusChange,
@@ -20,19 +20,19 @@ class Pro_ElevatedButton extends StatelessWidget {
        @override
       Widget build(BuildContext context) {
       return ElevatedButton(
-          key = prokey,
-          child: text = text,
-          onPressed: onPressed,
-          onLongPress = onLongPress,
-          onHover = onHover,
-          onFocusChange = onFocusChange,
-          style: style = style,
-          focusNode: focusNode = focusNode,
-          autofocus: autofocus = autofocus,
-          clipBehavior: clipBehavior = clipBehavior,
-          statesController: statesController = statesController,
-          child = child,
-          iconAlignment: iconAlignment = iconAlignment);
+          // key = prokey,
+          // child: text = text,
+          onPressed = pro_onPressed,
+          // onLongPress = onLongPress,
+          // onHover = onHover,
+          // onFocusChange = onFocusChange,
+          // style: style = style,
+          // focusNode: focusNode = focusNode,
+          // autofocus: autofocus = autofocus,
+          // clipBehavior: clipBehavior = clipBehavior,
+          // statesController: statesController = statesController,
+          // child = child,
+          // iconAlignment: iconAlignment = iconAlignment);
     }
 
 }
