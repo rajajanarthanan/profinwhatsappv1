@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'config/locator.dart';
-import 'core/views/base_widgets/pro_button.dart';
+import '/core/views/base_widgets/pro_button.dart';
 
 
 
@@ -83,6 +83,7 @@ class _MyHomePageState extends State<MyHomePage> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     Base_Widgets basewidgets = Base_Widgets();
+    
     return Scaffold(
       appBar: AppBar(
         // TRY THIS: Try changing the color here to a specific color (to
@@ -121,7 +122,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
 
             basewidgets.Pro_ElevatedButton(onPressed: null, child: Text("clickMe")),
-            basewidgets.Pro_TextButton(onPressed: , child: child)
+             basewidgets.Pro_TextButton(onPressed:Text("press me"), child: Text("click me")),
                         
           ],
         ),
@@ -133,5 +134,12 @@ class _MyHomePageState extends State<MyHomePage> {
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
+}
+
+class Base_Widgets {
+  Pro_ElevatedButton({required onPressed, required Text child}) {}
+}
+
+class View_Widgets {
 }
 

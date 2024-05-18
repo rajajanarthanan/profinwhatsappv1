@@ -8,9 +8,10 @@
 
 import 'package:flutter/material.dart';
 
-class Base_Widgets {
 
-  Base_Widgets();
+class  base_Widgets{
+
+   base_Widgets();
 
   ElevatedButton Pro_ElevatedButton({
       required void Function()? onPressed,
@@ -41,3 +42,5 @@ class Base_Widgets {
 
   Pro_TextButton({required onPressed, required Text child}) {}
 }
+
+

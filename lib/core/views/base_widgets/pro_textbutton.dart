@@ -1,16 +1,19 @@
-// text_buton.dart
 
-// TODO:
+ // Pro_Textbutton.dart
+
+ // TODO:
 // extend base_widgets for widgets
 
+
+
+
 import 'package:flutter/material.dart';
+import 'package:profinwhatsapp/core/views/base_widgets/pro_button.dart';
 
-class base_widgets{
 
-base_widgets();
-  
+class Pro_TextButton extends base_Widgets {
 
- pro_TextButton ({
+ TextButton pro_TextButton ({
 
   Key? key,
   required void Function()? onPressed,
