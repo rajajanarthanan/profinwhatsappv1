@@ -37,7 +37,6 @@ dependencies:
   cupertino_icons:
 
   provider:
-  get_it:
   injector: 
   logger:
 
@@ -59,7 +58,6 @@ dev_dependencies:
 dependency_overrides:
   cupertino_icons: ^1.0.6
   provider: ^6.1.2
-  get_it: ^7.7.0
   injector: ^3.0.0
   logger: ^2.3.0
 
