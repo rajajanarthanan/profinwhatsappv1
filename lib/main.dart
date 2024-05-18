@@ -82,6 +82,7 @@ class _MyHomePageState extends State<MyHomePage> {
     // than having to individually change instances of widgets.
     Base_Widgets basewidgets = Base_Widgets();
 
+      
       FloatingActionButton(
        onPressed: _incrementCounter,
        tooltip: 'Increment',
@@ -128,6 +129,8 @@ class _MyHomePageState extends State<MyHomePage> {
             const Text(
               'You have pushed the button this many times:',
             ),
+            text,
+             Text(
               '$_counter',
               style: Theme.of(context).textTheme.headlineMedium,
             ),
