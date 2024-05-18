@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'config/locator.dart';
 import 'core/views/base_widgets/base_widgets.dart';
 
-
 void main() {
   setupLocator();
   runApp(const MyApp());
@@ -82,20 +81,16 @@ class _MyHomePageState extends State<MyHomePage> {
     // than having to individually change instances of widgets.
     Base_Widgets basewidgets = Base_Widgets();
 
-      
-      FloatingActionButton(
-       onPressed: _incrementCounter,
-       tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ); // This trailing comma makes auto-formatting nicer for build methods.
-    
-    
-  
-           
+    FloatingActionButton(
+      onPressed: _incrementCounter,
+      tooltip: 'Increment',
+      child: const Icon(Icons.add),
+    ); // This trailing comma makes auto-formatting nicer for build methods.
+
     final text = Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            );
+      '$_counter',
+      style: Theme.of(context).textTheme.headlineMedium,
+    );
     return Scaffold(
       appBar: AppBar(
         // TRY THIS: Try changing the color here to a specific color (to
@@ -110,8 +105,8 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
-        child:Column(
-         // Column is also a layout widget. It takes a list of children and
+        child: Column(
+          // Column is also a layout widget. It takes a list of children and
           // arranges them vertically. By default, it sizes itself to fit its
           // children horizontally, and tries to be as tall as its parent.
           //
@@ -130,29 +125,27 @@ class _MyHomePageState extends State<MyHomePage> {
               'You have pushed the button this many times:',
             ),
             text,
-             Text(
+            Text(
               '$_counter',
               style: Theme.of(context).textTheme.headlineMedium,
             ),
-          
             BaseWidgets.proElevatedButton(
                 onPressed: () {}, child: Text("clickMe")),
             BaseWidgets.proTextButton(onPressed: () {}, child: Text("OK")),
-             BaseWidgets.proLoadingButton(
-                
-                onPressed: () {
-                  // Handle button press
-                },
-                isLoading: true, // Change this to false to hide loading state
-                child: Text('Loading Button'),
-             ),
-             BaseWidgets.proAsyncButton(
-                      child: Text('Click Me'),
-                      onPressed: () async {
-                          await Future.delayed(Duration(seconds: 1));
-                     },
-                  )
-             ],
+            BaseWidgets.proLoadingButton(
+              onPressed: () {
+                // Handle button press
+              },
+              isLoading: true, // Change this to false to hide loading state
+              child: Text('Loading Button'),
+            ),
+            BaseWidgets.proAsyncButton(
+              child: Text('Click Me'),
+              onPressed: () async {
+                await Future.delayed(Duration(seconds: 1));
+              },
+            )
+          ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
@@ -160,14 +153,8 @@ class _MyHomePageState extends State<MyHomePage> {
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
-       
     );
   }
 }
-    
 
-class Base_Widgets {
-
-}
-
-
+class Base_Widgets {}

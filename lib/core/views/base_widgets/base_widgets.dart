@@ -60,7 +60,7 @@ class BaseWidgets {
     );
   }
 
-   // Method to create a LoadingButton
+  // Method to create a LoadingButton
   static ElevatedButton proLoadingButton({
     required VoidCallback onPressed,
     required bool isLoading,
@@ -88,22 +88,14 @@ class BaseWidgets {
   }
 }
 
-   
-   // Method to create a AsyncButton
+// Method to create a AsyncButton
 
-   TextButton proAsyncButton(
-    {
-      required VoidCallback onPressed,
-       required String text,
+TextButton proAsyncButton({
+  required VoidCallback onPressed,
+  required String text,
 }) {
   return TextButton(
     onPressed: onPressed,
     child: Text(text),
   );
 }
-
-    
-
-      
-    
-
