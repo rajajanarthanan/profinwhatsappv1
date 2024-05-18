@@ -1,4 +1,6 @@
 // elevated_button.dart
+// text_button.dart
+//loading_button.dart
 
 // TODO:
 // extend base_widgets for widgets
@@ -57,10 +59,35 @@ class BaseWidgets {
       child: child,
     );
   }
-   static LoadingButton
-    
-   
-   }
+
+   // Method to create a LoadingButton
+  static ElevatedButton proLoadingButton({
+    required VoidCallback onPressed,
+    required bool isLoading,
+    required Widget child,
+    Widget loadingWidget = const CircularProgressIndicator(),
+    ButtonStyle? style,
+    FocusNode? focusNode,
+    bool autofocus = false,
+    Clip clipBehavior = Clip.none,
+    void Function()? onLongPress,
+    void Function(bool)? onHover,
+    void Function(bool)? onFocusChange,
+  }) {
+    return ElevatedButton(
+      onPressed: isLoading ? null : onPressed,
+      onLongPress: onLongPress,
+      onHover: onHover,
+      onFocusChange: onFocusChange,
+      style: style,
+      focusNode: focusNode,
+      autofocus: autofocus,
+      clipBehavior: clipBehavior,
+      child: isLoading ? loadingWidget : child,
+    );
+  }
+}
 
    
-     
+  
+
