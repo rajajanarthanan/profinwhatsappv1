@@ -1,11 +1,19 @@
 // elevated_button.dart
+
+// TODO:
+// extend base_widgets for widgets
+// extend widgets for base_view
+// text each view from base_view
+
+
 import 'package:flutter/material.dart';
 
-class Pro_ElevatedButton extends StatelessWidget {
-  Pro_ElevatedButton(
-      {Key? prokey,
-      required Text text,
-      required void Function()? pro_onPressed,
+class Base_Widgets {
+
+  Base_Widgets();
+
+  ElevatedButton Pro_ElevatedButton({
+      required void Function()? onPressed,
       void Function()? onLongPress,
       void Function(bool)? onHover,
       void Function(bool)? onFocusChange,
@@ -15,27 +23,21 @@ class Pro_ElevatedButton extends StatelessWidget {
       Clip? clipBehavior,
       WidgetStatesController? statesController,
       required Widget? child,
-      IconAlignment iconAlignment = IconAlignment.start}) 
+      IconAlignment iconAlignment = IconAlignment.start
+      }){
+          return ElevatedButton(
+                  onPressed : onPressed,
+                  onLongPress : onLongPress,
+                  onHover : onHover,
+                  onFocusChange : onFocusChange,
+                  style: style,
+                  focusNode: focusNode,
+                  autofocus: autofocus,
+                  clipBehavior: clipBehavior,
+                  statesController: statesController,
+                  iconAlignment: iconAlignment,
+                  child: child);      
+      }
 
-       @override
-      Widget build(BuildContext context) {
-      return ElevatedButton(
-          // key = prokey,
-          // child: text = text,
-          onPressed = pro_onPressed,
-          // onLongPress = onLongPress,
-          // onHover = onHover,
-          // onFocusChange = onFocusChange,
-          // style: style = style,
-          // focusNode: focusNode = focusNode,
-          // autofocus: autofocus = autofocus,
-          // clipBehavior: clipBehavior = clipBehavior,
-          // statesController: statesController = statesController,
-          // child = child,
-          // iconAlignment: iconAlignment = iconAlignment);
-    }
-
+  Pro_TextButton({required onPressed, required Text child}) {}
 }
-   
-  
-
