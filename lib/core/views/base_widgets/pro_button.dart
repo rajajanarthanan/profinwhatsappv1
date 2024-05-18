@@ -57,10 +57,11 @@ class BaseWidgets {
       child: child,
     );
   }
-   static LoadingButton
+   static LoadingButton  
     
    
    }
 
-   
+   )
      
+}
