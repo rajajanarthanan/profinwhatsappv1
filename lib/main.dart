@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'config/locator.dart';
 import '/core/views/base_widgets/pro_button.dart';
 
-
-
 void main() {
   setupLocator();
   runApp(const MyApp());
@@ -12,7 +10,6 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -53,7 +50,7 @@ class MyHomePage extends StatefulWidget {
   // case the title) provided by the parent (in this case the App widget) and
   // used by the build method of the State. Fields in a Widget subclass are
   // always marked "final".
-  
+
   final String title;
 
   @override
@@ -83,7 +80,7 @@ class _MyHomePageState extends State<MyHomePage> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     Base_Widgets basewidgets = Base_Widgets();
-    
+
     return Scaffold(
       appBar: AppBar(
         // TRY THIS: Try changing the color here to a specific color (to
@@ -120,10 +117,8 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.headlineMedium,
             ),
-
-            basewidgets.Pro_ElevatedButton(onPressed: null, child: Text("clickMe")),
-             basewidgets.Pro_TextButton(onPressed:Text("press me"), child: Text("click me")),
-                        
+            basewidgets.Pro_ElevatedButton(
+                onPressed: null, child: Text("clickMe")),
           ],
         ),
       ),
@@ -140,6 +135,4 @@ class Base_Widgets {
   Pro_ElevatedButton({required onPressed, required Text child}) {}
 }
 
-class View_Widgets {
-}
-
+class View_Widgets {}
