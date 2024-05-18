@@ -117,8 +117,9 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.headlineMedium,
             ),
-            basewidgets.Pro_ElevatedButton(
-                onPressed: null, child: Text("clickMe")),
+            BaseWidgets.proElevatedButton(
+                onPressed: () {}, child: Text("clickMe")),
+            BaseWidgets.proTextButton(onPressed: () {}, child: Text("OK"))
           ],
         ),
       ),
