@@ -146,7 +146,13 @@ class _MyHomePageState extends State<MyHomePage> {
                 isLoading: true, // Change this to false to hide loading state
                 child: Text('Loading Button'),
              ),
-           ],
+             BaseWidgets.proAsyncButton(
+                      child: Text('Click Me'),
+                      onPressed: () async {
+                          await Future.delayed(Duration(seconds: 1));
+                     },
+                  )
+             ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
