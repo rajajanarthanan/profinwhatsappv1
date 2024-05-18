@@ -59,7 +59,6 @@ class BaseWidgets {
       child: child,
     );
   }
-<<<<<<< Updated upstream
 
   // Method to create a LoadingButton
   static ElevatedButton proLoadingButton({
@@ -99,6 +98,4 @@ TextButton proAsyncButton({
     onPressed: onPressed,
     child: Text(text),
   );
-=======
->>>>>>> Stashed changes
 }
