@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'config/locator.dart';
-import '/core/views/base_widgets/pro_button.dart';
+import 'core/views/base_widgets/base_widgets.dart';
 
 void main() {
   setupLocator();
