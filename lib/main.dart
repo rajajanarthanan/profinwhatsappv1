@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:injector/injector.dart';
+import 'package:profinwhatsapp/core/base/base_viewmodel.dart';
 import 'core/dependencies/injector.dart';
 import 'core/views/base_widgets/base_widgets.dart';
 import 'core/base/base_view.dart';
@@ -83,10 +84,12 @@ class _MyHomePageState extends State<MyHomePage> {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => BaseView()),
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            BaseView(viewModel: injector.get<BaseViewModel>())),
                   );
                 },
-                child: Text("clickMe")),
+                child: Text("Loads Test View")),
             BaseWidgets.proTextButton(onPressed: () {}, child: Text("OK"))
           ],
         ),
@@ -99,13 +102,3 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
-
-<<<<<<< Updated upstream
-class Base_Widgets {}
-=======
-// class Base_Widgets {
-//   Pro_ElevatedButton({required onPressed, required Text child}) {}
-// }
-
-// class View_Widgets {}
->>>>>>> Stashed changes
