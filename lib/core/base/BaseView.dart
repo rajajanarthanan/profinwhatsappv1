@@ -1,6 +1,3 @@
-<<<<<<< Updated upstream
-
-=======
 import 'package:flutter/material.dart';
 
 abstract class BaseView<T extends ChangeNotifier> extends StatefulWidget {
@@ -39,4 +36,3 @@ class _BaseViewState<T extends ChangeNotifier> extends State<BaseView<T>> {
     setState(() {});
   }
 }
->>>>>>> Stashed changes

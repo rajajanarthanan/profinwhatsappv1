@@ -80,23 +80,6 @@ class _MyHomePageState extends State<MyHomePage> {
               style: Theme.of(context).textTheme.headlineMedium,
             ),
             BaseWidgets.proElevatedButton(
-<<<<<<< Updated upstream
-                onPressed: () {}, child: Text("clickMe")),
-            BaseWidgets.proTextButton(onPressed: () {}, child: Text("OK")),
-            BaseWidgets.proLoadingButton(
-              onPressed: () {
-                // Handle button press
-              },
-              isLoading: true, // Change this to false to hide loading state
-              child: Text('Loading Button'),
-            ),
-            BaseWidgets.proAsyncButton(
-              child: Text('Click Me'),
-              onPressed: () async {
-                await Future.delayed(Duration(seconds: 1));
-              },
-            )
-=======
                 onPressed: () {
                   Navigator.push(
                     context,
@@ -105,7 +88,6 @@ class _MyHomePageState extends State<MyHomePage> {
                 },
                 child: Text("clickMe")),
             BaseWidgets.proTextButton(onPressed: () {}, child: Text("OK"))
->>>>>>> Stashed changes
           ],
         ),
       ),
