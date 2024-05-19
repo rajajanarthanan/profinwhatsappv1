@@ -25,7 +25,7 @@ class AuthModule {
 
 class MainModule {
   static void registerDependencies(Injector injector) {
-    AuthModule.registerDependencies(injector);
+    // AuthModule.registerDependencies(injector);
     BaseModule.registerDependencies(injector);
     // Register other dependencies for the main module
   }

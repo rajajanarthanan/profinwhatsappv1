@@ -50,7 +50,7 @@ class _MyHomePageState extends State<MyHomePage> {
     BaseWidgets basewidgets = BaseWidgets();
     final injector = Injector.appInstance;
 
-    final authService = injector.get<AuthService>();
+    // final authService = injector.get<AuthService>();
 
     FloatingActionButton(
       onPressed: _incrementCounter,
