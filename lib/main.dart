@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:injector/injector.dart';
 import 'core/dependencies/injector.dart';
 import 'core/views/base_widgets/base_widgets.dart';
-import 'core/base/BaseView.dart';
+import 'core/base/base_view.dart';
 
 void main() {
   setupInjector();

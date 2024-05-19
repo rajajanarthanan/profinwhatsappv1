@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 
-abstract class BaseView<T extends ChangeNotifier> extends StatefulWidget {
+abstract class ViewContract<T extends ChangeNotifier> extends StatefulWidget {
   final T viewModel;
 
-  const BaseView({Key? key, required this.viewModel}) : super(key: key);
+  const ViewContract({Key? key, required this.viewModel}) : super(key: key);
 
   Widget buildView(BuildContext context, T viewModel);
 
   @override
-  _BaseViewState<T> createState() => _BaseViewState<T>();
+  _ViewContractState<T> createState() => _ViewContractState<T>();
 }
 
-class _BaseViewState<T extends ChangeNotifier> extends State<BaseView<T>> {
+class _ViewContractState<T extends ChangeNotifier>
+    extends State<ViewContract<T>> {
   late T _viewModel;
 
   @override
