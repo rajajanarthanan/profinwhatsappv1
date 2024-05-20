@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:injector/injector.dart';
+import 'package:profinwhatsapp/core/base/base_viewmodel.dart';
 
 abstract class ViewContract<T extends ChangeNotifier> extends StatefulWidget {
-  final T viewModel;
+  const ViewContract({Key? key}) : super(key: key);
 
-  const ViewContract({Key? key, required this.viewModel}) : super(key: key);
-
-  Widget buildView(BuildContext context, T viewModel);
+  Widget buildView(BuildContext context);
 
   @override
   _ViewContractState<T> createState() => _ViewContractState<T>();
@@ -15,10 +15,12 @@ class _ViewContractState<T extends ChangeNotifier>
     extends State<ViewContract<T>> {
   late T _viewModel;
 
+  Injector dep = Injector.appInstance;
+
   @override
   void initState() {
     super.initState();
-    _viewModel = widget.viewModel;
+    _viewModel = dep.get<BaseViewModel>() as T;
     _viewModel.addListener(_onViewModelChange);
   }
 
@@ -30,7 +32,7 @@ class _ViewContractState<T extends ChangeNotifier>
 
   @override
   Widget build(BuildContext context) {
-    return widget.buildView(context, _viewModel);
+    return widget.buildView(context);
   }
 
   void _onViewModelChange() {
