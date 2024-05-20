@@ -1,5 +1,6 @@
 import 'package:injector/injector.dart';
 import '../base/base_viewmodel.dart';
+import '../utils/user_perms.dart';
 
 void setupInjector() {
   // To Register dependencies
@@ -12,6 +13,7 @@ void setupInjector() {
 class BaseModule {
   static void registerDependencies(Injector injector) {
     injector.registerSingleton<BaseViewModel>(() => BaseViewModel());
+    injector.registerSingleton<UserPerms>(() => UserPerms());
   }
 }
 

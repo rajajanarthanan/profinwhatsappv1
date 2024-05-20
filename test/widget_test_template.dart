@@ -1,4 +1,16 @@
-String generateTestTemplate(String viewName) {
+String generateTestTemplate(String viewName, List<String> widgetTypes) {
+  StringBuffer widgetTests = StringBuffer();
+
+  for (var widgetType in widgetTypes) {
+    widgetTests.writeln('''
+    testWidgets('contains $widgetType in $viewName', (WidgetTester tester) async {
+      await tester.pumpWidget($viewName());
+
+      expect(find.byType($widgetType), findsWidgets);
+    });
+    ''');
+  }
+
   return '''
 import 'package:flutter_test/flutter_test.dart';
 import 'package:your_project/views/$viewName.dart';
@@ -8,13 +20,21 @@ void main() {
     testWidgets('renders $viewName correctly', (WidgetTester tester) async {
       await tester.pumpWidget($viewName());
 
-      // Add your specific widget tests here
-
+      // Verify that the $viewName widget is present in the widget tree
       expect(find.byType($viewName), findsOneWidget);
     });
 
-    // Add more tests as needed
+    // Specific widget type tests
+    ${widgetTests.toString()}
   });
 }
 ''';
+}
+
+void main() {
+  String viewName = 'TestView';
+  List<String> widgetTypes = ['Text', 'Button', 'Icon'];
+
+  String testTemplate = generateTestTemplate(viewName, widgetTypes);
+  print(testTemplate);
 }
