@@ -117,22 +117,10 @@ class BaseWidgets {
       tooltip: tooltip,
     );
   }
-  //Method to create a ArgonButton
-  
-  static Widget proArgonButton({
-    required Future <void>Function()? onPressed,
-    required IconData iconData,
-    req
-  }){
-    
-    return TextButton(
-      onPressed: onPressed, child:Text(textdata),
-    
-    );
 
+ 
 }
 
-}
 
 
  

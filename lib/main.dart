@@ -103,7 +103,12 @@ class _MyHomePageState extends State<MyHomePage> {
                 iconData: Icons.error, 
                 tooltip: 'fail',
                
-              ),// Provide a default Widget if buildIconButton returns null
+              ),
+             BaseWidgets.proMainAxisAlignment(
+              mainAxisAlignment: MainAxisAlignment.center),
+
+
+
               ],
           ),
       ),

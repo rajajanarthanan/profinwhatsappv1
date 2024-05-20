@@ -110,4 +110,8 @@ class BaseWidgets {
       tooltip: tooltip,
     );
   }
+
+  static proMainAxisAlignment({required MainAxisAlignment mainAxisAlignment}) {}
+
+ 
 }
