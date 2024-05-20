@@ -86,15 +86,15 @@ class BaseWidgets {
       child: isLoading ? loadingWidget : child,
     );
   }
-}
 
 // Method to create a AsyncButton
-TextButton proAsyncButton({
-  required VoidCallback onPressed,
-  required String text,
-}) {
-  return TextButton(
-    onPressed: onPressed,
-    child: Text(text),
-  );
+  TextButton proAsyncButton({
+    required VoidCallback onPressed,
+    required String text,
+  }) {
+    return TextButton(
+      onPressed: onPressed,
+      child: Text(text),
+    );
+  }
 }
