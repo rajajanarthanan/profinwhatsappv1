@@ -77,6 +77,16 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             text,
             BaseWidgets.proElevatedButton(
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+                onPressed: () {}, child: Text("clickMe")),
+            BaseWidgets.proTextButton(onPressed: () {}, child: Text("OK")),
+            
+             BaseWidgets.proLoadingButton(
+=======
+>>>>>>> 44c5a17ae8ccd22b638bb9cacfbf0909f00a401d
+>>>>>>> Stashed changes
                 onPressed: () {
                   Navigator.push(
                     context,
@@ -85,9 +95,28 @@ class _MyHomePageState extends State<MyHomePage> {
                             BaseView(viewModel: injector.get<BaseViewModel>())),
                   );
                 },
+<<<<<<< Updated upstream
                 child: Text("Loads Test View")),
             BaseWidgets.proTextButton(onPressed: () {}, child: Text("OK"))
           ],
+=======
+<<<<<<< HEAD
+                isLoading: true, // Change this to false to hide loading state
+                child: Text('Loading Button'),
+             ),
+              BaseWidgets.proAsyncButton(
+                onPressed: () async {
+                  await Future.delayed(Duration(seconds: 1));
+                },
+                child: Text("Async Button"),
+              ),
+             ],
+=======
+                child: Text("Loads Test View")),
+            BaseWidgets.proTextButton(onPressed: () {}, child: Text("OK"))
+          ],
+>>>>>>> 44c5a17ae8ccd22b638bb9cacfbf0909f00a401d
+>>>>>>> Stashed changes
         ),
       ),
       floatingActionButton: FloatingActionButton(
