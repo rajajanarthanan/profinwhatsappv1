@@ -4,13 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:injector/injector.dart';
 import 'package:profinwhatsapp/core/base/base_viewmodel.dart';
 import 'package:profinwhatsapp/core/views/base_widgets/base_widgets.dart';
-
-import '../base/base_view.dart';
+import 'package:profinwhatsapp/core/base/base_view.dart';
 
 class TestView extends BaseView {
-  TestView() {
-    final vm = dep.get<BaseViewModel>();
-  }
+  // TestView() {
+  //   final vm = dep.get<BaseViewModel>();
+  // }
 
   @override
   Widget buildView(BuildContext context) {

@@ -13,14 +13,14 @@ abstract class ViewContract<T extends ChangeNotifier> extends StatefulWidget {
 
 class _ViewContractState<T extends ChangeNotifier>
     extends State<ViewContract<T>> {
-  late T _viewModel;
+  late BaseViewModel _viewModel;
 
   Injector dep = Injector.appInstance;
 
   @override
   void initState() {
     super.initState();
-    _viewModel = dep.get<BaseViewModel>() as T;
+    _viewModel = dep.get<BaseViewModel>();
     _viewModel.addListener(_onViewModelChange);
   }
 

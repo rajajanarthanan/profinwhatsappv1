@@ -1,12 +1,9 @@
 import 'package:injector/injector.dart';
 import 'package:profinwhatsapp/core/views/base_widgets/pro_button.dart';
-import '../base/base_viewmodel.dart';
-import '../utils/user_perms.dart';
+import 'package:profinwhatsapp/core/base/base_viewmodel.dart';
+import 'package:profinwhatsapp/core/utils/user_perms.dart';
 
 void setupInjector() {
-  // To Register dependencies
-  // locator.registerSingleton<Service1>(Service1());
-  // locator.registerLazySingleton<Service2>(() => Service2());
   final injector = Injector.appInstance;
   MainModule.registerDependencies(injector);
 }
