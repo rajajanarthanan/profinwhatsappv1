@@ -1,4 +1,8 @@
 // elevated_button.dart
+//text_button.dart
+//loading_button.dart
+//async_button.dart
+//icon_button.dart
 
 // TODO:
 // extend base_widgets for widgets
@@ -8,6 +12,7 @@
 // ignore_for_file: prefer_typing_uninitialized_variables
 
 import 'package:flutter/material.dart';
+
 
 class BaseWidgets {
   static ElevatedButton proElevatedButton({
@@ -86,18 +91,30 @@ class BaseWidgets {
   }
 
     // Method to create an AsyncButton
-   TextButton proAsyncButton({
+    TextButton proAsyncButton({
      required Future<void> Function() onPressed,
-     required Widget child,
+     required Widget text,
   }) {
     return TextButton(
       onPressed: () async {
         await onPressed();
       },
-      child: child,
+       child :text,
+    );
+  }
+
+    // Method to create an IconButton
+   static IconButton probuildIconButton({
+     required Function()? onPressed,
+     required IconData iconData,
+     required String tooltip,
+  }) {
+    return IconButton(
+      onPressed: onPressed,
+      icon: Icon(iconData),
+      tooltip: tooltip,
     );
   }
 }
-
 
 
