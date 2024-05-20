@@ -97,4 +97,9 @@ class BaseWidgets {
       child: Text(text),
     );
   }
+
+  static probuildIconButton({
+    required Null Function() onPressed,
+     required IconData iconData,
+      required String tooltip}) {}
 }

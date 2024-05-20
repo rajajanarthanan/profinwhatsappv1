@@ -5,6 +5,7 @@ import 'core/dependencies/injector.dart';
 import 'core/views/base_widgets/base_widgets.dart';
 import 'core/base/base_view.dart';
 
+
 void main() {
   setupInjector();
   runApp(const MyApp());
@@ -79,21 +80,32 @@ class _MyHomePageState extends State<MyHomePage> {
             text,
             BaseWidgets.proElevatedButton(
                 onPressed: () {}, child: Text("clickMe")),
+
             BaseWidgets.proTextButton(onPressed: () {}, child: Text("OK")),
+
             BaseWidgets.proLoadingButton(
                 onPressed: () {
                   // Handle button press
                 },
                 isLoading: true, // Change this to false to hide loading state
                 child: Text("Loading Button")),
+
             BaseWidgets.proAsyncButton(
               text: 'Click Me',
               onPressed: () async {
                 await Future.delayed(Duration(seconds: 1));
               },
             ),
-          ],
-        ),
+             BaseWidgets.probuildIconButton(
+            onPressed: () {
+              // Handle button press
+              print('IconButton pressed');
+            },
+            iconData: Icons.favorite,
+            tooltip: 'Like',
+          ),
+             ],
+          ),
       ),
 
       floatingActionButton: FloatingActionButton(
