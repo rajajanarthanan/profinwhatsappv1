@@ -1,3 +1,5 @@
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:injector/injector.dart';
 import 'package:profinwhatsapp/core/base/base_viewmodel.dart';
@@ -5,8 +7,20 @@ import 'core/dependencies/injector.dart';
 import 'core/views/base_widgets/base_widgets.dart';
 import 'core/views/login_view.dart';
 
-void main() {
+Future<void> main() async {
   setupInjector();
+  WidgetsFlutterBinding.ensureInitialized();
+
+  if (kIsWeb) {
+    await Firebase.initializeApp(
+        options: const FirebaseOptions(
+            apiKey: 'AIzaSyDcTuDNlTSKG1zqppwJmBtEvVdNFD11Tzk',
+            appId: '1:325000420972:web:f96236a88d2d28e37b4249',
+            messagingSenderId: '325000420972',
+            projectId: 'profinv1'));
+  }
+
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
