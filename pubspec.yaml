@@ -39,6 +39,7 @@ dependencies:
   provider:
   injector: 
   logger:
+  permission_handler:
 
 
 dev_dependencies:
@@ -64,6 +65,7 @@ dependency_overrides:
   mockito: ^5.4.4
   flutter_lints: ^4.0.0
   build_runner: ^2.4.10
+  permission_handler: ^11.3.1
 
 # The following section is specific to Flutter packages.
 flutter:
