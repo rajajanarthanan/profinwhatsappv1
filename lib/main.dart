@@ -76,10 +76,6 @@ class _MyHomePageState extends State<MyHomePage> {
               'You have pushed the button this many times:',
             ),
             text,
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
             BaseWidgets.proElevatedButton(
                 onPressed: () {
                   Navigator.push(
