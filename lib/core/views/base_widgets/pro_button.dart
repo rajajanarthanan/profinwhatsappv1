@@ -57,6 +57,7 @@ class BaseWidgets {
       child: child,
     );
   }
+
     // Method to create a LoadingButton
   static ElevatedButton proLoadingButton({
     required VoidCallback onPressed,
