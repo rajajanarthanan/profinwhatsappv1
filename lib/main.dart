@@ -5,7 +5,6 @@ import 'core/dependencies/injector.dart';
 import 'core/views/base_widgets/base_widgets.dart';
 import 'core/base/base_view.dart';
 
-
 void main() {
   setupInjector();
   runApp(const MyApp());
@@ -81,35 +80,36 @@ class _MyHomePageState extends State<MyHomePage> {
             BaseWidgets.proElevatedButton(
                 onPressed: () {}, child: const Text("clickMe")),
 
-            BaseWidgets.proTextButton(onPressed: () {}, child: const Text("OK")),
+            BaseWidgets.proTextButton(
+                onPressed: () {}, child: const Text("GoToApp")),
 
-            BaseWidgets.proLoadingButton(
-                onPressed: () {
-                  // Handle button press
-                },
-                isLoading: true, // Change this to false to hide loading state
-                child: const Text("Loading Button")),
+            // BaseWidgets.proLoadingButton(
+            //     onPressed: () {
+            //       // Handle button press
+            //     },
+            //     isLoading: true, // Change this to false to hide loading state
+            //     child: const Text("Loading Button")),
 
-            BaseWidgets.proAsyncButton(
-              text: 'Click Me',
-              onPressed: () async {
-                await Future.delayed(const Duration(seconds: 1));
-              },
-            ),
-            BaseWidgets.proIconButton(
-                onPressed: () {
-                 // Handle button press
-              },
-                iconData: Icons.error, 
-                tooltip: 'fail',
-               
-              ),
-              BaseWidgets.proBuildRow(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.center,
-              ),
-             ],
-          ),
+            // BaseWidgets.proAsyncButton(
+            //   text: 'Click Me',
+            //   onPressed: () async {
+            //     await Future.delayed(const Duration(seconds: 1));
+            //   },
+            // ),
+            // BaseWidgets.proIconButton(
+            //   onPressed: () {
+            //     // Handle button press
+            //   },
+            //   iconData: Icons.error,
+            //   tooltip: 'fail',
+            // ),
+
+            // BaseWidgets.proBuildRow(
+            // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            // crossAxisAlignment: CrossAxisAlignment.center,
+            //   ),
+          ],
+        ),
       ),
 
       floatingActionButton: FloatingActionButton(
@@ -120,5 +120,3 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
-
-
