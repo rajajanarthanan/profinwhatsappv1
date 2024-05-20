@@ -26,6 +26,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/loginview': (context) => LoginView(), // Define the route
       },
+      debugShowCheckedModeBanner: false,
     );
   }
 }
@@ -84,7 +85,10 @@ class _MyHomePageState extends State<MyHomePage> {
                 onPressed: () {}, child: const Text("clickMe")),
 
             BaseWidgets.proTextButton(
-                onPressed: () {}, child: const Text("GoToApp")),
+                onPressed: () {
+                  Navigator.pushNamed(context, '/loginview');
+                },
+                child: const Text("GoToApp")),
 
             // BaseWidgets.proLoadingButton(
             //     onPressed: () {
