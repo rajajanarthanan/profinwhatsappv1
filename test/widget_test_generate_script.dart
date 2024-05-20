@@ -4,7 +4,7 @@ import 'widget_test_template.dart';
 
 void main() {
   List<String> views = ['HomeView', 'DetailView', 'SettingsView'];
-  List<String> widgetTypes = Widget_types.all;
+  List<String> widgetTypes = WidgetTypes.all;
   for (String view in views) {
     String content = generateTestTemplate(view, widgetTypes);
     File('test/${view.toLowerCase()}_test.dart').writeAsStringSync(content);
@@ -12,7 +12,7 @@ void main() {
   }
 }
 
-class Widget_types {
+class WidgetTypes {
   static const List<String> all = [
     'Container',
     'Row',

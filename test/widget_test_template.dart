@@ -1,3 +1,5 @@
+import 'widget_test_generate_script.dart';
+
 String generateTestTemplate(String viewName, List<String> widgetTypes) {
   StringBuffer widgetTests = StringBuffer();
 
@@ -33,7 +35,8 @@ void main() {
 
 void main() {
   String viewName = 'TestView';
-  List<String> widgetTypes = ['Text', 'Button', 'Icon'];
+  List<String> widgetTypes = WidgetTypes.all;
+  //['Text', 'Button', 'Icon'];
 
   String testTemplate = generateTestTemplate(viewName, widgetTypes);
   print(testTemplate);
