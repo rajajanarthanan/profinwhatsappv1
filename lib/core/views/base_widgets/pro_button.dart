@@ -57,4 +57,46 @@ class BaseWidgets {
       child: child,
     );
   }
+    // Method to create a LoadingButton
+  static ElevatedButton proLoadingButton({
+    required VoidCallback onPressed,
+    required bool isLoading,
+    required Widget child,
+    Widget loadingWidget = const CircularProgressIndicator(),
+    ButtonStyle? style,
+    FocusNode? focusNode,
+    bool autofocus = false,
+    Clip clipBehavior = Clip.none,
+    void Function()? onLongPress,
+    void Function(bool)? onHover,
+    void Function(bool)? onFocusChange,
+  }) {
+    return ElevatedButton(
+      onPressed: isLoading ? null : onPressed,
+      onLongPress: onLongPress,
+      onHover: onHover,
+      onFocusChange: onFocusChange,
+      style: style,
+      focusNode: focusNode,
+      autofocus: autofocus,
+      clipBehavior: clipBehavior,
+      child: isLoading ? loadingWidget : child,
+    );
+  }
+
+    // Method to create an AsyncButton
+   TextButton proAsyncButton({
+     required Future<void> Function() onPressed,
+     required Widget child,
+  }) {
+    return TextButton(
+      onPressed: () async {
+        await onPressed();
+      },
+      child: child,
+    );
+  }
 }
+
+
+

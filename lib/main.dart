@@ -77,52 +77,33 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             text,
             BaseWidgets.proElevatedButton(
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
                 onPressed: () {}, child: Text("clickMe")),
-            BaseWidgets.proTextButton(onPressed: () {}, child: Text("OK")),
+
+            BaseWidgets.proTextButton(
+                onPressed: () {}, child: Text("OK")),
             
-             BaseWidgets.proLoadingButton(
-=======
->>>>>>> 44c5a17ae8ccd22b638bb9cacfbf0909f00a401d
->>>>>>> Stashed changes
+            BaseWidgets.proLoadingButton(
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) =>
-                            BaseView(viewModel: injector.get<BaseViewModel>())),
-                  );
+                  // Handle button press
                 },
-<<<<<<< Updated upstream
-                child: Text("Loads Test View")),
-            BaseWidgets.proTextButton(onPressed: () {}, child: Text("OK"))
-          ],
-=======
-<<<<<<< HEAD
                 isLoading: true, // Change this to false to hide loading state
-                child: Text('Loading Button'),
-             ),
-              BaseWidgets.proAsyncButton(
+                child: Text("Loading Button")),
+
+            BaseWidgets.proAsyncButton(
+                child:  const Text('Click Me'),
                 onPressed: () async {
-                  await Future.delayed(Duration(seconds: 1));
-                },
-                child: Text("Async Button"),
+                await Future.delayed(Duration(seconds : 1));
+               },
+              
               ),
-             ],
-=======
-                child: Text("Loads Test View")),
-            BaseWidgets.proTextButton(onPressed: () {}, child: Text("OK"))
-          ],
->>>>>>> 44c5a17ae8ccd22b638bb9cacfbf0909f00a401d
->>>>>>> Stashed changes
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
+         ],
+       ),
+     ),
+
+     floatingActionButton: FloatingActionButton(
+          onPressed: _incrementCounter,
+          tooltip: 'Increment',
+          child: const Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
