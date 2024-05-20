@@ -95,15 +95,15 @@ class _MyHomePageState extends State<MyHomePage> {
                 await Future.delayed(Duration(seconds: 1));
               },
             ),
-             BaseWidgets.probuildIconButton(
-            onPressed: () {
-              // Handle button press
-              print('IconButton pressed');
-            },
-            iconData: Icons.favorite,
-            tooltip: 'Like',
-          ),
-             ],
+            BaseWidgets.proIconButton(
+                onPressed: () {
+                 // Handle button press
+              },
+                iconData: Icons.error, 
+                tooltip: 'fail',
+               
+              ),// Provide a default Widget if buildIconButton returns null
+              ],
           ),
       ),
 

@@ -98,8 +98,16 @@ class BaseWidgets {
     );
   }
 
-  static probuildIconButton({
-    required Null Function() onPressed,
+  // Method to create an IconButton
+   static IconButton proIconButton({
+     required dynamic Function()? onPressed,
      required IconData iconData,
-      required String tooltip}) {}
+     required String tooltip,
+  }) {
+    return IconButton(
+      onPressed: onPressed,
+      icon: Icon(iconData),
+      tooltip: tooltip,
+    );
+  }
 }

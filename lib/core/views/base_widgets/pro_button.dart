@@ -11,7 +11,9 @@
 
 // ignore_for_file: prefer_typing_uninitialized_variables
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 
 class BaseWidgets {
@@ -102,10 +104,10 @@ class BaseWidgets {
        child :text,
     );
   }
-
-    // Method to create an IconButton
-   static IconButton probuildIconButton({
-     required Function()? onPressed,
+   
+  // Method to create an IconButton
+   static IconButton proIconButton({
+     required dynamic Function()? onPressed,
      required IconData iconData,
      required String tooltip,
   }) {
@@ -115,6 +117,22 @@ class BaseWidgets {
       tooltip: tooltip,
     );
   }
+  //Method to create a ArgonButton
+  
+  static Widget proArgonButton({
+    required Future <void>Function()? onPressed,
+    required IconData iconData,
+    req
+  }){
+    
+    return TextButton(
+      onPressed: onPressed, child:Text(textdata),
+    
+    );
+
+}
+
 }
 
 
+ 
