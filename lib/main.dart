@@ -78,32 +78,27 @@ class _MyHomePageState extends State<MyHomePage> {
             text,
             BaseWidgets.proElevatedButton(
                 onPressed: () {}, child: Text("clickMe")),
-
-            BaseWidgets.proTextButton(
-                onPressed: () {}, child: Text("OK")),
-            
+            BaseWidgets.proTextButton(onPressed: () {}, child: Text("OK")),
             BaseWidgets.proLoadingButton(
                 onPressed: () {
                   // Handle button press
                 },
                 isLoading: true, // Change this to false to hide loading state
                 child: Text("Loading Button")),
-
             BaseWidgets.proAsyncButton(
-                child:  const Text('Click Me'),
-                onPressed: () async {
-                await Future.delayed(Duration(seconds : 1));
-               },
-              
-              ),
-         ],
-       ),
-     ),
+              text: 'Click Me',
+              onPressed: () async {
+                await Future.delayed(Duration(seconds: 1));
+              },
+            ),
+          ],
+        ),
+      ),
 
-     floatingActionButton: FloatingActionButton(
-          onPressed: _incrementCounter,
-          tooltip: 'Increment',
-          child: const Icon(Icons.add),
+      floatingActionButton: FloatingActionButton(
+        onPressed: _incrementCounter,
+        tooltip: 'Increment',
+        child: const Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }

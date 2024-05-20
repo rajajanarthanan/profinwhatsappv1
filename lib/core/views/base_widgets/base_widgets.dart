@@ -88,7 +88,7 @@ class BaseWidgets {
   }
 
 // Method to create a AsyncButton
-  TextButton proAsyncButton({
+  static TextButton proAsyncButton({
     required VoidCallback onPressed,
     required String text,
   }) {
