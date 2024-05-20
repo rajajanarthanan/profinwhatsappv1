@@ -1,9 +1,4 @@
-// 
-// TODO:
-// extend base_widgets for widgets
-// extend widgets for base_view
-// text each view from base_view
-
+// build_rows.dart
 
 import 'package:flutter/material.dart';
 
@@ -11,10 +6,24 @@ import 'package:flutter/material.dart';
 class BaseWidgets{
 
  // Method to create a MainAxisAlignment
-  static MainAxisAlignment proMainAxisAlignment({
-    MainAxisAlignment mainAxisAlignment = MainAxisAlignment.start,
+  static Row proBuildRow({
+   MainAxisAlignment mainAxisAlignment = MainAxisAlignment.start,
+    CrossAxisAlignment crossAxisAlignment = CrossAxisAlignment.center,
+    List<Widget> children = const [],
+    MainAxisSize mainAxisSize = MainAxisSize.max,
+    TextDirection? textDirection,
+    VerticalDirection verticalDirection = VerticalDirection.down,
+    TextBaseline? textBaseline,
   }) {
-    return mainAxisAlignment;
+    return Row(
+      mainAxisAlignment: mainAxisAlignment,
+      crossAxisAlignment: crossAxisAlignment,
+      mainAxisSize: mainAxisSize,
+      textDirection: textDirection,
+      verticalDirection: verticalDirection,
+      textBaseline: textBaseline,
+      children: children,
+      );
   }
 }
 

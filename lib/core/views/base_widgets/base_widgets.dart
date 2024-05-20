@@ -111,7 +111,5 @@ class BaseWidgets {
     );
   }
 
-  static proMainAxisAlignment({required MainAxisAlignment mainAxisAlignment}) {}
-
- 
+  static proBuildRow({required MainAxisAlignment mainAxisAlignment, required CrossAxisAlignment crossAxisAlignment}) {}
 }

@@ -79,21 +79,21 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             text,
             BaseWidgets.proElevatedButton(
-                onPressed: () {}, child: Text("clickMe")),
+                onPressed: () {}, child: const Text("clickMe")),
 
-            BaseWidgets.proTextButton(onPressed: () {}, child: Text("OK")),
+            BaseWidgets.proTextButton(onPressed: () {}, child: const Text("OK")),
 
             BaseWidgets.proLoadingButton(
                 onPressed: () {
                   // Handle button press
                 },
                 isLoading: true, // Change this to false to hide loading state
-                child: Text("Loading Button")),
+                child: const Text("Loading Button")),
 
             BaseWidgets.proAsyncButton(
               text: 'Click Me',
               onPressed: () async {
-                await Future.delayed(Duration(seconds: 1));
+                await Future.delayed(const Duration(seconds: 1));
               },
             ),
             BaseWidgets.proIconButton(
@@ -104,12 +104,11 @@ class _MyHomePageState extends State<MyHomePage> {
                 tooltip: 'fail',
                
               ),
-             BaseWidgets.proMainAxisAlignment(
-              mainAxisAlignment: MainAxisAlignment.center),
-
-
-
-              ],
+              BaseWidgets.proBuildRow(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.center,
+              ),
+             ],
           ),
       ),
 
@@ -121,3 +120,5 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+
+
