@@ -2,13 +2,34 @@ import 'dart:io';
 
 import 'widget_test_template.dart';
 
+import 'dart:io';
+
 void main() {
-  List<String> views = ['HomeView', 'DetailView', 'SettingsView'];
+  List<String> views = ['test_view'];
   List<String> widgetTypes = WidgetTypes.all;
-  for (String view in views) {
-    String content = generateTestTemplate(view, widgetTypes);
-    File('test/${view.toLowerCase()}_test.dart').writeAsStringSync(content);
-    print('Generated test for $view');
+  try {
+    // Create the test directory if it doesn't exist
+    Directory testDirectory = Directory('test');
+    // if (!testDirectory.existsSync()) {
+    //   testDirectory.createSync(recursive: true);
+    // }
+
+    for (String view in views) {
+      String content = generateTestTemplate(view, widgetTypes);
+      String filePath = 'test/${view.toLowerCase()}_test.dart';
+
+      File file = File(filePath);
+      if (!file.existsSync()) {
+        file.createSync();
+      }
+
+      file.writeAsStringSync(content);
+
+      print('Generated test for $view');
+    }
+  } catch (e, stackTrace) {
+    print(e);
+    print(stackTrace);
   }
 }
 

@@ -63,6 +63,7 @@ class _MyHomePageState extends State<MyHomePage> {
       '$_counter',
       style: Theme.of(context).textTheme.headlineMedium,
     );
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,

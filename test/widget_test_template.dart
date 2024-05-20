@@ -15,7 +15,7 @@ String generateTestTemplate(String viewName, List<String> widgetTypes) {
 
   return '''
 import 'package:flutter_test/flutter_test.dart';
-import 'package:your_project/views/$viewName.dart';
+import '../core/views/$viewName.dart';
 
 void main() {
   group('$viewName Widget Tests', () {
