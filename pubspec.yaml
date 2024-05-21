@@ -41,7 +41,10 @@ dependencies:
   logger:
   permission_handler:
   firebase_core:
-  
+  firebase_auth:
+  google_sign_in:
+  flutter_facebook_auth:
+
 
 
 dev_dependencies:
@@ -70,6 +73,9 @@ dependency_overrides:
   build_runner: ^2.4.10
   permission_handler: ^11.3.1
   firebase_core: ^2.31.0
+  firebase_auth: ^4.19.5
+  google_sign_in: ^6.2.1
+  flutter_facebook_auth: ^7.0.0
 
 # The following section is specific to Flutter packages.
 flutter:
