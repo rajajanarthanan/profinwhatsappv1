@@ -1,18 +1,18 @@
-// elevated_button.dart
-// text_button.dart
-//loading_button.dart
+// add button.dart
+// add icon.dart
+// add image.dart
 
 // TODO:
 // extend base_widgets for widgets
 // extend widgets for base_view
 // text each view from base_view
 
-// ignore_for_file: prefer_typing_uninitialized_variables
 
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class BaseWidgets {
-  static ElevatedButton proElevatedButton({
+ /* static ElevatedButton proElevatedButton({
     required void Function()? onPressed,
     void Function()? onLongPress,
     void Function(bool)? onHover,
@@ -59,7 +59,7 @@ class BaseWidgets {
       child: child,
     );
   }
-
+ 
   // Method to create a LoadingButton
   static ElevatedButton proLoadingButton({
     required VoidCallback onPressed,
@@ -109,9 +109,100 @@ class BaseWidgets {
       icon: Icon(iconData),
       tooltip: tooltip,
     );
-  }
+  }*/
 
-  static proBuildRow(
-      {required MainAxisAlignment mainAxisAlignment,
-      required CrossAxisAlignment crossAxisAlignment}) {}
+
+   // Method to create an icon
+       static Icon proIcon({
+         required IconData icon,
+         Key? key,
+         double? size,
+         double? fill,
+         double? weight,
+         double? grade,
+         double? opticalSize,
+         Color? color,
+         List<Shadow>? shadows,
+         String? semanticLabel,
+         TextDirection? textDirection,
+         bool? applyTextScaling,
+         }){
+           return Icon(
+             icon,
+             key: key,
+             size: size,
+             fill: fill,
+             weight: weight,
+             grade: grade,
+             opticalSize: opticalSize,
+             color: color,
+             shadows: shadows,
+             semanticLabel: semanticLabel,
+             textDirection: textDirection,
+             applyTextScaling: applyTextScaling,
+          );
+        }
+
+    //Method to create an image
+       static Image proImage({
+         Key? key,
+         required ImageProvider<Object> image,
+         Widget Function(BuildContext, Widget, int?, bool)? frameBuilder,
+         Widget Function(BuildContext, Widget, ImageChunkEvent?)? loadingBuilder,
+         Widget Function(BuildContext, Object, StackTrace?)? errorBuilder,
+         String? semanticLabel,
+         bool excludeFromSemantics = false,
+         double? width,
+         double? height,
+         Color? color,
+         Animation<double>? opacity,
+         BlendMode? colorBlendMode,
+         BoxFit? fit,
+         AlignmentGeometry alignment = Alignment.center,
+         ImageRepeat repeat = ImageRepeat.noRepeat,
+         Rect? centerSlice,
+         bool matchTextDirection = false,
+         bool gaplessPlayback = false,
+         bool isAntiAlias = false,
+         FilterQuality filterQuality = FilterQuality.low,
+         }){
+            return Image(
+               key: key,
+               image: image,
+               frameBuilder: frameBuilder,
+               loadingBuilder: loadingBuilder,
+               errorBuilder: errorBuilder,
+                semanticLabel: semanticLabel,
+                excludeFromSemantics: excludeFromSemantics,
+                width: width,
+                height: height,
+                color: color,
+                opacity: opacity,
+                colorBlendMode: colorBlendMode,
+                fit: fit,
+                alignment: alignment,
+                repeat: repeat,
+                centerSlice: centerSlice,
+                matchTextDirection: matchTextDirection,
+                gaplessPlayback: gaplessPlayback,
+                isAntiAlias: isAntiAlias,
+                filterQuality: filterQuality,
+            );
+         }
 }
+
+          
+       
+       
+       
+
+    
+    
+    
+    
+    
+    
+    
+ 
+
+   

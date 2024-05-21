@@ -71,25 +71,25 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
+           // const Text(
+           //   'You have pushed the button this many times:',
+           // ),
             text,
-            BaseWidgets.proElevatedButton(
-                onPressed: () {}, child: Text("clickMe")),
-            BaseWidgets.proTextButton(onPressed: () {}, child: Text("OK")),
-            BaseWidgets.proLoadingButton(
-                onPressed: () {
+           // BaseWidgets.proElevatedButton(
+            //    onPressed: () {}, child: Text("clickMe")),
+           // BaseWidgets.proTextButton(onPressed: () {}, child: Text("OK")),
+           // BaseWidgets.proLoadingButton(
+           //     onPressed: () {
                   // Handle button press
-                },
-                isLoading: true, // Change this to false to hide loading state
-                child: Text("Loading Button")),
-            BaseWidgets.proAsyncButton(
-              text: 'Click Me',
-              onPressed: () async {
-                await Future.delayed(Duration(seconds: 1));
-              },
-            ),
+            //    },
+              //  isLoading: true, // Change this to false to hide loading state
+              //  child: Text("Loading Button")),
+            //BaseWidgets.proAsyncButton(
+              //text: 'Click Me',
+             // onPressed: () async {
+             //   await Future.delayed(Duration(seconds: 1));
+           //   },
+           // ),
           ],
         ),
       ),

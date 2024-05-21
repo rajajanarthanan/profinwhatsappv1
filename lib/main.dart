@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:injector/injector.dart';
 import 'package:profinwhatsapp/core/base/base_viewmodel.dart';
 import 'core/dependencies/injector.dart';
@@ -8,8 +9,8 @@ import 'core/views/base_widgets/base_widgets.dart';
 import 'core/views/login_view.dart';
 
 Future<void> main() async {
-  setupInjector();
-  WidgetsFlutterBinding.ensureInitialized();
+   setupInjector();
+    WidgetsFlutterBinding.ensureInitialized();
 
   if (kIsWeb) {
     await Firebase.initializeApp(
@@ -84,25 +85,50 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
+         title: Text(widget.title),
       ),
 
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+              BaseWidgets.proIcon(
+                icon: Icons.login,
+                size: 100.0,
+                color:Colors.purple,
+                weight: 2.0,
+                opticalSize:100.0,
+                shadows: [
+                  const Shadow(
+                    offset: Offset(2.0,2.0),
+                  blurRadius: 5.0,
+                    color: Color.fromARGB(128, 0, 0, 0),
+                  ),
+                 ],
+                semanticLabel:  'accessibility icon',
+                textDirection: TextDirection.rtl,
+                
+              ),
+              BaseWidgets.proImage(
+                image:AssetImage('assets/image.png'), 
+                width: 200.0,
+                height: 200.0,
+                color: Colors.blue,
+                fit: BoxFit.cover,
+              ),
+
             const Text(
               'You have pushed the button this many times:',
             ),
             text,
-            BaseWidgets.proElevatedButton(
-                onPressed: () {}, child: const Text("clickMe")),
+           // BaseWidgets.proElevatedButton(
+           //    onPressed: () {}, child: const Text("clickMe")),
 
-            BaseWidgets.proTextButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, '/loginview');
-                },
-                child: const Text("GoToApp")),
+            //BaseWidgets.proTextButton(
+            //  onPressed: () {
+            //   Navigator.pushNamed(context, '/loginview');
+            // },
+            // child: const Text("GoToApp")),
 
             // BaseWidgets.proLoadingButton(
             //     onPressed: () {
@@ -124,20 +150,15 @@ class _MyHomePageState extends State<MyHomePage> {
             //   iconData: Icons.error,
             //   tooltip: 'fail',
             // ),
-
-            // BaseWidgets.proBuildRow(
-            // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            // crossAxisAlignment: CrossAxisAlignment.center,
-            //   ),
-          ],
+           ],
         ),
       ),
 
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      //floatingActionButton: FloatingActionButton(
+      //  onPressed: _incrementCounter,
+      // tooltip: 'Increment',
+      // child: const Icon(Icons.add),
+      //  ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
