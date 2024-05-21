@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:injector/injector.dart';
 import 'package:profinwhatsapp/core/base/base_viewmodel.dart';
+import 'package:profinwhatsapp/main%20copy.dart';
 import 'core/dependencies/injector.dart';
 import 'core/views/base_widgets/base_widgets.dart';
 import 'core/views/login_view.dart';
@@ -116,11 +117,18 @@ class _MyHomePageState extends State<MyHomePage> {
                 color: Colors.blue,
                 fit: BoxFit.cover,
               ),
+                Base_Widgets.proText(
+                data: 'Hello, Flutter!',
+                style: TextStyle(fontSize: 24, color: Colors.blue),
+                textAlign: TextAlign.center,
+              ),
+              
 
-            const Text(
-              'You have pushed the button this many times:',
+           const Text(
+             'You have pushed the button this many times:',
             ),
-            text,
+            //text,
+           
            // BaseWidgets.proElevatedButton(
            //    onPressed: () {}, child: const Text("clickMe")),
 

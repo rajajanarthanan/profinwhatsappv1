@@ -1,15 +1,20 @@
-// add button.dart
-// add icon.dart
-// add image.dart
+ //  button.dart
+ //  icon.dart
+ //  image.dart
+ //  column.dart
+ //  container.dart
+ //  rows.dart
+ //  text.dart
+ //  gridview.dart
+ 
 
-// TODO:
-// extend base_widgets for widgets
-// extend widgets for base_view
-// text each view from base_view
+ // TODO:
+   // extend base_widgets for widgets
+  // extend widgets for base_view
+ // text each view from base_view
 
 
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
   class BaseWidgets {
 
@@ -406,9 +411,194 @@ import 'package:flutter/widgets.dart';
                 );
                }
 
-                  
-           
-        }
+
+    //add column....
+  //Method to create a column
+        static Column proColumn({
+            Key? key,
+            MainAxisAlignment mainAxisAlignment = MainAxisAlignment.start,
+            MainAxisSize mainAxisSize = MainAxisSize.max,
+            CrossAxisAlignment crossAxisAlignment = CrossAxisAlignment.center,
+            TextDirection? textDirection,
+            VerticalDirection verticalDirection = VerticalDirection.down,
+            TextBaseline? textBaseline,
+            required Alignment alignment, 
+            required EdgeInsets padding, 
+            required MaterialColor color,
+            required double width, 
+            required double height, 
+            required EdgeInsets margin, 
+            required BoxDecoration decoration,
+            List<Widget> children = const [],
+            }){
+                return Column(
+                 mainAxisAlignment: mainAxisAlignment,
+                 mainAxisSize: mainAxisSize,
+                 crossAxisAlignment: crossAxisAlignment,
+                 textDirection: textDirection,
+                 verticalDirection: verticalDirection,
+                 textBaseline: textBaseline,
+                 );
+                }
+
+
+   //add container...
+  //Method to create a container
+        static Container proContainer({
+           Key? key,
+           AlignmentGeometry? alignment,
+           EdgeInsetsGeometry? padding,
+           Color? color,
+           Decoration? decoration,
+           Decoration? foregroundDecoration,
+           double? width,
+           double? height,
+           BoxConstraints? constraints,
+           EdgeInsetsGeometry? margin,
+           Matrix4? transform,
+           AlignmentGeometry? transformAlignment,
+           Widget? child,
+           Clip clipBehavior = Clip.none,
+          }){
+              return Container(
+                alignment: alignment,
+                padding: padding,
+                color: color,
+                decoration: decoration,
+                foregroundDecoration: foregroundDecoration,
+                width: width,
+                height: height,
+                constraints: constraints,
+                margin: margin,
+                transform: transform,
+                transformAlignment: transformAlignment,
+                clipBehavior: clipBehavior,
+                child: child,
+              );
+           }
+
+
+    //add text...
+  //Method to create an text
+        static Text proText({
+            required String data,
+           Key? key,
+           TextStyle? style,
+           StrutStyle? strutStyle,
+           TextAlign? textAlign,
+           TextDirection? textDirection,
+           Locale? locale,
+           bool? softWrap,
+           TextOverflow? overflow,
+           TextScaler? textScaler,
+           int? maxLines,
+           String? semanticsLabel,
+           TextWidthBasis? textWidthBasis,
+           TextHeightBehavior? textHeightBehavior,
+           Color? selectionColor,
+          }){
+               return Text(
+                data,
+                style: style,
+                textAlign: textAlign,
+                textDirection: textDirection,
+                locale: locale,
+                softWrap: softWrap,
+                overflow: overflow,
+                textScaler: textScaler,
+                maxLines: maxLines,
+                semanticsLabel: semanticsLabel,
+                textWidthBasis: textWidthBasis,
+                textHeightBehavior: textHeightBehavior,
+                selectionColor: selectionColor,
+               );
+            }
+
+  // Method to create a text.rich
+        static Text proTextRich({
+            required InlineSpan textSpan,
+            Key? key,
+            TextStyle? style,
+            StrutStyle? strutStyle,
+            TextAlign? textAlign,
+            TextDirection? textDirection,
+            Locale? locale,
+            bool? softWrap,
+            TextOverflow? overflow,
+            TextScaler? textScaler,
+            int? maxLines,
+            String? semanticsLabel,
+            TextWidthBasis? textWidthBasis,
+            TextHeightBehavior? textHeightBehavior,
+            Color? selectionColor
+          }){
+              return Text.rich(
+                textSpan,
+                style: style,
+                strutStyle: strutStyle,
+                textAlign: textAlign,
+                textDirection: textDirection,
+                locale: locale,
+                softWrap: softWrap,
+                overflow: overflow,
+                textScaler: textScaler,
+                maxLines: maxLines,
+                semanticsLabel: semanticsLabel,
+                textWidthBasis: textWidthBasis,
+                textHeightBehavior: textHeightBehavior,
+                selectionColor: selectionColor,
+              );
+            }
+
+
+  //add gridview...
+  //Method to create a gridview
+       static GridView proGridView({
+            Key? key,
+            Axis scrollDirection = Axis.vertical,
+            bool reverse = false,
+            ScrollController? controller,
+            bool? primary,
+            ScrollPhysics? physics,
+            bool shrinkWrap = false,
+            EdgeInsetsGeometry? padding,
+            required SliverGridDelegate gridDelegate,
+            bool addAutomaticKeepAlives = true,
+            bool addRepaintBoundaries = true,
+            bool addSemanticIndexes = true,
+            double? cacheExtent,
+            List<Widget> children = const <Widget>[],
+            int? semanticChildCount,
+            Clip clipBehavior = Clip.hardEdge,
+            ScrollViewKeyboardDismissBehavior keyboardDismissBehavior = ScrollViewKeyboardDismissBehavior.manual,
+            dynamic String,
+           }){
+               return GridView(
+                 gridDelegate: gridDelegate,
+                 scrollDirection: scrollDirection,
+                 reverse: reverse,
+                 controller: controller,
+                 primary: primary, 
+                 physics: physics,
+                 shrinkWrap: shrinkWrap,
+                 padding: padding,
+                 addAutomaticKeepAlives: addAutomaticKeepAlives,
+                 addRepaintBoundaries: addRepaintBoundaries,
+                 addSemanticIndexes: addSemanticIndexes,
+                 cacheExtent: cacheExtent,
+                 semanticChildCount: semanticChildCount,
+                 clipBehavior: clipBehavior,
+                 keyboardDismissBehavior: keyboardDismissBehavior,
+                 children: [],
+                );
+              }
+          }          
+  
+ 
+
+       
+
+       
 
   
                

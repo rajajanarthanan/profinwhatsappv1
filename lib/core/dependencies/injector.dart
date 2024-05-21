@@ -1,5 +1,5 @@
 import 'package:injector/injector.dart';
-import 'package:profinwhatsapp/core/views/base_widgets/pro_button.dart';
+import 'package:profinwhatsapp/core/views/base_widgets/base_widgets.dart';
 import 'package:profinwhatsapp/core/base/base_viewmodel.dart';
 import 'package:profinwhatsapp/core/utils/user_perms.dart';
 

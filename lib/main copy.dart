@@ -139,6 +139,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
 class Base_Widgets {
   Pro_ElevatedButton({required onPressed, required Text child}) {}
+
+  static proText({required String data, required TextStyle style, required TextAlign textAlign}) {}
 }
 
 class View_Widgets {}
