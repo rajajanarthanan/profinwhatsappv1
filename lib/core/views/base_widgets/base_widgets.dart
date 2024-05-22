@@ -592,8 +592,59 @@ import 'package:flutter/material.dart';
                  children: [],
                 );
               }
-          }          
-  
+
+
+  //add table material....
+  //Method to create an tablematerial
+       static Table proTableMaterial({
+            required List<List<String>> data,
+            required int columnCount,
+            Map<int, TableColumnWidth>? columnWidths,
+            TableBorder? border,
+            TableCellVerticalAlignment defaultVerticalAlignment = TableCellVerticalAlignment.middle,
+            TextStyle? headerStyle,
+            TextStyle? cellStyle,
+            EdgeInsetsGeometry? cellPadding,
+            AlignmentGeometry? cellAlignment,
+            }){
+                 return Table(
+                   border: border ?? TableBorder.all(),
+                   columnWidths: columnWidths,
+                   defaultVerticalAlignment: defaultVerticalAlignment,
+                   children: List<TableRow>.generate(
+                     data.length,
+                     (rowIndex) {
+                       return TableRow(
+                         children: List<Widget>.generate(
+                           columnCount,
+                           (colIndex) {
+                             bool isHeader = rowIndex == 0;
+                             return Padding(
+                               padding: cellPadding ?? EdgeInsets.all(8.0),
+                               child: Align(
+                                 alignment: cellAlignment ?? Alignment.center,
+                                 child: Text(
+                                   data[rowIndex][colIndex],
+                                   style: isHeader ? headerStyle : cellStyle,
+                                 ),
+                               ),
+                             );
+                           },
+                        ),
+                      );
+                    },
+                  ),
+                );
+              }
+
+  //Method to create a linearprogressindicator
+       static 
+  }
+
+                  
+        
+ 
+   
  
 
        
