@@ -1,9 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:injector/injector.dart';
-import 'package:profinwhatsapp/core/base/base_viewmodel.dart';
 import 'package:profinwhatsapp/main%20copy.dart';
 import 'core/dependencies/injector.dart';
 import 'core/views/base_widgets/base_widgets.dart';
@@ -58,6 +56,8 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  
+  
 
   void _incrementCounter() {
     setState(() {
@@ -100,73 +100,145 @@ class _MyHomePageState extends State<MyHomePage> {
                 weight: 2.0,
                 opticalSize:100.0,
                 shadows: [
-                  const Shadow(
+                 const Shadow(
                     offset: Offset(2.0,2.0),
                   blurRadius: 5.0,
                     color: Color.fromARGB(128, 0, 0, 0),
                   ),
-                 ],
+                  ],
                 semanticLabel:  'accessibility icon',
                 textDirection: TextDirection.rtl,
-                
-              ),
+               ),
               BaseWidgets.proImage(
-                image:AssetImage('assets/image.png'), 
+                image:const AssetImage('assets/image.png'), 
                 width: 200.0,
                 height: 200.0,
                 color: Colors.blue,
                 fit: BoxFit.cover,
-              ),
-                Base_Widgets.proText(
-                data: 'Hello, Flutter!',
-                style: TextStyle(fontSize: 24, color: Colors.blue),
-                textAlign: TextAlign.center,
-              ),
+                ),
+              BaseWidgets.proColumn(
+                 mainAxisAlignment: MainAxisAlignment.center,
+                 crossAxisAlignment: CrossAxisAlignment.center,
+               alignment: Alignment.center,
+                  padding: const EdgeInsets.all(16.0),
+                  color: Colors.blue,
+                  width: 200.0,
+                  height: 200.0,
+                  margin: const EdgeInsets.all(8.0),
+                  decoration: BoxDecoration(
+                  color: Colors.blueAccent,
+                  borderRadius: BorderRadius.circular(10.0),
+                   ),
+                ),
+              BaseWidgets.proContainer(
+                  alignment: Alignment.center,
+                  padding: const EdgeInsets.all(16.0),
+                  color: Colors.blue,
+                  width: 200.0,
+                  height: 200.0,
+                  margin: const EdgeInsets.all(8.0),
+                  decoration: BoxDecoration(
+                  color: Colors.blueAccent,
+                  borderRadius: BorderRadius.circular(10.0),
+                   ),
+                  ),
+              BaseWidgets.proRow(
+                   mainAxisAlignment: MainAxisAlignment.center,
+                  ),
+              BaseWidgets.proText(
+                   data: 'Hello, Flutter!',
+                   style: const TextStyle(fontSize: 24, color: Colors.blue),
+                   textAlign: TextAlign.center,
+                  ),
+              BaseWidgets.proGridView(
+                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                   crossAxisCount: 2,
+                   crossAxisSpacing: 10,
+                   mainAxisSpacing: 10,
+                   ),),
+              BaseWidgets.proTableMaterial(
+                   data: [
+                    ['Header 1', 'Header 2', 'Header 3'],
+                    ['Data 1-1', 'Data 1-2', 'Data 1-3'],
+                    ['Data 2-1', 'Data 2-2', 'Data 2-3'],
+                    ['Data 3-1', 'Data 3-2', 'Data 3-3'],
+                    ],
+                   columnCount: 3,
+                   border: TableBorder.all(),
+                   headerStyle: const TextStyle(fontWeight: FontWeight.bold),
+                   cellStyle: const TextStyle(color: Colors.blue),
+                   cellPadding: const EdgeInsets.all(8.0),
+                   cellAlignment: Alignment.center,
+                    ),
+               BaseWidgets.linearProgressIndicator(
+                   value: 0.5, // Example value
+                   backgroundColor: Colors.grey,
+                   color: Colors.blue,
+                    ),
+               BaseWidgets.proBottomSheet(
+                   onClosing: () {
+                    Navigator.pop(context);
+                   },
+                   builder: (context) {
+                    return const SizedBox(
+                      height: 200,
+                      child: Center(
+                        child: Text('This is the bottom sheet content'),
+                      ),);
+                   }),
+                BaseWidgets.proAlertDialog(
+                     title: const Text('Alert'),
+                     content: const Text('This is an alert dialog.'),
+                     actions: [
+                      TextButton(
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                        child: const Text('Close'),
+                      ),]
+                ),
+                
+                 
+              
               
 
            const Text(
              'You have pushed the button this many times:',
             ),
-            //text,
+            text,
            
-           // BaseWidgets.proElevatedButton(
-           //    onPressed: () {}, child: const Text("clickMe")),
+              BaseWidgets.proElevatedButton(
+               onPressed: () {}, child: const Text("clickMe")),
 
-            //BaseWidgets.proTextButton(
-            //  onPressed: () {
-            //   Navigator.pushNamed(context, '/loginview');
-            // },
-            // child: const Text("GoToApp")),
+              BaseWidgets.proTextButton(
+                 onPressed: () {
+                 Navigator.pushNamed(context, '/loginview');
+                 },
+                 child: const Text("GoToApp")),
 
-            // BaseWidgets.proLoadingButton(
-            //     onPressed: () {
-            //       // Handle button press
-            //     },
-            //     isLoading: true, // Change this to false to hide loading state
-            //     child: const Text("Loading Button")),
+              BaseWidgets.proLoadingButton(
+                 onPressed: () {
+                   // Handle button press
+                  },
+                  isLoading: true, // Change this to false to hide loading state
+                  child: const Text("Loading Button")),
 
-            // BaseWidgets.proAsyncButton(
-            //   text: 'Click Me',
-            //   onPressed: () async {
-            //     await Future.delayed(const Duration(seconds: 1));
-            //   },
-            // ),
-            // BaseWidgets.proIconButton(
-            //   onPressed: () {
-            //     // Handle button press
-            //   },
-            //   iconData: Icons.error,
-            //   tooltip: 'fail',
-            // ),
-           ],
-        ),
+              BaseWidgets.proAsyncButton(
+                 text: 'Click Me',
+                 onPressed: () async {
+                 await Future.delayed(const Duration(seconds: 1));
+                 },
+                ),
+              BaseWidgets.proIconButton(
+                 onPressed: () {
+                 // Handle button press
+                 },
+                 iconData: Icons.error,
+                 tooltip: 'fail',
+                 ),
+          ],
+       ),
       ),
-
-      //floatingActionButton: FloatingActionButton(
-      //  onPressed: _incrementCounter,
-      // tooltip: 'Increment',
-      // child: const Icon(Icons.add),
-      //  ), // This trailing comma makes auto-formatting nicer for build methods.
     );
-  }
+}
 }
