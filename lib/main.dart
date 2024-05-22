@@ -2,7 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:injector/injector.dart';
-import 'package:profinwhatsapp/main%20copy.dart';
+
 import 'core/dependencies/injector.dart';
 import 'core/views/base_widgets/base_widgets.dart';
 import 'core/views/login_view.dart';
@@ -196,12 +196,36 @@ class _MyHomePageState extends State<MyHomePage> {
                         },
                         child: const Text('Close'),
                       ),]
+                     ),
+                BaseWidgets.proDivider(
+                       height: 20,
+                       thickness: 2,
+                       color: Colors.blue,
+                       indent: 10,
+                       endIndent: 10,
+                    ),
+                BaseWidgets.proListView(
+                       itemExtentBuilder: (context, index) {
+                        return ListTile(
+                       title: Text('Item $index'),
+                       );
+                       }, dragStartBehavior: null
                 ),
+                 BaseWidgets.proTextField(
+              controller: TextEditingController(),
+              decoration: const InputDecoration(
+                labelText: 'Enter your name',
+                border: OutlineInputBorder(),
+              ),
+              onChanged: (value) {
+                print('Text changed: $value');
+              }, maxLengthEnforcement: null,
+                 inputFormatters: null, 
+                 selectionHeightStyle: null,
+                 selectionWidthStyle: null, 
+                 dragStartBehavior: null,
+                 ),
                 
-                 
-              
-              
-
            const Text(
              'You have pushed the button this many times:',
             ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:injector/injector.dart';
-
+import 'package:profinwhatsapp/core/views/widgets/login_widgets/sample_test_view.dart';
+import 'package:profinwhatsapp/main%20copy.dart';
 import 'core/dependencies/injector.dart';
 import 'core/views/base_widgets/base_widgets.dart';
 
@@ -11,12 +12,34 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
+  
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'view Demo',
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        useMaterial3: true,
+      ),
+      home: const MyHomePage(title: 'Demo flutter Page'),
+      routes: {
+        '/Login_view': (context) => Login_View(), // Define the route
+      },
+      debugShowCheckedModeBanner: false,
+    );
+  }
+  
+  Login_View() {}
+}
+
+
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'view Demo',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -36,10 +59,10 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Demo Home Page'),
+      home: const MyHomePage(title: 'Demo flutter Page'),
     );
   }
-}
+
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
