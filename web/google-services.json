@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "325000420972",
+    "project_id": "profinv1",
+    "storage_bucket": "profinv1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:325000420972:android:ede9cecd1cd5a2b07b4249",
+        "android_client_info": {
+          "package_name": "com.profinix.prmarketing"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "325000420972-5r4s64rvlqvbi7ntsm825gj9l917da2v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBpGcOopNTiefHsmsmIS_tPamYj2raXZLI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "325000420972-5r4s64rvlqvbi7ntsm825gj9l917da2v.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "325000420972-o1rb5j0287mm5hk18rvo913jaa8uv26m.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.profinix.prmarketing",
+                "app_store_id": "367988777"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

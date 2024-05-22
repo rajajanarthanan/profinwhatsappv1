@@ -42,7 +42,10 @@ Future<void> resetPassword(String email) async {
 
 Future<User?> signInWithGoogle() async {
   try {
-    final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+    final GoogleSignInAccount? googleUser = await GoogleSignIn(
+            clientId:
+                '325000420972-5r4s64rvlqvbi7ntsm825gj9l917da2v.apps.googleusercontent.com')
+        .signIn();
     if (googleUser == null) {
       return null; // User canceled the sign-in
     }

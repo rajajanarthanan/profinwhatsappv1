@@ -44,7 +44,7 @@ dependencies:
   firebase_auth:
   google_sign_in:
   flutter_facebook_auth:
-
+  flutter_secure_storage:
 
 
 dev_dependencies:
@@ -76,6 +76,7 @@ dependency_overrides:
   firebase_auth: ^4.19.5
   google_sign_in: ^6.2.1
   flutter_facebook_auth: ^7.0.0
+  flutter_secure_storage: ^9.2.1
 
 # The following section is specific to Flutter packages.
 flutter:
