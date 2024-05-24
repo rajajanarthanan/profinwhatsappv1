@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:injector/injector.dart';
-import 'package:profinwhatsapp/core/views/widgets/login_widgets/sample_test_view.dart';
-import 'package:profinwhatsapp/main%20copy.dart';
 import 'core/dependencies/injector.dart';
 import 'core/views/base_widgets/base_widgets.dart';
+import 'package:profinwhatsapp/core/views/sample_test_view.dart'; 
 
 void main() {
   setupInjector();
@@ -22,15 +21,12 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Demo flutter Page'),
-      routes: {
-        '/Login_view': (context) => Login_View(), // Define the route
-      },
+      home: const SampleHomePage(title: 'Demo flutter Page'),
+     
       debugShowCheckedModeBanner: false,
     );
   }
   
-  Login_View() {}
 }
 
 

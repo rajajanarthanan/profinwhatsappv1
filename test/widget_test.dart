@@ -21,10 +21,7 @@ void main() {
   });
  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(MaterialApp(
-      home: SampleTestView(), // Use SampleTestView as the home widget
-    ));
-
+    await tester.pumpWidget(SampleTestView());
     // Your test assertions...
   });
   
@@ -44,6 +41,10 @@ void main() {
     // expect(find.text('0'), findsNothing);
     // expect(find.text('1'), findsOneWidget);
 }
+
+
+
+
  
 
 
