@@ -16,6 +16,9 @@ class LoginView extends BaseView {
         home: LoginPage(),
         debugShowCheckedModeBanner: false);
   }
+
+
+  
 }
 
 /*

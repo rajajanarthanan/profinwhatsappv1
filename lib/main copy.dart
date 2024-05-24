@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:injector/injector.dart';
 import 'core/dependencies/injector.dart';
 import 'core/views/base_widgets/base_widgets.dart';
-import 'package:profinwhatsapp/core/views/sample_test_view.dart'; 
+
 
 void main() {
   setupInjector();
@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const SampleHomePage(title: 'Demo flutter Page'),
+      home: MyHomePage(title: 'Demo flutter Page'),
      
       debugShowCheckedModeBanner: false,
     );

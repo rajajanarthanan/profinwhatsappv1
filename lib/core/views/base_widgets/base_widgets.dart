@@ -27,7 +27,7 @@ import 'package:flutter/material.dart';
   
     // add button...
   //Method to create a elevatedbutton
-     static ElevatedButton proElevatedButton({
+    static ElevatedButton proElevatedButton({
          required void Function()? onPressed,
          void Function()? onLongPress,
          void Function(bool)? onHover,
@@ -429,13 +429,6 @@ import 'package:flutter/material.dart';
             TextDirection? textDirection,
             VerticalDirection verticalDirection = VerticalDirection.down,
             TextBaseline? textBaseline,
-            required Alignment alignment, 
-            required EdgeInsets padding, 
-            required MaterialColor color,
-            required double width, 
-            required double height, 
-            required EdgeInsets margin, 
-            required BoxDecoration decoration,
             List<Widget> children = const [],
             }){
 
@@ -448,22 +441,9 @@ import 'package:flutter/material.dart';
                  textDirection: textDirection,
                  verticalDirection: verticalDirection,
                  textBaseline: textBaseline,
-                 children: [
-                Container(
-                  alignment: alignment,
-                  padding: padding,
-                  color: color,
-                  width: width,
-                  height: height,
-                  margin: margin,
-                  decoration: decoration,
-                  child: Column(
                  children: children,
-               ),
-             ),
-          ],
-         );
-       }
+              );
+             }
 
 
    //add container...
@@ -502,7 +482,7 @@ import 'package:flutter/material.dart';
            }
 
   //Method to create an row
-      static Row proRow({
+     static Row proRow({
          Key? key,
          MainAxisAlignment mainAxisAlignment = MainAxisAlignment.start,
          MainAxisSize mainAxisSize = MainAxisSize.max,
@@ -528,7 +508,7 @@ import 'package:flutter/material.dart';
 
    //add text...
   //Method to create an text
-        static Text proText({
+       static Text proText({
             required String data,
            Key? key,
            TextStyle? style,
@@ -644,7 +624,7 @@ import 'package:flutter/material.dart';
 
   //add table material....
   //Method to create an tablematerial
-       static Table proTableMaterial({
+     static Table proTableMaterial({
             required List<List<String>> data,
             required int columnCount,
             Map<int, TableColumnWidth>? columnWidths,
@@ -686,7 +666,7 @@ import 'package:flutter/material.dart';
               }  
               
   //Method to create a linearprogressindicator
-       static LinearProgressIndicator linearProgressIndicator({
+      static LinearProgressIndicator linearProgressIndicator({
            Key? key,
            double? value,
            Color? backgroundColor,
@@ -831,7 +811,7 @@ import 'package:flutter/material.dart';
 
 
   //Method to create an list
-       static ListView proListView({
+     /* static ListView proListView({
           Key? key,
           Axis scrollDirection = Axis.vertical,
           bool reverse = false,
@@ -852,7 +832,7 @@ import 'package:flutter/material.dart';
           dynamic dragStartBehavior,
           ScrollViewKeyboardDismissBehavior keyboardDismissBehavior = ScrollViewKeyboardDismissBehavior.manual,
           String? restorationId,
-          Clip clipBehavior = Clip.hardEdge,
+          Clip clipBehavior = Clip.hardEdge, required ListTile Function(dynamic context, dynamic index) itemBuilder, required int itemCount,
           }){ 
                return ListView(
                 key:key,
@@ -877,10 +857,11 @@ import 'package:flutter/material.dart';
                 clipBehavior: clipBehavior,
                 children: children,
                 );
-             }
+             }*/
 
-  ///Method to create an listtile
-       static ListTile proListTile({
+
+  //Method to create an listtile
+    /*  static ListTile proListTile({
            Key? key,
            Widget? leading,
            Widget? title,
@@ -1094,7 +1075,8 @@ import 'package:flutter/material.dart';
                  spellCheckConfiguration: spellCheckConfiguration,
                  magnifierConfiguration: magnifierConfiguration,
                 );
-            }
+            }*/
+
   }
             
 

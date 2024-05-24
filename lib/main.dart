@@ -1,7 +1,15 @@
+import 'dart:ui';
+
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/painting.dart';
+import 'package:flutter/rendering.dart';
+import 'package:flutter/widgets.dart';
 import 'package:injector/injector.dart';
+import 'package:profinwhatsapp/core/views/widgets/login_widgets/login_widget.dart';
 
 import 'core/dependencies/injector.dart';
 import 'core/views/base_widgets/base_widgets.dart';
@@ -38,13 +46,18 @@ class MyApp extends StatelessWidget {
       ),
       home: const MyHomePage(title: 'Demo Home Page'),
       routes: {
-        '/loginview': (context) => LoginView(), // Define the route
+        '/loginview': (context) => LoginView(),
+        '/loginpage':(context) =>LoginPage(),
+      
+        // Define the route
       },
       debugShowCheckedModeBanner: false,
     );
      
   }
 }
+
+
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
@@ -94,7 +107,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-              BaseWidgets.proIcon(
+          /*   BaseWidgets.proIcon(
                 icon: Icons.login,
                 size: 100.0,
                 color:Colors.purple,
@@ -119,31 +132,20 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               
               BaseWidgets.proColumn(
-                 mainAxisAlignment: MainAxisAlignment.center,
+                 mainAxisAlignment: MainAxisAlignment.start,
                  crossAxisAlignment: CrossAxisAlignment.center,
-               alignment: Alignment.center,
-                  padding: const EdgeInsets.all(16.0),
-                  color: Colors.blue,
-                  width: 200.0,
-                  height: 200.0,
-                  margin: const EdgeInsets.all(8.0),
-                  decoration: BoxDecoration(
-                  color: Colors.blueAccent,
-                  borderRadius: BorderRadius.circular(10.0),
-                   ),
+              
                 ),
-              /*
+              
               BaseWidgets.proContainer(
                   alignment: Alignment.center,
-                  padding: const EdgeInsets.all(16.0),
+                  padding: const EdgeInsets.all(8.0),
                   color: Colors.blue,
                   width: 200.0,
                   height: 200.0,
                   margin: const EdgeInsets.all(8.0),
-                  decoration: BoxDecoration(
-                  color: Colors.blueAccent,
-                  borderRadius: BorderRadius.circular(10.0),
-                   ),
+                  decoration: null,
+                  child: const Text('Hello,World!'),
                   ),
               
               BaseWidgets.proRow(
@@ -151,53 +153,73 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
               
               BaseWidgets.proText(
-                   data: 'Hello, Flutter!',
-                   style: const TextStyle(fontSize: 24, color: Colors.blue),
-                   textAlign: TextAlign.center,
-                  ),
-              
-              BaseWidgets.proGridView(
-                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                   crossAxisCount: 2,
-                   crossAxisSpacing: 10,
-                   mainAxisSpacing: 10,
-                   ),),
-                   
-              BaseWidgets.proTableMaterial(
-                   data: [
-                    ['Header 1', 'Header 2', 'Header 3'],
-                    ['Data 1-1', 'Data 1-2', 'Data 1-3'],
-                    ['Data 2-1', 'Data 2-2', 'Data 2-3'],
-                    ['Data 3-1', 'Data 3-2', 'Data 3-3'],
-                    ],
-                   columnCount: 3,
-                   border: TableBorder.all(),
-                   headerStyle: const TextStyle(fontWeight: FontWeight.bold),
-                   cellStyle: const TextStyle(color: Colors.blue),
-                   cellPadding: const EdgeInsets.all(8.0),
-                   cellAlignment: Alignment.center,
-                    ),
-               BaseWidgets.linearProgressIndicator(
+                data:'Hii,world',
+                style: const TextStyle (fontSize:24),
+                textAlign:TextAlign.start,
+                textDirection: TextDirection.rtl,
+                selectionColor: Colors.purple,
+                textWidthBasis:TextWidthBasis.longestLine,
+              ),
+
+                BaseWidgets.proGridView(
+                  gridDelegate:const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                 mainAxisSpacing :10.0,
+                crossAxisSpacing : 10.0,),
+                children:[
+                  Container(color:Colors.blue),
+                  Container(color:Colors.purple),
+                  Container(color:Colors.white),
+                  Container(color:Colors.green),
+                ]),
+                 
+  
+                  
+            BaseWidgets.proTableMaterial(
+              data:[
+                ['header 1','header 2','header 3'],
+                ['data 1','data 1','data 1' ],
+                ['data 2','data 2','data 2'],
+                ['data 3','data 3','data 3'],
+                ['data 4','data 3','data 3'],
+                ['data 5','data 3','data 3'],
+                ['data 6','data 3','data 3'],
+                ['data 7','data 3','data 3'],
+
+              ],columnCount:3,
+               border:TableBorder.all(),
+               headerStyle: const TextStyle(fontWeight: FontWeight.bold),
+               cellStyle: const TextStyle(color:Colors.purple),
+               cellPadding:const EdgeInsets.all(8.0),
+               cellAlignment: Alignment.center,
+               ),
+                
+             BaseWidgets.linearProgressIndicator(
                    value: 0.5, // Example value
-                   backgroundColor: Colors.grey,
-                   color: Colors.blue,
+                   backgroundColor: Color.fromARGB(255, 15, 14, 14),
+                   color: Colors.purple,
+                   semanticsLabel:'loading...',
                     ),
+                   
                BaseWidgets.proBottomSheet(
-                   onClosing: () {
+                  onClosing: () {
                     Navigator.pop(context);
-                   },
-                   builder: (context) {
+                  },
+                  builder: (context) {
                     return const SizedBox(
                       height: 200,
-                      child: Center(
-                        child: Text('This is the bottom sheet content'),
-                      ),);
-                   }),
+                      child:  Center(
+                        child:  Text('This is the bottom sheet content'),
+                        
+                      ),
+                    );
+                 }),
+                   
                 BaseWidgets.proAlertDialog(
                      title: const Text('Alert'),
                      content: const Text('This is an alert dialog.'),
                      actions: [
-                      TextButton(
+                      ElevatedButton(
                         onPressed: () {
                           Navigator.of(context).pop();
                         },
@@ -207,22 +229,23 @@ class _MyHomePageState extends State<MyHomePage> {
                 BaseWidgets.proDivider(
                        height: 20,
                        thickness: 2,
-                       color: Colors.blue,
+                       color: Colors.purple,
                        indent: 10,
                        endIndent: 10,
                     ),
                 
                 
-                BaseWidgets.proListView(
-                       itemExtentBuilder: (context, index) {
-                        ListTile(
-                       title: Text('Item $index'),
-                       );
-                       }, //dragStartBehavior: null
-                ),
-                
-                
-                 BaseWidgets.proTextField(
+              BaseWidgets.proListView(
+                     itemCount: 20,
+                     itemBuilder: (context, index) {
+                     return ListView(
+                     leading: Icon(Icons.star),
+                    title: Text('Item $index'),
+                   );
+                   },
+                  ),
+        
+                    BaseWidgets.proTextField(
                        controller: TextEditingController(),
                        decoration: const InputDecoration(
                        labelText: 'Enter your name',
@@ -232,10 +255,10 @@ class _MyHomePageState extends State<MyHomePage> {
                        print('Text changed: $value');
                        }, maxLengthEnforcement: null,
                           inputFormatters: null, 
-                          selectionHeightStyle: null,
-                          selectionWidthStyle: null, 
-                          dragStartBehavior: null,
-                 ),
+                          selectionHeightStyle: BoxHeightStyle.max,
+                          selectionWidthStyle: BoxWidthStyle.max, 
+                          dragStartBehavior: DragStartBehavior.start,
+                 ),*/
                 
            const Text(
              'You have pushed the button this many times:',
@@ -271,7 +294,7 @@ class _MyHomePageState extends State<MyHomePage> {
                  iconData: Icons.error,
                  tooltip: 'fail',
                  ),
-          */
+          
           ],
        ),
       ),
