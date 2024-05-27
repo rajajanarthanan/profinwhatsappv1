@@ -7,28 +7,29 @@ import 'package:firebase_auth/firebase_auth.dart';
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
   @override
-  _LoginPageState createState() => _LoginPageState();
+  // ignore: library_private_types_in_public_api
+  //_LoginPageState createState() => _LoginPageState();
 
-/*
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Login Page'),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
+      body: const Padding(
+        padding: EdgeInsets.all(16.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const TextField(
+            TextField(
               decoration: InputDecoration(labelText: 'Email'),
             ),
-            const TextField(
+            TextField(
               decoration: InputDecoration(labelText: 'Password'),
               obscureText: true,
             ),
-            const SizedBox(height: 20),
+         /*   const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
                 // Add login functionality here
@@ -64,16 +65,24 @@ class LoginPage extends StatefulWidget {
                 );
               },
               child: const Text('Don\'t have an account? Sign Up'),
-            ),
+            ),*/
           ],
         ),
       ),
     );
   }
-  */
+  
+  @override
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    throw UnimplementedError();
+  }
+  
 }
 
-class _LoginPageState extends State<LoginPage> {
+
+
+/*class _LoginPageState extends State<LoginPage> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
@@ -154,5 +163,5 @@ class _LoginPageState extends State<LoginPage> {
         ),
       ),
     );
-  }
-}
+  } */
+

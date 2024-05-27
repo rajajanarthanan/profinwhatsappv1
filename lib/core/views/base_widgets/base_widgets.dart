@@ -77,7 +77,7 @@ import 'package:flutter/material.dart';
            }
  
   // Method to create a LoadingButton
-     static ElevatedButton proLoadingButton({
+   /*  static ElevatedButton proLoadingButton({
          required VoidCallback onPressed,
          required bool isLoading,
          required Widget child,
@@ -663,10 +663,10 @@ import 'package:flutter/material.dart';
                     },
                   ),
                 );
-              }  
+              }  */
               
   //Method to create a linearprogressindicator
-      static LinearProgressIndicator linearProgressIndicator({
+      static LinearProgressIndicator prolinearProgressIndicator({
            Key? key,
            double? value,
            Color? backgroundColor,
@@ -690,7 +690,7 @@ import 'package:flutter/material.dart';
           }
 
   //Method to create a bottomsheet
-        static BottomSheet proBottomSheet({
+    /*    static BottomSheet proBottomSheet({
            Key? key,
            AnimationController? animationController,
            bool enableDrag = true,
@@ -811,7 +811,7 @@ import 'package:flutter/material.dart';
 
 
   //Method to create an list
-     /* static ListView proListView({
+      static ListView proListView({
           Key? key,
           Axis scrollDirection = Axis.vertical,
           bool reverse = false,
@@ -857,11 +857,11 @@ import 'package:flutter/material.dart';
                 clipBehavior: clipBehavior,
                 children: children,
                 );
-             }*/
+             }
 
 
   //Method to create an listtile
-    /*  static ListTile proListTile({
+      static ListTile proListTile({
            Key? key,
            Widget? leading,
            Widget? title,
@@ -937,7 +937,7 @@ import 'package:flutter/material.dart';
                 minTileHeight: minTileHeight,
                 titleAlignment: titleAlignment,
                );
-            }
+            }*/
 
   //Method to create an textfield
        static TextField proTextField({
@@ -971,7 +971,7 @@ import 'package:flutter/material.dart';
           bool expands = false,
           int? maxLength,
           required maxLengthEnforcement,
-          void Function(String)? onChanged,
+           required void Function(String)? onChanged,
           void Function()? onEditingComplete,
           void Function(String)? onSubmitted,
           void Function(String, Map<String, dynamic>)? onAppPrivateCommand,
@@ -1007,7 +1007,7 @@ import 'package:flutter/material.dart';
           Widget Function(BuildContext, EditableTextState)? contextMenuBuilder,
           bool canRequestFocus = true,
           SpellCheckConfiguration? spellCheckConfiguration,
-          TextMagnifierConfiguration? magnifierConfiguration,
+          TextMagnifierConfiguration? magnifierConfiguration, required Null Function(dynamic value) validator,
          }){
              return TextField(
                  key: key,
@@ -1075,7 +1075,7 @@ import 'package:flutter/material.dart';
                  spellCheckConfiguration: spellCheckConfiguration,
                  magnifierConfiguration: magnifierConfiguration,
                 );
-            }*/
+            }
 
   }
             

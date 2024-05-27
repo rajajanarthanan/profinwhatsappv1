@@ -44,19 +44,21 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Demo Home Page'),
+      home: const  MyHomePage(title: 'Demo Home Page'),
       routes: {
         '/loginview': (context) => LoginView(),
-        '/loginpage':(context) =>LoginPage(),
+        '/loginpage':(context) =>const LoginPage(),
       
         // Define the route
       },
       debugShowCheckedModeBanner: false,
     );
-     
+      
   }
 }
 
+
+  
 
 
 class MyHomePage extends StatefulWidget {
@@ -71,6 +73,8 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
   
+
+  
   
 
   void _incrementCounter() {
@@ -78,6 +82,7 @@ class _MyHomePageState extends State<MyHomePage> {
       _counter++;
     });
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -100,12 +105,13 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-         title: Text(widget.title),
+        title : const Text('signup Form'),
+        
       ),
 
       body: Center(
         child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
           /*   BaseWidgets.proIcon(
                 icon: Icons.login,
@@ -243,38 +249,211 @@ class _MyHomePageState extends State<MyHomePage> {
                     title: Text('Item $index'),
                    );
                    },
-                  ),
-        
-                    BaseWidgets.proTextField(
-                       controller: TextEditingController(),
-                       decoration: const InputDecoration(
-                       labelText: 'Enter your name',
-                       border: OutlineInputBorder(),
-                       ),
-                       onChanged: (value) {
-                       print('Text changed: $value');
-                       }, maxLengthEnforcement: null,
+                  ),*/
+               
+             /*  BaseWidgets.proTextField(
+                      keyboardType: TextInputType.emailAddress,
+                      decoration : const InputDecoration(
+                      labelText: 'Email',
+                      hintText: ' Enter email',
+                      prefixIcon: Icon(Icons.email),
+                      border: OutlineInputBorder(),
+                      ),  maxLengthEnforcement: null,
                           inputFormatters: null, 
-                          selectionHeightStyle: BoxHeightStyle.max,
-                          selectionWidthStyle: BoxWidthStyle.max, 
-                          dragStartBehavior: DragStartBehavior.start,
-                 ),*/
+                          cursorHeight: 20.0, // Correct type and value for cursorHeight
+                          selectionHeightStyle: BoxHeightStyle.includeLineSpacingTop,
+                          selectionWidthStyle: BoxWidthStyle.max,
+                          dragStartBehavior: DragStartBehavior.down,
+
+                         onChanged: (value) { 
+                          // No return type required for onChanged callback
+                          },
+                         validator: (value) {},  
+                     ),
+                  const  SizedBox(height:40),
+                 BaseWidgets.proTextField(
+                      keyboardType: TextInputType.visiblePassword,
+                      decoration : const InputDecoration(
+                      labelText: 'PassWord',
+                      hintText: ' Enter PassWord',
+                      prefixIcon: Icon(Icons.password),
+                      border: OutlineInputBorder(),
+                       ), maxLengthEnforcement: null, 
+                          inputFormatters: null, 
+                          selectionHeightStyle: BoxHeightStyle.includeLineSpacingTop, 
+                          selectionWidthStyle: BoxWidthStyle.max,
+                          dragStartBehavior: DragStartBehavior.down,
+                          
+                         onChanged: ( value) {
+                          print('Text changed: $value');
+                         }, 
+                         validator: (value) {},
+                        
+                      ),
+       
+                       const  SizedBox(height:30,),
+                         BaseWidgets.proElevatedButton(
+                           onPressed: () {} , 
+                         child: const Text("login"),
+                        ),*/
+
+
+                const   Padding(
+                padding:  EdgeInsets.symmetric(vertical: 10.1),),
+                TextButton(
+                      onPressed: (){
+                    // add signup functionality here
+                     },
+                      child: const Text('Sign Up'),
+                     ),
+
+              const  SizedBox(height: 50),
+               BaseWidgets.proTextField(
+                     decoration: const InputDecoration(labelText: 'User Name'), 
+                     maxLengthEnforcement: null, 
+                     inputFormatters: null,
+                     cursorHeight: 20.0, // Correct type and value for cursorHeight
+                          selectionHeightStyle: BoxHeightStyle.includeLineSpacingTop,
+                          selectionWidthStyle: BoxWidthStyle.max,
+                          dragStartBehavior: DragStartBehavior.down,
+
+                      onChanged: (value) { 
+                          // No return type required for onChanged callback
+                          },
+                      validator: (value) {},  
+                     ),
+
+                const SizedBox(height:40),
                 
-           const Text(
-             'You have pushed the button this many times:',
-            ),
-            text,
-           
+                 BaseWidgets.proTextField(
+                      decoration : const InputDecoration(labelText: 'Email'),
+                          maxLengthEnforcement: null,
+                          inputFormatters: null, 
+                          cursorHeight: 20.0, // Correct type and value for cursorHeight
+                          selectionHeightStyle: BoxHeightStyle.includeLineSpacingTop,
+                          selectionWidthStyle: BoxWidthStyle.max,
+                          dragStartBehavior: DragStartBehavior.down,
+
+                         onChanged: (value) { 
+                          // No return type required for onChanged callback
+                          },
+                         validator: (value) {},  
+                     ),
+
+                 const  SizedBox(height:40),
+                 BaseWidgets.proTextField(
+                      decoration : const InputDecoration(labelText: 'PassWord'),
+                           maxLengthEnforcement: null, 
+                          inputFormatters: null, 
+                          selectionHeightStyle: BoxHeightStyle.includeLineSpacingTop, 
+                          selectionWidthStyle: BoxWidthStyle.max,
+                          dragStartBehavior: DragStartBehavior.down,
+                          
+                         onChanged: ( value){}, 
+                         validator: (value) {},
+                         ),
+
+                const SizedBox(height:40),
+                BaseWidgets.proElevatedButton(
+                          onPressed: (){
+                           // add submit button here
+                         },
+                          style:ElevatedButton.styleFrom(
+                          shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8.0),
+                           ),
+                           ),
+                         child:const Text('continue') 
+                          ),    
+               const SizedBox(height:30),
+               BaseWidgets.proElevatedButton(
+                         onPressed: () {
+                           // Add forgot password functionality here
+                         },
+                          style:ElevatedButton.styleFrom(
+                          shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8.0),
+                          ),
+                          ),
+                         child: const Text('Reset Password'),
+                          ),
+                          
+              const SizedBox(height:30),
+              BaseWidgets.prolinearProgressIndicator(
+                         value: 0.1, // Example value
+                         backgroundColor: Colors.black,
+                         color: Colors.black,
+                         semanticsLabel:'loading...',
+                         ),
+              
+              const Text('or'),
+              const SizedBox(height:20),
               BaseWidgets.proElevatedButton(
-               onPressed: () {}, child: const Text("clickMe")),
+                        onPressed: () {
+                        // Add Google login functionality here
+                        },
+                       style:ElevatedButton.styleFrom(
+                       shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8.0),
+                        ),
+                       padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 12.0),
+                       textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                       elevation: 5,
+                        ),
+                     child: const Text('Login with Google'),
+                        ),
+              const  SizedBox(height: 30),
+             BaseWidgets.proElevatedButton(
+                      onPressed: () {
+                     // Add Facebook login functionality here
+                       },
+                      style:ElevatedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8.0),
+                        ),
+                       padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 12.0),
+                       textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                       elevation: 5,
+                       ),
+                      child: const Text('Login with Facebook'),
+                       ),
+                 
+            /*    const SizedBox(height: 40),
+               BaseWidgets.proElevatedButton(
+                onPressed:(){
+                  // add Email login functionality here
+                },
+                child: const Text('Login With Email')
+                ),
+                const SizedBox(height:40),
+              BaseWidgets.proElevatedButton(
+                    onPressed: () {
+                    // Add Google login functionality here
+                     },
+                    child: const Text('Login with Google'),
+                  
+                    ),
+               const  SizedBox(height: 40),
+             baseWidgets.proElevatedButton(
+                   onPressed: () {
+                  // Add Facebook login functionality here
+                   },
+                  child: const Text('Login with Facebook'),
+                  ),
+                const SizedBox(height:40),
+             BaseWidgets.proElevatedButton(
+                  onPressed:(){
+                  //add twitter login functionality here
+                  },
+                   child: const Text('Login With Twitter '),
+                  ),     
+               
 
-              BaseWidgets.proTextButton(
-                 onPressed: () {
-                 Navigator.pushNamed(context, '/loginview');
-                 },
-                 child: const Text("GoToApp")),
+            
 
-              BaseWidgets.proLoadingButton(
+                
+
+             BaseWidgets.proLoadingButton(
                  onPressed: () {
                    // Handle button press
                   },
@@ -293,11 +472,10 @@ class _MyHomePageState extends State<MyHomePage> {
                  },
                  iconData: Icons.error,
                  tooltip: 'fail',
-                 ),
-          
+                 ),*/
           ],
-       ),
+        ),
       ),
     );
-}
-}
+   } 
+}      
