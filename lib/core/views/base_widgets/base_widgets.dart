@@ -509,7 +509,7 @@ import 'package:flutter/material.dart';
    //add text...
   //Method to create an text
        static Text proText({
-            required String data,
+           required dynamic data,
            Key? key,
            TextStyle? style,
            StrutStyle? strutStyle,

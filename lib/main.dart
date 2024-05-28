@@ -430,8 +430,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   children: [
                      Image.asset(
                       'assets/google_logo.png',
-                      height:5,
-                      width:5,),
+                      height:30,
+                      width:30,),
                       const SizedBox(height:30),
                       const Text('Login with google')
                    ],
@@ -455,15 +455,21 @@ class _MyHomePageState extends State<MyHomePage> {
                     mainAxisAlignment:MainAxisAlignment.center,
                     children: [
                       Image.asset(
-                        'assets/ggogle_logo.png',
-                        height:5,
-                        width:5,
+                        'assets/facebook_logo.png',
+                        height:40,
+                        width:40,
                       ),
                       const  Text('Login with Facebook'),
                      ],
                   ),
-              ),      
-                
+              ), 
+                const SizedBox(height:20),     
+              BaseWidgets.proText(
+                data: 'Already have an account?',
+                textAlign: TextAlign.center,
+                style: const TextStyle(fontSize: 15),
+               
+                ),
            ],
           ),
         ),
