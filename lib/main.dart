@@ -300,7 +300,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
                 const   Padding(
                 padding:  EdgeInsets.symmetric(vertical: 10.1),),
-                TextButton(
+                BaseWidgets.proTextButton(
                       onPressed: (){
                     // add signup functionality here
                      },
