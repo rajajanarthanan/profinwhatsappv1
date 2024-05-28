@@ -109,10 +109,22 @@ class _MyHomePageState extends State<MyHomePage> {
         
       ),
 
-      body: Center(
+      body: Padding(
+         padding: const EdgeInsets.all(16.0),
+      
+         child: Container(
+         padding: const EdgeInsets.all(16.0),
+         decoration: BoxDecoration(
+            border: Border.all(color: Colors.grey),
+            borderRadius: BorderRadius.circular(8.0),
+          ),
         child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-          children: <Widget>[
+        crossAxisAlignment: CrossAxisAlignment. stretch,
+  
+        children: [
+          const Padding(
+                padding: EdgeInsets.symmetric(vertical: 10.1),
+              ),
           /*   BaseWidgets.proIcon(
                 icon: Icons.login,
                 size: 100.0,
@@ -298,126 +310,131 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),*/
 
 
-                const   Padding(
-                padding:  EdgeInsets.symmetric(vertical: 10.1),),
                 BaseWidgets.proTextButton(
-                      onPressed: (){
-                    // add signup functionality here
-                     },
-                      child: const Text('Sign Up'),
-                     ),
-
-              const  SizedBox(height: 50),
-               BaseWidgets.proTextField(
-                     decoration: const InputDecoration(labelText: 'User Name'), 
-                     maxLengthEnforcement: null, 
-                     inputFormatters: null,
-                     cursorHeight: 20.0, // Correct type and value for cursorHeight
-                          selectionHeightStyle: BoxHeightStyle.includeLineSpacingTop,
-                          selectionWidthStyle: BoxWidthStyle.max,
-                          dragStartBehavior: DragStartBehavior.down,
-
-                      onChanged: (value) { 
-                          // No return type required for onChanged callback
-                          },
-                      validator: (value) {},  
-                     ),
-
-                const SizedBox(height:40),
-                
-                 BaseWidgets.proTextField(
-                      decoration : const InputDecoration(labelText: 'Email'),
-                          maxLengthEnforcement: null,
-                          inputFormatters: null, 
-                          cursorHeight: 20.0, // Correct type and value for cursorHeight
-                          selectionHeightStyle: BoxHeightStyle.includeLineSpacingTop,
-                          selectionWidthStyle: BoxWidthStyle.max,
-                          dragStartBehavior: DragStartBehavior.down,
-
-                         onChanged: (value) { 
-                          // No return type required for onChanged callback
-                          },
-                         validator: (value) {},  
-                     ),
-
-                 const  SizedBox(height:40),
-                 BaseWidgets.proTextField(
-                      decoration : const InputDecoration(labelText: 'PassWord'),
-                           maxLengthEnforcement: null, 
-                          inputFormatters: null, 
-                          selectionHeightStyle: BoxHeightStyle.includeLineSpacingTop, 
-                          selectionWidthStyle: BoxWidthStyle.max,
-                          dragStartBehavior: DragStartBehavior.down,
-                          
-                         onChanged: ( value){}, 
-                         validator: (value) {},
-                         ),
-
-                const SizedBox(height:40),
-                BaseWidgets.proElevatedButton(
-                          onPressed: (){
-                           // add submit button here
-                         },
-                          style:ElevatedButton.styleFrom(
-                          shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8.0),
-                           ),
-                           ),
-                         child:const Text('continue') 
-                          ),    
-               const SizedBox(height:30),
-               BaseWidgets.proElevatedButton(
-                         onPressed: () {
-                           // Add forgot password functionality here
-                         },
-                          style:ElevatedButton.styleFrom(
-                          shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8.0),
-                          ),
-                          ),
-                         child: const Text('Reset Password'),
-                          ),
-                          
-              const SizedBox(height:30),
-              BaseWidgets.prolinearProgressIndicator(
-                         value: 0.1, // Example value
-                         backgroundColor: Colors.black,
-                         color: Colors.black,
-                         semanticsLabel:'loading...',
-                         ),
-              
-              const Text('or'),
-              const SizedBox(height:20),
-              BaseWidgets.proElevatedButton(
-                        onPressed: () {
-                        // Add Google login functionality here
+                       onPressed: () {
+                        // add signup functionality here
                         },
-                       style:ElevatedButton.styleFrom(
-                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8.0),
-                        ),
-                       padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 12.0),
-                       textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                       elevation: 5,
-                        ),
-                     child: const Text('Login with Google'),
-                        ),
-              const  SizedBox(height: 30),
-             BaseWidgets.proElevatedButton(
-                      onPressed: () {
-                     // Add Facebook login functionality here
-                       },
-                      style:ElevatedButton.styleFrom(
-                      shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8.0),
-                        ),
-                       padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 12.0),
-                       textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                       elevation: 5,
+                       child: const Text('Sign Up'),
                        ),
-                      child: const Text('Login with Facebook'),
-                       ),
-                 
+              const SizedBox(height: 50),
+
+              BaseWidgets.proTextField(
+                decoration: const InputDecoration(labelText: 'User Name'),
+                maxLengthEnforcement: null,
+                inputFormatters: null,
+                cursorHeight: 20.0,
+                selectionHeightStyle: BoxHeightStyle.includeLineSpacingTop,
+                selectionWidthStyle: BoxWidthStyle.max,
+                dragStartBehavior: DragStartBehavior.down,
+                onChanged: (value) {
+                  // No return type required for onChanged callback
+                  },
+                 validator: (value) {},
+                  ),
+              const SizedBox(height: 40),
+
+              BaseWidgets.proTextField(
+                decoration: const InputDecoration(labelText: 'Email'),
+                maxLengthEnforcement: null,
+                inputFormatters: null,
+                cursorHeight: 20.0,
+                selectionHeightStyle: BoxHeightStyle.includeLineSpacingTop,
+                selectionWidthStyle: BoxWidthStyle.max,
+                dragStartBehavior: DragStartBehavior.down,
+                onChanged: (value) {
+                  // No return type required for onChanged callback
+                 },
+                validator: (value) {},
+                 ),
+              const SizedBox(height: 40),
+
+              BaseWidgets.proTextField(
+                decoration: const InputDecoration(labelText: 'Password'),
+                maxLengthEnforcement: null,
+                inputFormatters: null,
+                selectionHeightStyle: BoxHeightStyle.includeLineSpacingTop,
+                selectionWidthStyle: BoxWidthStyle.max,
+                dragStartBehavior: DragStartBehavior.down,
+                onChanged: (value) {},
+                validator: (value) {},
+                ),
+              const SizedBox(height: 40),
+
+              BaseWidgets.proElevatedButton(
+                 onPressed: () {
+                  // add submit button here
+                 },
+                 style: ElevatedButton.styleFrom(
+                   shape: RoundedRectangleBorder(
+                     borderRadius: BorderRadius.circular(8.0),
+                  ),
+                ),
+                child: const Text('Continue'),
+              ),
+              const SizedBox(height: 30),
+
+              BaseWidgets.proElevatedButton(
+                onPressed: () {
+                  // Add forgot password functionality here
+                },
+                style: ElevatedButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8.0),
+                  ),
+                ),
+                child: const Text('Reset Password'),
+              ),
+              const SizedBox(height: 30),
+
+              BaseWidgets.prolinearProgressIndicator(
+                value: 0.1,
+                backgroundColor: Colors.black,
+                color: Colors.black,
+                semanticsLabel: 'loading...',
+              ),
+              const Text('or'),
+              const SizedBox(height: 20),
+
+              BaseWidgets.proElevatedButton(
+                onPressed: () {
+                  // Add Google login functionality here
+                },
+                style: ElevatedButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8.0),
+                  ),
+                  padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 12.0),
+                  textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  elevation: 5,
+                ),
+                child: const Text('Login with Google'),
+              ),
+              const SizedBox(height: 30),
+
+              BaseWidgets.proElevatedButton(
+                onPressed: () {
+                  // Add Facebook login functionality here
+                },
+                style: ElevatedButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8.0),
+                  ),
+                  padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 12.0),
+                  textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  elevation: 5,
+                ),
+                child: const Text('Login with Facebook'),
+              ),
+        
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+                   
             /*    const SizedBox(height: 40),
                BaseWidgets.proElevatedButton(
                 onPressed:(){
@@ -473,9 +490,4 @@ class _MyHomePageState extends State<MyHomePage> {
                  iconData: Icons.error,
                  tooltip: 'fail',
                  ),*/
-          ],
-        ),
-      ),
-    );
-   } 
-}      
+         
