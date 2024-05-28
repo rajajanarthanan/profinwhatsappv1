@@ -5,9 +5,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
 import 'package:injector/injector.dart';
 import 'package:profinwhatsapp/core/views/widgets/login_widgets/login_widget.dart';
 
@@ -111,7 +108,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
       body: Padding(
          padding: const EdgeInsets.all(16.0),
-      
+          child:Center(
          child: Container(
          padding: const EdgeInsets.all(16.0),
          decoration: BoxDecoration(
@@ -310,16 +307,20 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),*/
 
 
-                BaseWidgets.proTextButton(
-                       onPressed: () {
-                        // add signup functionality here
-                        },
-                       child: const Text('Sign Up'),
-                       ),
+              BaseWidgets.proText(
+                data: 'Sign Up',
+                textAlign: TextAlign.center,
+                style: const TextStyle(fontSize: 35,fontWeight: FontWeight.bold,),
+                ),
               const SizedBox(height: 50),
 
               BaseWidgets.proTextField(
-                decoration: const InputDecoration(labelText: 'User Name'),
+                keyboardType: TextInputType.name,
+                decoration: const InputDecoration(
+                  labelText: 'User Name',
+                  hintText:'Enter User Name',
+                  border: OutlineInputBorder(),
+                  ),
                 maxLengthEnforcement: null,
                 inputFormatters: null,
                 cursorHeight: 20.0,
@@ -334,7 +335,12 @@ class _MyHomePageState extends State<MyHomePage> {
               const SizedBox(height: 40),
 
               BaseWidgets.proTextField(
-                decoration: const InputDecoration(labelText: 'Email'),
+                keyboardType: TextInputType.emailAddress,
+                decoration: const InputDecoration(
+                  labelText: 'Email',
+                  hintText: 'Enter Email Address',
+                  border: OutlineInputBorder(),
+                  ),
                 maxLengthEnforcement: null,
                 inputFormatters: null,
                 cursorHeight: 20.0,
@@ -349,7 +355,12 @@ class _MyHomePageState extends State<MyHomePage> {
               const SizedBox(height: 40),
 
               BaseWidgets.proTextField(
-                decoration: const InputDecoration(labelText: 'Password'),
+                keyboardType: TextInputType.visiblePassword,
+                decoration: const InputDecoration(
+                  labelText: 'Password',
+                  hintText:'Enter Password',
+                  border:OutlineInputBorder(),
+                  ),
                 maxLengthEnforcement: null,
                 inputFormatters: null,
                 selectionHeightStyle: BoxHeightStyle.includeLineSpacingTop,
@@ -358,8 +369,19 @@ class _MyHomePageState extends State<MyHomePage> {
                 onChanged: (value) {},
                 validator: (value) {},
                 ),
-              const SizedBox(height: 40),
 
+              const SizedBox(height: 10),
+             
+              BaseWidgets.proTextButton(
+                onPressed: (){
+                  // add reset password functionality here...
+                },
+                 child: const Text('Forget Password?',
+                 ), textAlign: TextAlign.justify, 
+                    textDirection: TextDirection.ltr,
+                 ),
+ 
+                const SizedBox(height:20),
               BaseWidgets.proElevatedButton(
                  onPressed: () {
                   // add submit button here
@@ -368,32 +390,28 @@ class _MyHomePageState extends State<MyHomePage> {
                    shape: RoundedRectangleBorder(
                      borderRadius: BorderRadius.circular(8.0),
                   ),
+
                 ),
                 child: const Text('Continue'),
-              ),
+               ),
               const SizedBox(height: 30),
 
-              BaseWidgets.proElevatedButton(
-                onPressed: () {
-                  // Add forgot password functionality here
-                },
-                style: ElevatedButton.styleFrom(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8.0),
-                  ),
-                ),
-                child: const Text('Reset Password'),
-              ),
-              const SizedBox(height: 30),
-
+             
               BaseWidgets.prolinearProgressIndicator(
                 value: 0.1,
                 backgroundColor: Colors.black,
                 color: Colors.black,
                 semanticsLabel: 'loading...',
+                borderRadius: BorderRadius.zero,
               ),
-              const Text('or'),
-              const SizedBox(height: 20),
+              const SizedBox(height: 10,),
+             BaseWidgets.proText(
+                data: 'or',
+                textAlign: TextAlign.center,
+                style: const TextStyle(fontSize: 20,fontWeight: FontWeight.bold,),
+                ),
+              const SizedBox(height: 30),
+               
 
               BaseWidgets.proElevatedButton(
                 onPressed: () {
@@ -407,10 +425,20 @@ class _MyHomePageState extends State<MyHomePage> {
                   textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                   elevation: 5,
                 ),
-                child: const Text('Login with Google'),
-              ),
-              const SizedBox(height: 30),
+                 child:  Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                     Image.asset(
+                      'assets/google_logo.png',
+                      height:5,
+                      width:5,),
+                      const SizedBox(height:30),
+                      const Text('Login with google')
+                   ],
+                 ),
+                ),
 
+                const SizedBox(height:30),
               BaseWidgets.proElevatedButton(
                 onPressed: () {
                   // Add Facebook login functionality here
@@ -423,17 +451,28 @@ class _MyHomePageState extends State<MyHomePage> {
                   textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                   elevation: 5,
                 ),
-                child: const Text('Login with Facebook'),
-              ),
-        
-            ],
+                  child:Row(
+                    mainAxisAlignment:MainAxisAlignment.center,
+                    children: [
+                      Image.asset(
+                        'assets/ggogle_logo.png',
+                        height:5,
+                        width:5,
+                      ),
+                      const  Text('Login with Facebook'),
+                     ],
+                  ),
+              ),      
+                
+           ],
           ),
         ),
       ),
+    ),
     );
   }
-}
-
+} 
+  
                    
             /*    const SizedBox(height: 40),
                BaseWidgets.proElevatedButton(

@@ -61,7 +61,7 @@ import 'package:flutter/material.dart';
          FocusNode? focusNode,
          bool autofocus = false,
          Clip clipBehavior = Clip.none,
-         required Widget child,
+         required Widget child, required TextAlign textAlign, required TextDirection textDirection,
          }) {
             return TextButton(
              onPressed: onPressed,
@@ -158,7 +158,7 @@ import 'package:flutter/material.dart';
              textDirection: textDirection,
              applyTextScaling: applyTextScaling,
             );
-          }
+          }*/
 
     //add image...
   //Method to create an image
@@ -581,7 +581,7 @@ import 'package:flutter/material.dart';
 
   //add gridview...
   //Method to create a gridview
-       static GridView proGridView({
+   /*    static GridView proGridView({
             Key? key,
             Axis scrollDirection = Axis.vertical,
             bool reverse = false,
@@ -1076,8 +1076,9 @@ import 'package:flutter/material.dart';
                  magnifierConfiguration: magnifierConfiguration,
                 );
             }
-
   }
+
+  
             
 
        
