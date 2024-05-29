@@ -1,16 +1,16 @@
 import 'dart:ui';
 
 import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:injector/injector.dart';
 import 'package:profinwhatsapp/core/views/widgets/login_widgets/login_widget.dart';
-
 import 'core/dependencies/injector.dart';
 import 'core/views/base_widgets/base_widgets.dart';
 import 'core/views/login_view.dart';
+import 'package:profinwhatsapp/core/view/base_widgets/keyboard_widgets.dart';
+
 
 Future<void> main() async {
   setupInjector();
@@ -64,13 +64,14 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  
 
   void _incrementCounter() {
     setState(() {
       _counter++;
     });
   }
-
+   
   @override
   Widget build(BuildContext context) {
     BaseWidgets basewidgets = BaseWidgets();
@@ -92,24 +93,405 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: const Text('signup Form'),
+        title: const Text('Enter OTP'),
       ),
-      body: Padding(
+     body: Padding(
+  padding: EdgeInsets.all(16.0),
+  child: Center(
+    child: ConstrainedBox(
+      constraints: BoxConstraints(maxWidth: 400), // Setting maximum width constraint
+      child: BaseWidgets.proContainer(
         padding: const EdgeInsets.all(16.0),
-        child: Center(
-          child: Container(
-            padding: const EdgeInsets.all(16.0),
-            decoration: BoxDecoration(
-              border: Border.all(color: Colors.grey),
-              borderRadius: BorderRadius.circular(8.0),
+        decoration: BoxDecoration(
+          border: Border.all(color: Colors.grey),
+          borderRadius: BorderRadius.circular(8.0),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            const SizedBox(height: 10.1), // Adjusted SizedBox height
+            
+            BaseWidgets.proText(
+              data: 'Verification code',
+              style: const TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+              textAlign: TextAlign.center,
             ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
+
+            const SizedBox(height: 10),
+            BaseWidgets.proText(
+              data: 'We send code to registered Mobile Number',
+              textAlign: TextAlign.center,
+            ),
+
+            const SizedBox(height: 30),
+            BaseWidgets.proRow(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: List.generate(
+                6,
+                (index) => Flexible( // Wrapping with Flexible to adjust space evenly
+                  child: SizedBox(
+                    width: 50,
+                    child: BaseWidgets.proTextField(
+                      style: Theme.of(context).textTheme.headlineMedium,
+                      keyboardType: TextInputType.number,
+                      textAlign: TextAlign.center,
+                      maxLength: 1,
+                      decoration: InputDecoration(
+                        counterText: '',
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
+                      maxLengthEnforcement:null,
+                        inputFormatters: null, 
+                         selectionHeightStyle: BoxHeightStyle.max,
+                         selectionWidthStyle: BoxWidthStyle.max, 
+                         dragStartBehavior: DragStartBehavior.start,
+                      onChanged: (value) {
+                      
+                      },
+                      validator: (value) {},
+                     ),
+                   ),
+                 ),
+               ),
+             ),
+             const SizedBox(height:80),
+              BaseWidgets.proRow(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: List.generate(
+                3,
+                (index) => Flexible( // Wrapping with Flexible to adjust space evenly
+                  child: SizedBox(
+                    width: 50,
+                    child: BaseWidgets.proTextField(
+                      style: Theme.of(context).textTheme.headlineMedium,
+                      keyboardType: TextInputType.number,
+                      textAlign: TextAlign.center,
+                      maxLength: 1,
+                      decoration: InputDecoration(
+                        counterText: '',
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
+                      maxLengthEnforcement:null,
+                        inputFormatters: null, 
+                         selectionHeightStyle: BoxHeightStyle.max,
+                         selectionWidthStyle: BoxWidthStyle.max, 
+                         dragStartBehavior: DragStartBehavior.start,
+                      onChanged: (value) {
+                      
+                      },
+                      validator: (value) {},
+                     ),
+                   ),
+                 ),
+               ),
+             ), 
+             BaseWidgets.proColumn(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Padding(
-                  padding: EdgeInsets.symmetric(vertical: 10.1),
+               const Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+             
+             CustomKeyboard('1', onPressed: (value){}),
+            
+            
+          ],
+        ),
+              ]
+             )
+          ]   
+              
+         
+         
+        ),
+       ),
+       ),
+      ),
+      ),
+    );
+  
+    
+ }
+}
+
+               /* BaseWidgets.proTextField(
+                      keyboardType: TextInputType.emailAddress,
+                      decoration : const InputDecoration(
+                      labelText: 'Email',
+                      hintText: ' Enter email',
+                      prefixIcon: Icon(Icons.email),
+                      border: OutlineInputBorder(),
+                      ),  maxLengthEnforcement: null,
+                          inputFormatters: null, 
+                          cursorHeight: 20.0, // Correct type and value for cursorHeight
+                          selectionHeightStyle: BoxHeightStyle.includeLineSpacingTop,
+                          selectionWidthStyle: BoxWidthStyle.max,
+                          dragStartBehavior: DragStartBehavior.down,
+
+                         onChanged: (value) { 
+                          // No return type required for onChanged callback
+                          },
+                         validator: (value) {},  
+                     ),
+                const  SizedBox(height:40),
+                BaseWidgets.proTextField(
+                      keyboardType: TextInputType.visiblePassword,
+                      decoration : const InputDecoration(
+                      labelText: 'PassWord',
+                      hintText: ' Enter PassWord',
+                      prefixIcon: Icon(Icons.password),
+                      border: OutlineInputBorder(),
+                       ), maxLengthEnforcement: null, 
+                          inputFormatters: null, 
+                          selectionHeightStyle: BoxHeightStyle.includeLineSpacingTop, 
+                          selectionWidthStyle: BoxWidthStyle.max,
+                          dragStartBehavior: DragStartBehavior.down,
+                          
+                         onChanged: ( value) {
+                          print('Text changed: $value');
+                         }, 
+                         validator: (value) {},
+                        
+                      ),
+       
+                const  SizedBox(height:30,),
+                BaseWidgets.proElevatedButton(
+                           onPressed: () {} , 
+                         child: const Text("login"),
+                        ),
+
+                BaseWidgets.proText(
+                    data: 'Sign Up',
+                    textAlign: TextAlign.center,
+                    style: const TextStyle(
+                    fontSize: 35,
+                    fontWeight: FontWeight.bold,
+                    ),
+                   ),
+                const SizedBox(height: 50),
+                BaseWidgets.proTextField(
+                  keyboardType: TextInputType.name,
+                  decoration: const InputDecoration(
+                    labelText: 'User Name',
+                    hintText: 'Enter User Name',
+                    border: OutlineInputBorder(),
+                    ),
+                  maxLengthEnforcement: null,
+                  inputFormatters: null,
+                  cursorHeight: 20.0,
+                  selectionHeightStyle: BoxHeightStyle.includeLineSpacingTop,
+                  selectionWidthStyle: BoxWidthStyle.max,
+                  dragStartBehavior: DragStartBehavior.down,
+                  onChanged: (value) {
+                    // No return type required for onChanged callback
+                  },
+                  validator: (value) {},
+                  ),
+                const SizedBox(height: 40),
+                BaseWidgets.proTextField(
+                  keyboardType: TextInputType.emailAddress,
+                  decoration: const InputDecoration(
+                    labelText: 'Email',
+                    hintText: 'Enter Email Address',
+                    border: OutlineInputBorder(),
+                  ),
+                  maxLengthEnforcement: null,
+                  inputFormatters: null,
+                  cursorHeight: 20.0,
+                  selectionHeightStyle: BoxHeightStyle.includeLineSpacingTop,
+                  selectionWidthStyle: BoxWidthStyle.max,
+                  dragStartBehavior: DragStartBehavior.down,
+                  onChanged: (value) {
+                    // No return type required for onChanged callback
+                  },
+                  validator: (value) {},
                 ),
-                /*   BaseWidgets.proIcon(
+                const SizedBox(height: 40),
+                BaseWidgets.proTextField(
+                  keyboardType: TextInputType.visiblePassword,
+                  decoration: const InputDecoration(
+                    labelText: 'Password',
+                    hintText: 'Enter Password',
+                    border: OutlineInputBorder(),
+                  ),
+                  maxLengthEnforcement: null,
+                  inputFormatters: null,
+                  selectionHeightStyle: BoxHeightStyle.includeLineSpacingTop,
+                  selectionWidthStyle: BoxWidthStyle.max,
+                  dragStartBehavior: DragStartBehavior.down,
+                  onChanged: (value) {},
+                  validator: (value) {},
+                ),
+             
+                const SizedBox(height: 10),
+                BaseWidgets.proTextButton(
+                  onPressed: () {
+                    // add reset password functionality here...
+                  },
+                  child: const Text(
+                    'Forget Password?',
+
+                  ),
+                  textAlign: TextAlign.justify,
+                  textDirection: TextDirection.ltr,
+                ),
+
+                const SizedBox(height: 20),
+                BaseWidgets.proElevatedButton(
+                  onPressed: () {
+                    // add submit button here
+                  },
+                  style: ElevatedButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                  ),
+                  child: const Text('Continue'),
+                ),
+                const SizedBox(height: 30),
+                BaseWidgets.prolinearProgressIndicator(
+                  value: 0.1,
+                  backgroundColor: Colors.black,
+                  color: Colors.black,
+                  semanticsLabel: 'loading...',
+                  borderRadius: BorderRadius.zero,
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                BaseWidgets.proText(
+                  data: 'or',
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const SizedBox(height: 30),
+                BaseWidgets.proElevatedButton(
+                  onPressed: () {
+                    // Add Google login functionality here
+                  },
+                  style: ElevatedButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 8.0, horizontal: 12.0),
+                    textStyle: const TextStyle(
+                        fontSize: 16, fontWeight: FontWeight.bold),
+                    elevation: 5,
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image.asset(
+                       'assets/google_logo.png',
+                        height: 50,
+                        width: 50,
+                      ),
+                      const SizedBox(height: 30),
+                      const Text('Login with google')
+                    ],
+                  ),
+
+              ), 
+                BaseWidgets.proElevatedButton(
+                  onPressed: () {
+                    // Add Facebook login functionality here
+                  },
+                  style: ElevatedButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 8.0, horizontal: 12.0),
+                    textStyle: const TextStyle(
+                        fontSize: 16, fontWeight: FontWeight.bold),
+                    elevation: 5,
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image.asset(
+                        'assets/facebook_logo.png',
+                        height: 50,
+                        width: 50,
+                        ),
+                      const Text('Login with Facebook'),
+                           ],
+                          ),
+                        ),
+                 const SizedBox(height:20),     
+                 BaseWidgets.proText(
+                     data: 'Already have an account?',
+                     textAlign: TextAlign.center,
+                     style: const TextStyle(fontSize: 15),
+                     ),
+                
+              
+  
+                   
+                const SizedBox(height: 40),
+                BaseWidgets.proElevatedButton(
+                   onPressed:(){
+                    // add Email login functionality here
+                   },
+                   child: const Text('Login With Email')
+                   ),
+              const SizedBox(height:40),
+              BaseWidgets.proElevatedButton(
+                    onPressed: () {
+                    // Add Google login functionality here
+                     },
+                    child: const Text('Login with Google'),
+                  
+                    ),
+             const  SizedBox(height: 40),
+             baseWidgets.proElevatedButton(
+                   onPressed: () {
+                  // Add Facebook login functionality here
+                   },
+                  child: const Text('Login with Facebook'),
+                  ),
+                const SizedBox(height:40),
+             BaseWidgets.proElevatedButton(
+                  onPressed:(){
+                  //add twitter login functionality here
+                  },
+                   child: const Text('Login With Twitter '),
+                  ),     
+               
+
+            
+             BaseWidgets.proLoadingButton(
+                 onPressed: () {
+                   // Handle button press
+                  },
+                  isLoading: true, // Change this to false to hide loading state
+                  child: const Text("Loading Button")),
+
+              BaseWidgets.proAsyncButton(
+                 text: 'Click Me',
+                 onPressed: () async {
+                 await Future.delayed(const Duration(seconds: 1));
+                 },
+                ),
+              BaseWidgets.proIconButton(
+                 onPressed: () {
+                 // Handle button press
+                 },
+                 iconData: Icons.error,
+                 tooltip: 'fail',
+                 ),
+              ],
+
+
+              BaseWidgets.proIcon(
                 icon: Icons.login,
                 size: 100.0,
                 color:Colors.purple,
@@ -247,283 +629,25 @@ class _MyHomePageState extends State<MyHomePage> {
                    },
                   ),*/
 
-                /*  BaseWidgets.proTextField(
-                      keyboardType: TextInputType.emailAddress,
-                      decoration : const InputDecoration(
-                      labelText: 'Email',
-                      hintText: ' Enter email',
-                      prefixIcon: Icon(Icons.email),
-                      border: OutlineInputBorder(),
-                      ),  maxLengthEnforcement: null,
-                          inputFormatters: null, 
-                          cursorHeight: 20.0, // Correct type and value for cursorHeight
-                          selectionHeightStyle: BoxHeightStyle.includeLineSpacingTop,
-                          selectionWidthStyle: BoxWidthStyle.max,
-                          dragStartBehavior: DragStartBehavior.down,
+              
 
-                         onChanged: (value) { 
-                          // No return type required for onChanged callback
-                          },
-                         validator: (value) {},  
-                     ),
-                  const  SizedBox(height:40),
-                 BaseWidgets.proTextField(
-                      keyboardType: TextInputType.visiblePassword,
-                      decoration : const InputDecoration(
-                      labelText: 'PassWord',
-                      hintText: ' Enter PassWord',
-                      prefixIcon: Icon(Icons.password),
-                      border: OutlineInputBorder(),
-                       ), maxLengthEnforcement: null, 
-                          inputFormatters: null, 
-                          selectionHeightStyle: BoxHeightStyle.includeLineSpacingTop, 
-                          selectionWidthStyle: BoxWidthStyle.max,
-                          dragStartBehavior: DragStartBehavior.down,
-                          
-                         onChanged: ( value) {
-                          print('Text changed: $value');
-                         }, 
-                         validator: (value) {},
-                        
-                      ),
-       
-                       const  SizedBox(height:30,),
-                         BaseWidgets.proElevatedButton(
-                           onPressed: () {} , 
-                         child: const Text("login"),
-                        ),*/
-
-                BaseWidgets.proText(
-                  data: 'Sign Up',
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(
-                    fontSize: 35,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                const SizedBox(height: 50),
-                BaseWidgets.proTextField(
-                  keyboardType: TextInputType.name,
-                  decoration: const InputDecoration(
-                    labelText: 'User Name',
-                    hintText: 'Enter User Name',
-                    border: OutlineInputBorder(),
-                  ),
-                  maxLengthEnforcement: null,
-                  inputFormatters: null,
-                  cursorHeight: 20.0,
-                  selectionHeightStyle: BoxHeightStyle.includeLineSpacingTop,
-                  selectionWidthStyle: BoxWidthStyle.max,
-                  dragStartBehavior: DragStartBehavior.down,
-                  onChanged: (value) {
-                    // No return type required for onChanged callback
-                  },
-                  validator: (value) {},
-                ),
-                const SizedBox(height: 40),
-                BaseWidgets.proTextField(
-                  keyboardType: TextInputType.emailAddress,
-                  decoration: const InputDecoration(
-                    labelText: 'Email',
-                    hintText: 'Enter Email Address',
-                    border: OutlineInputBorder(),
-                  ),
-                  maxLengthEnforcement: null,
-                  inputFormatters: null,
-                  cursorHeight: 20.0,
-                  selectionHeightStyle: BoxHeightStyle.includeLineSpacingTop,
-                  selectionWidthStyle: BoxWidthStyle.max,
-                  dragStartBehavior: DragStartBehavior.down,
-                  onChanged: (value) {
-                    // No return type required for onChanged callback
-                  },
-                  validator: (value) {},
-                ),
-                const SizedBox(height: 40),
-                BaseWidgets.proTextField(
-                  keyboardType: TextInputType.visiblePassword,
-                  decoration: const InputDecoration(
-                    labelText: 'Password',
-                    hintText: 'Enter Password',
-                    border: OutlineInputBorder(),
-                  ),
-                  maxLengthEnforcement: null,
-                  inputFormatters: null,
-                  selectionHeightStyle: BoxHeightStyle.includeLineSpacingTop,
-                  selectionWidthStyle: BoxWidthStyle.max,
-                  dragStartBehavior: DragStartBehavior.down,
-                  onChanged: (value) {},
-                  validator: (value) {},
-                ),
              
-                const SizedBox(height: 10),
-                BaseWidgets.proTextButton(
-                  onPressed: () {
-                    // add reset password functionality here...
-                  },
-                  child: const Text(
-                    'Forget Password?',
-
-                  ),
-                  textAlign: TextAlign.justify,
-                  textDirection: TextDirection.ltr,
-                ),
-
-                const SizedBox(height: 20),
-                BaseWidgets.proElevatedButton(
-                  onPressed: () {
-                    // add submit button here
-                  },
-                  style: ElevatedButton.styleFrom(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8.0),
-                    ),
-                  ),
-                  child: const Text('Continue'),
-                ),
-                const SizedBox(height: 30),
-                BaseWidgets.prolinearProgressIndicator(
-                  value: 0.1,
-                  backgroundColor: Colors.black,
-                  color: Colors.black,
-                  semanticsLabel: 'loading...',
-                  borderRadius: BorderRadius.zero,
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                BaseWidgets.proText(
-                  data: 'or',
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                const SizedBox(height: 30),
-                BaseWidgets.proElevatedButton(
-                  onPressed: () {
-                    // Add Google login functionality here
-                  },
-                  style: ElevatedButton.styleFrom(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8.0),
-                    ),
-                    padding: const EdgeInsets.symmetric(
-                        vertical: 8.0, horizontal: 12.0),
-                    textStyle: const TextStyle(
-                        fontSize: 16, fontWeight: FontWeight.bold),
-                    elevation: 5,
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Image.asset(
-                       'assets/google_logo.png',
-                        height: 50,
-                        width: 50,
-                      ),
-                      const SizedBox(height: 30),
-                      const Text('Login with google')
-                    ],
-                  ),
-
-              ), 
-                BaseWidgets.proElevatedButton(
-                  onPressed: () {
-                    // Add Facebook login functionality here
-                  },
-                  style: ElevatedButton.styleFrom(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8.0),
-                    ),
-                    padding: const EdgeInsets.symmetric(
-                        vertical: 8.0, horizontal: 12.0),
-                    textStyle: const TextStyle(
-                        fontSize: 16, fontWeight: FontWeight.bold),
-                    elevation: 5,
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Image.asset(
-                        'assets/facebook_logo.png',
-                        height: 50,
-                        width: 50,
-                      ),
-                      const Text('Login with Facebook'),
-                    ],
-                  ),
-                ),
-                const SizedBox(height:20),     
-              BaseWidgets.proText(
-                data: 'Already have an account?',
-                textAlign: TextAlign.center,
-                style: const TextStyle(fontSize: 15),
-                  ),
-                ],
-             ),
-           ),
-         ),
-      ),
-   );
-  }
-} 
-  
-                   
-            /*    const SizedBox(height: 40),
-               BaseWidgets.proElevatedButton(
-                onPressed:(){
-                  // add Email login functionality here
-                },
-                child: const Text('Login With Email')
-                ),
-                const SizedBox(height:40),
-              BaseWidgets.proElevatedButton(
-                    onPressed: () {
-                    // Add Google login functionality here
-                     },
-                    child: const Text('Login with Google'),
-                  
-                    ),
-               const  SizedBox(height: 40),
-             baseWidgets.proElevatedButton(
-                   onPressed: () {
-                  // Add Facebook login functionality here
-                   },
-                  child: const Text('Login with Facebook'),
-                  ),
-                const SizedBox(height:40),
-             BaseWidgets.proElevatedButton(
-                  onPressed:(){
-                  //add twitter login functionality here
-                  },
-                   child: const Text('Login With Twitter '),
-                  ),     
-               
 
             
 
-                
 
-             BaseWidgets.proLoadingButton(
-                 onPressed: () {
-                   // Handle button press
-                  },
-                  isLoading: true, // Change this to false to hide loading state
-                  child: const Text("Loading Button")),
 
-              BaseWidgets.proAsyncButton(
-                 text: 'Click Me',
-                 onPressed: () async {
-                 await Future.delayed(const Duration(seconds: 1));
-                 },
-                ),
-              BaseWidgets.proIconButton(
-                 onPressed: () {
-                 // Handle button press
-                 },
-                 iconData: Icons.error,
-                 tooltip: 'fail',
-                 ),*/
-         
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
