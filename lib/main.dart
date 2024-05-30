@@ -165,7 +165,11 @@ class _MyHomePageState extends State<MyHomePage> {
                 BaseWidgets.proRow(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               
+<<<<<<< HEAD
               children: [BaseWidgets.proGridViewBuilder(
+=======
+              children: [BaseWidgets.proGridView(
+>>>>>>> parent of fb7f163 (admin_commit_debugged)
                gridDelegate:  const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 3,),
                   itemCount: 1, //only one item .which is our customerkeyboard
