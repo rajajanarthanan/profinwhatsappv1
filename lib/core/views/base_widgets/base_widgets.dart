@@ -581,7 +581,7 @@ import 'package:flutter/material.dart';
 
   //add gridview...
   //Method to create a gridview
-      static GridView proGridView({
+      static GridView proGridViewBuilder({
              Key? key,
             Axis scrollDirection = Axis.vertical,
             bool reverse = false,

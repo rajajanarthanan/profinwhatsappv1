@@ -18,7 +18,7 @@ class CustomKeyboard extends StatelessWidget {
         return Container(
           height: constraints.maxHeight,
           color: Colors.grey[300],
-          child: BaseWidgets.proGridView(
+          child: BaseWidgets.proGridViewBuilder(
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 3,
               childAspectRatio: //-1.0,
