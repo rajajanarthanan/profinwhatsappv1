@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter/material.dart';
+
 import 'package:profinwhatsapp/core/views/widgets/login_widgets/login_widget.dart';
 
 

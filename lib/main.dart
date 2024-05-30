@@ -1,3 +1,4 @@
+
 import 'dart:ui';
 
 import 'package:firebase_core/firebase_core.dart';
@@ -10,6 +11,7 @@ import 'core/dependencies/injector.dart';
 import 'core/views/base_widgets/base_widgets.dart';
 import 'core/views/login_view.dart';
 import 'package:profinwhatsapp/core/view/base_widgets/keyboard_widgets.dart';
+import 'package:profinwhatsapp/core/views/base_widgets/base_widgets.dart';
 
 
 Future<void> main() async {
@@ -41,7 +43,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Demo Home Page'),
+      home:  MyHomePage(title: 'Demo Home Page'),
       routes: {
         '/loginview': (context) => LoginView(),
         '/loginpage': (context) => const LoginPage(),
@@ -54,9 +56,9 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+  var title;
 
-  final String title;
+ MyHomePage({super.key, required this.title});
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
@@ -96,10 +98,10 @@ class _MyHomePageState extends State<MyHomePage> {
         title: const Text('Enter OTP'),
       ),
      body: Padding(
-  padding: EdgeInsets.all(16.0),
+  padding: const  EdgeInsets.all(16.0),
   child: Center(
     child: ConstrainedBox(
-      constraints: BoxConstraints(maxWidth: 400), // Setting maximum width constraint
+      constraints: const BoxConstraints(maxWidth: 400), // Setting maximum width constraint
       child: BaseWidgets.proContainer(
         padding: const EdgeInsets.all(16.0),
         decoration: BoxDecoration(
@@ -156,67 +158,40 @@ class _MyHomePageState extends State<MyHomePage> {
                  ),
                ),
              ),
-             const SizedBox(height:80),
-              BaseWidgets.proRow(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: List.generate(
-                3,
-                (index) => Flexible( // Wrapping with Flexible to adjust space evenly
-                  child: SizedBox(
-                    width: 50,
-                    child: BaseWidgets.proTextField(
-                      style: Theme.of(context).textTheme.headlineMedium,
-                      keyboardType: TextInputType.number,
-                      textAlign: TextAlign.center,
-                      maxLength: 1,
-                      decoration: InputDecoration(
-                        counterText: '',
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                      ),
-                      maxLengthEnforcement:null,
-                        inputFormatters: null, 
-                         selectionHeightStyle: BoxHeightStyle.max,
-                         selectionWidthStyle: BoxWidthStyle.max, 
-                         dragStartBehavior: DragStartBehavior.start,
-                      onChanged: (value) {
-                      
-                      },
-                      validator: (value) {},
-                     ),
-                   ),
-                 ),
-               ),
-             ), 
-             BaseWidgets.proColumn(
+  
+            BaseWidgets.proColumn(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-               const Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-             
-             CustomKeyboard('1', onPressed: (value){}),
-            
-            
-          ],
-        ),
-              ]
-             )
-          ]   
+                BaseWidgets.proRow(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               
-         
-         
-        ),
-       ),
-       ),
-      ),
-      ),
-    );
-  
-    
- }
-}
+              children: [BaseWidgets.proGridView(
+               gridDelegate:  const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 3,),
+                  itemCount: 1, //only one item .which is our customerkeyboard
+                  itemBuilder: (context, index) {
+                    return  SizedBox(
+                      width: MediaQuery.of(context).size.width, // Set width to match parent's width
+                     height: 100, // Set height to a fixed value
+                   child:CustomKeyboard(
+                      '1', onPressed: (value){}),
+                       );
+                      }
+                    ),
+                  ],
+                ),
+               ],
+             ),
+
+                 ], 
+                ),
+              ),
+            ),
+          ),
+         ),
+        );
+       }
+    }
 
                /* BaseWidgets.proTextField(
                       keyboardType: TextInputType.emailAddress,

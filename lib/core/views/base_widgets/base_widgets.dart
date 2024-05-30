@@ -581,50 +581,47 @@ import 'package:flutter/material.dart';
 
   //add gridview...
   //Method to create a gridview
-   /*    static GridView proGridView({
-            Key? key,
+      static GridView proGridView({
+             Key? key,
             Axis scrollDirection = Axis.vertical,
             bool reverse = false,
             ScrollController? controller,
             bool? primary,
-            ScrollPhysics? physics,
-            bool shrinkWrap = false,
-            EdgeInsetsGeometry? padding,
-            required SliverGridDelegate gridDelegate,
-            bool addAutomaticKeepAlives = true,
-            bool addRepaintBoundaries = true,
-            bool addSemanticIndexes = true,
-            double? cacheExtent,
-            List<Widget> children = const <Widget>[],
-            int? semanticChildCount,
-            Clip clipBehavior = Clip.hardEdge,
-            ScrollViewKeyboardDismissBehavior keyboardDismissBehavior = ScrollViewKeyboardDismissBehavior.manual,
-            dynamic String,
-           }){
-               return GridView(
-                 gridDelegate: gridDelegate,
-                 scrollDirection: scrollDirection,
-                 reverse: reverse,
-                 controller: controller,
-                 primary: primary, 
-                 physics: physics,
-                 shrinkWrap: shrinkWrap,
-                 padding: padding,
-                 addAutomaticKeepAlives: addAutomaticKeepAlives,
-                 addRepaintBoundaries: addRepaintBoundaries,
-                 addSemanticIndexes: addSemanticIndexes,
-                 cacheExtent: cacheExtent,
-                 semanticChildCount: semanticChildCount,
-                 clipBehavior: clipBehavior,
-                 keyboardDismissBehavior: keyboardDismissBehavior,
-                 children: children,
-                );
-              }
+           ScrollPhysics? physics,
+           bool shrinkWrap = false,
+          EdgeInsetsGeometry? padding,
+           required SliverGridDelegate gridDelegate,
+           bool addAutomaticKeepAlives = true,
+           bool addRepaintBoundaries = true,
+           bool addSemanticIndexes = true,
+          double? cacheExtent,
+          required int itemCount,
+           required Widget Function(BuildContext context, int index) itemBuilder,
+  }) {
+    return GridView.builder(
+      key: key,
+      gridDelegate: gridDelegate,
+      scrollDirection: scrollDirection,
+      reverse: reverse,
+      controller: controller,
+      primary: primary,
+      physics: physics,
+      shrinkWrap: shrinkWrap,
+      padding: padding,
+      itemCount: itemCount,
+      itemBuilder: itemBuilder,
+      addAutomaticKeepAlives: addAutomaticKeepAlives,
+      addRepaintBoundaries: addRepaintBoundaries,
+      addSemanticIndexes: addSemanticIndexes,
+      cacheExtent: cacheExtent,
+    );
+  }
+
 
 
   //add table material....
   //Method to create an tablematerial
-     static Table proTableMaterial({
+   /*  static Table proTableMaterial({
             required List<List<String>> data,
             required int columnCount,
             Map<int, TableColumnWidth>? columnWidths,

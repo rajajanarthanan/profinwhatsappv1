@@ -1,12 +1,15 @@
-// lib/keyboard_widget.dart
 import 'package:flutter/material.dart';
+import 'package:profinwhatsapp/core/views/base_widgets/base_widgets.dart';
 
 class CustomKeyboard extends StatelessWidget {
-  final Function(String) onKeyPressed;
+  final String label;
+  final void Function(String value) onPressed;
 
-  const CustomKeyboard(String? label, {
-    required this.onKeyPressed,
-    required void Function(String? value) onPressed});
+  const CustomKeyboard(
+    this.label, {
+    super.key,
+    required this.onPressed,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -15,32 +18,37 @@ class CustomKeyboard extends StatelessWidget {
         return Container(
           height: constraints.maxHeight,
           color: Colors.grey[300],
-          child: GridView.count(
-            crossAxisCount: 3,
-            childAspectRatio: (constraints.maxWidth / 3) / (constraints.maxHeight / 4),
-            children: [
-              _buildKey('1'),
-              _buildKey('2'),
-              _buildKey('3'),
-              _buildKey('4'),
-              _buildKey('5'),
-              _buildKey('6'),
-              _buildKey('7'),
-              _buildKey('8'),
-              _buildKey('9'),
-              _buildKey('*'),
-              _buildKey('0'),
-              _buildKey('#'),
-            ],
+          child: BaseWidgets.proGridView(
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 3,
+              childAspectRatio:
+                  (constraints.maxWidth / 3) / (constraints.maxHeight / 4),
+            ),
+            itemCount: 12,
+            itemBuilder: (BuildContext context,  int index) {
+              return _buildKey(index);
+            },
           ),
         );
       },
     );
   }
 
-  Widget _buildKey(String value) {
+  Widget _buildKey(int index) {
+    String value;
+    if (index < 9) {
+      value = (index + 1).toString();
+    } else if (index == 9) {
+      value = '*';
+    } else if (index == 10) {
+      value = '0';
+    } else {
+      value = '#';
+    }
     return GestureDetector(
-      onTap: () => onKeyPressed(value),
+      onTap: () {
+        onPressed(value);
+      },
       child: Container(
         margin: const EdgeInsets.all(4),
         decoration: BoxDecoration(
@@ -51,15 +59,10 @@ class CustomKeyboard extends StatelessWidget {
         child: Center(
           child: Text(
             value,
-            style: const  TextStyle(fontSize: 24),
+            style: const TextStyle(fontSize: 24),
           ),
         ),
       ),
     );
   }
-
-
- 
-  }
-
-
+}
