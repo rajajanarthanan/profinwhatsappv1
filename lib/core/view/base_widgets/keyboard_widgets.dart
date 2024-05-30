@@ -21,11 +21,11 @@ class CustomKeyboard extends StatelessWidget {
           child: BaseWidgets.proGridView(
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 3,
-              childAspectRatio:
+              childAspectRatio: //-1.0,
                   (constraints.maxWidth / 3) / (constraints.maxHeight / 4),
             ),
             itemCount: 12,
-            itemBuilder: (BuildContext context,  int index) {
+            itemBuilder: (BuildContext context, int index) {
               return _buildKey(index);
             },
           ),

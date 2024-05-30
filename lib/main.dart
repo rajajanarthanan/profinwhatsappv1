@@ -1,4 +1,3 @@
-
 import 'dart:ui';
 
 import 'package:firebase_core/firebase_core.dart';
@@ -12,7 +11,6 @@ import 'core/views/base_widgets/base_widgets.dart';
 import 'core/views/login_view.dart';
 import 'package:profinwhatsapp/core/view/base_widgets/keyboard_widgets.dart';
 import 'package:profinwhatsapp/core/views/base_widgets/base_widgets.dart';
-
 
 Future<void> main() async {
   setupInjector();
@@ -43,7 +41,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home:  MyHomePage(title: 'Demo Home Page'),
+      home: MyHomePage(title: 'Demo Home Page'),
       routes: {
         '/loginview': (context) => LoginView(),
         '/loginpage': (context) => const LoginPage(),
@@ -58,7 +56,7 @@ class MyApp extends StatelessWidget {
 class MyHomePage extends StatefulWidget {
   var title;
 
- MyHomePage({super.key, required this.title});
+  MyHomePage({super.key, required this.title});
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
@@ -66,14 +64,13 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
-  
 
   void _incrementCounter() {
     setState(() {
       _counter++;
     });
   }
-   
+
   @override
   Widget build(BuildContext context) {
     BaseWidgets basewidgets = BaseWidgets();
@@ -97,101 +94,107 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: const Text('Enter OTP'),
       ),
-     body: Padding(
-  padding: const  EdgeInsets.all(16.0),
-  child: Center(
-    child: ConstrainedBox(
-      constraints: const BoxConstraints(maxWidth: 400), // Setting maximum width constraint
-      child: BaseWidgets.proContainer(
+      body: Padding(
         padding: const EdgeInsets.all(16.0),
-        decoration: BoxDecoration(
-          border: Border.all(color: Colors.grey),
-          borderRadius: BorderRadius.circular(8.0),
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            const SizedBox(height: 10.1), // Adjusted SizedBox height
-            
-            BaseWidgets.proText(
-              data: 'Verification code',
-              style: const TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
-              textAlign: TextAlign.center,
-            ),
+        child: Center(
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(
+                maxWidth: 400), // Setting maximum width constraint
+            child: BaseWidgets.proContainer(
+              padding: const EdgeInsets.all(16.0),
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.grey),
+                borderRadius: BorderRadius.circular(8.0),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  const SizedBox(height: 10.1), // Adjusted SizedBox height
 
-            const SizedBox(height: 10),
-            BaseWidgets.proText(
-              data: 'We send code to registered Mobile Number',
-              textAlign: TextAlign.center,
-            ),
+                  BaseWidgets.proText(
+                    data: 'Verification code',
+                    style: const TextStyle(
+                        fontSize: 25, fontWeight: FontWeight.bold),
+                    textAlign: TextAlign.center,
+                  ),
 
-            const SizedBox(height: 30),
-            BaseWidgets.proRow(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: List.generate(
-                6,
-                (index) => Flexible( // Wrapping with Flexible to adjust space evenly
-                  child: SizedBox(
-                    width: 50,
-                    child: BaseWidgets.proTextField(
-                      style: Theme.of(context).textTheme.headlineMedium,
-                      keyboardType: TextInputType.number,
-                      textAlign: TextAlign.center,
-                      maxLength: 1,
-                      decoration: InputDecoration(
-                        counterText: '',
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
+                  const SizedBox(height: 10),
+                  BaseWidgets.proText(
+                    data: 'We send code to registered Mobile Number',
+                    textAlign: TextAlign.center,
+                  ),
+
+                  const SizedBox(height: 30),
+                  BaseWidgets.proRow(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: List.generate(
+                      6,
+                      (index) => Flexible(
+                        // Wrapping with Flexible to adjust space evenly
+                        child: SizedBox(
+                          width: 50,
+                          child: BaseWidgets.proTextField(
+                            style: Theme.of(context).textTheme.headlineMedium,
+                            keyboardType: TextInputType.number,
+                            textAlign: TextAlign.center,
+                            maxLength: 1,
+                            decoration: InputDecoration(
+                              counterText: '',
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                            ),
+                            maxLengthEnforcement: null,
+                            inputFormatters: null,
+                            selectionHeightStyle: BoxHeightStyle.max,
+                            selectionWidthStyle: BoxWidthStyle.max,
+                            dragStartBehavior: DragStartBehavior.start,
+                            onChanged: (value) {},
+                            validator: (value) {},
+                          ),
                         ),
                       ),
-                      maxLengthEnforcement:null,
-                        inputFormatters: null, 
-                         selectionHeightStyle: BoxHeightStyle.max,
-                         selectionWidthStyle: BoxWidthStyle.max, 
-                         dragStartBehavior: DragStartBehavior.start,
-                      onChanged: (value) {
-                      
-                      },
-                      validator: (value) {},
-                     ),
-                   ),
-                 ),
-               ),
-             ),
-  
-            BaseWidgets.proColumn(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                BaseWidgets.proRow(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              
-              children: [BaseWidgets.proGridView(
-               gridDelegate:  const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 3,),
-                  itemCount: 1, //only one item .which is our customerkeyboard
-                  itemBuilder: (context, index) {
-                    return  SizedBox(
-                      width: MediaQuery.of(context).size.width, // Set width to match parent's width
-                     height: 100, // Set height to a fixed value
-                   child:CustomKeyboard(
-                      '1', onPressed: (value){}),
-                       );
-                      }
                     ),
-                  ],
-                ),
-               ],
-             ),
+                  ),
 
-                 ], 
-                ),
+                  // CustomKeyboard('1', onPressed: (value) {}),
+
+                  BaseWidgets.proColumn(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      BaseWidgets.proRow(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          BaseWidgets.proGridView(
+                              gridDelegate:
+                                  const SliverGridDelegateWithFixedCrossAxisCount(
+                                crossAxisCount: 3,
+                              ),
+                              itemCount:
+                                  1, //only one item .which is our customerkeyboard
+                              itemBuilder: (context, index) {
+                                return SizedBox(
+                                  width: MediaQuery.of(context)
+                                      .size
+                                      .width, // Set width to match parent's width
+                                  height: 100, // Set height to a fixed value
+                                  child: CustomKeyboard('1',
+                                      onPressed: (value) {}),
+                                );
+                              }),
+                        ],
+                      ),
+                    ],
+                  ),
+                ],
               ),
             ),
           ),
-         ),
-        );
-       }
-    }
+        ),
+      ),
+    );
+  }
+}
 
                /* BaseWidgets.proTextField(
                       keyboardType: TextInputType.emailAddress,
