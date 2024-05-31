@@ -1,68 +1,75 @@
 import 'package:flutter/material.dart';
 import 'package:profinwhatsapp/core/views/base_widgets/base_widgets.dart';
 
+
+
 class CustomKeyboard extends StatelessWidget {
   final String label;
   final void Function(String value) onPressed;
 
-  const CustomKeyboard(
-    this.label, {
-    super.key,
+  const CustomKeyboard({
+    required this.label,
     required this.onPressed,
   });
 
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
-      builder: (context, constraints) {
+       builder: (context, constraints) {
         return Container(
           height: constraints.maxHeight,
-          color: Colors.grey[300],
-          child: BaseWidgets.proGridViewBuilder(
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 3,
-              childAspectRatio:
-                  (constraints.maxWidth / 3) / (constraints.maxHeight / 4),
+          color: Colors.black12,
+         child: BaseWidgets.proGridViewBuilder(
+        physics: const NeverScrollableScrollPhysics(), // Disable scrolling
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 3,
+          childAspectRatio: (constraints.maxWidth / 3) / (constraints.maxHeight / 4),
             ),
-            itemCount: 12,
-            itemBuilder: (BuildContext context,  int index) {
-              return _buildKey(index);
+        itemCount: 12,
+        shrinkWrap: true, // Constrain the size of the keyboard to its contents
+        itemBuilder: (BuildContext context, int index) {
+          return _buildKey( index);
             },
-          ),
-        );
-      },
-    );
+           ),
+         );
+       },
+     );
   }
 
-  Widget _buildKey(int index) {
+  Widget _buildKey( int index) {
     String value;
     if (index < 9) {
       value = (index + 1).toString();
     } else if (index == 9) {
-      value = '*';
+      value = '⌫';
     } else if (index == 10) {
       value = '0';
     } else {
-      value = '#';
+      value = '✓';
     }
     return GestureDetector(
       onTap: () {
         onPressed(value);
       },
       child: Container(
-        margin: const EdgeInsets.all(4),
-        decoration: BoxDecoration(
-          color: Colors.white,
-          border: Border.all(color: Colors.black),
-          borderRadius: BorderRadius.circular(8),
-        ),
-        child: Center(
-          child: Text(
-            value,
-            style: const TextStyle(fontSize: 24),
+        margin: const  EdgeInsets.all(4),
+        decoration:  BoxDecoration(
+          color: Colors.black12,
+            borderRadius: BorderRadius.circular(10.0),  
+          ),
+             child: Center(
+             child: Text(
+             value,
+            style: const TextStyle(
+              fontSize: 24,),
           ),
         ),
       ),
     );
   }
 }
+
+
+
+ 
+          

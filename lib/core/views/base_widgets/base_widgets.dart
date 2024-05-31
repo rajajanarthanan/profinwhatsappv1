@@ -618,6 +618,59 @@ import 'package:flutter/material.dart';
   }
 
 
+      static GridView proGridViewCount({
+        Key? key,
+Axis scrollDirection = Axis.vertical,
+bool reverse = false,
+ScrollController? controller,
+bool? primary,
+ScrollPhysics? physics,
+bool shrinkWrap = false,
+EdgeInsetsGeometry? padding,
+required int crossAxisCount,
+double mainAxisSpacing = 0.0,
+double crossAxisSpacing = 0.0,
+double childAspectRatio = 1.0,
+bool addAutomaticKeepAlives = true,
+bool addRepaintBoundaries = true,
+bool addSemanticIndexes = true,
+double? cacheExtent,
+List<Widget> children = const <Widget>[],
+int? semanticChildCount,
+required  dragStartBehavior,
+ScrollViewKeyboardDismissBehavior keyboardDismissBehavior = ScrollViewKeyboardDismissBehavior.manual,
+String? restorationId,
+Clip clipBehavior = Clip.hardEdge, 
+required List<String> keys,
+ required Null Function(dynamic key) onPressed
+      }){
+        return GridView.count(
+    key: key,
+    scrollDirection: scrollDirection,
+    reverse: reverse,
+    controller: controller,
+    primary: primary,
+    physics: physics,
+    shrinkWrap: shrinkWrap,
+    padding: padding,
+    crossAxisCount: crossAxisCount,
+    mainAxisSpacing: mainAxisSpacing,
+    crossAxisSpacing: crossAxisSpacing,
+    childAspectRatio: childAspectRatio,
+    addAutomaticKeepAlives: addAutomaticKeepAlives,
+    addRepaintBoundaries: addRepaintBoundaries,
+    addSemanticIndexes: addSemanticIndexes,
+    cacheExtent: cacheExtent,
+    semanticChildCount: semanticChildCount,
+    dragStartBehavior: dragStartBehavior,
+    keyboardDismissBehavior: keyboardDismissBehavior,
+    restorationId: restorationId,
+    clipBehavior: clipBehavior,
+     children: children,
+  );
+ }
+
+
 
   //add table material....
   //Method to create an tablematerial
@@ -937,7 +990,7 @@ import 'package:flutter/material.dart';
             }*/
 
   //Method to create an textfield
-       static TextField proTextField({
+     static TextField proTextField({
         Key? key,
         TextEditingController? controller,
         FocusNode? focusNode,
@@ -957,7 +1010,7 @@ import 'package:flutter/material.dart';
         bool? showCursor,
         bool autofocus = false,
          WidgetStatesController? statesController,
-         String obscuringCharacter = '•',
+         String obscuringCharacter = '*',
          bool obscureText = false,
          bool autocorrect = true,
          SmartDashesType? smartDashesType,
