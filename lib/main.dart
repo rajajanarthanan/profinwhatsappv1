@@ -2,12 +2,12 @@
 import 'dart:ui';
 
 import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:injector/injector.dart';
+import 'package:profinwhatsapp/core/view/base_widgets/biometric_widgets.dart';
+import 'package:profinwhatsapp/core/view/base_widgets/pinkeyboard_widgets.dart';
 import 'package:profinwhatsapp/core/views/widgets/login_widgets/login_widget.dart';
 import 'core/dependencies/injector.dart';
 import 'core/views/base_widgets/base_widgets.dart';
@@ -45,7 +45,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home:  MyHomePage(title: 'Demo Home Page'),
+      home: MyHomePage(title: 'Demo Home Page'),
       routes: {
         '/loginview': (context) => LoginView(),
         '/loginpage': (context) => const LoginPage(),
@@ -101,11 +101,12 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
        body: Padding(
        padding: const EdgeInsets.all(16.0),
+      
        child: Center(
-       child: ConstrainedBox(
+        child: ConstrainedBox(
           constraints: const BoxConstraints(maxWidth: 400),
           child: BaseWidgets.proContainer(
-             padding: const EdgeInsets.all(16.0),
+             padding: const EdgeInsets.all(8.0),
              decoration: BoxDecoration(
              border: Border.all(color: Colors.grey),
              borderRadius: BorderRadius.circular(8.0),
@@ -113,7 +114,92 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Column(
                crossAxisAlignment: CrossAxisAlignment.stretch,
 
-              children: [
+
+                 children:[
+                  const SizedBox(height:50),
+                   BaseWidgets.proText(
+                    data: 'Enter 4 Digit Login PIN',
+                    style: const  TextStyle(
+                      fontSize:30,
+                      fontWeight:FontWeight.bold,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+
+
+                  const SizedBox(height: 30),
+                  BaseWidgets.proRow(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children:List.generate(
+                     4, (index)=>Flexible(
+                      child: SizedBox(
+                        width:40,
+                        child : BaseWidgets.proTextField(
+                          keyboardType: TextInputType.number,
+                          textAlign : TextAlign.center,
+                          maxLength: 1,
+                          decoration: const InputDecoration(
+                            counterText: '',
+                           ),
+                            maxLengthEnforcement: null,
+                            inputFormatters: null,
+                            selectionHeightStyle: BoxHeightStyle.max, 
+                            selectionWidthStyle: BoxWidthStyle.max, 
+                            dragStartBehavior: DragStartBehavior.start, 
+                            onChanged: (value ) {  },
+                            validator: (value)  {  }
+                            ),
+                          
+                           ),
+                          ),
+                        ),
+                      ),
+                       
+           
+                     
+                     const SizedBox(height:50),
+                     BaseWidgets.proTextButton(
+                      onPressed: () { }, 
+                      child: const Text(
+                        'Forget MPIN?',
+                        style:TextStyle(
+                          color:Colors.blue,
+                          fontSize : 20,
+                          ),
+                        ), 
+                      textAlign: TextAlign.center, 
+                      textDirection:TextDirection.ltr,
+                     ),
+                     
+                    const SizedBox(height:90),
+                    SizedBox(
+                    width:MediaQuery.sizeOf(context).width *0.50,
+                    height : MediaQuery .sizeOf(context).height *0.40,
+                    
+                    child:BaseWidgets.proRow(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+
+                      children:[
+                          Flexible(
+                            child: MpinKeyboard(
+                              onKeyPressed: (ValueKey), 
+                              ),
+                            ),
+                         ],
+                       ),
+                    ),
+                  ],   
+                ),  
+              ),
+            ), 
+          ),
+        ), 
+       );   
+     }
+   }
+                   
+                 
+           /*   children: [
                 const SizedBox(height: 45),
                 BaseWidgets.proText(
                    data: 'OTP',
@@ -189,16 +275,9 @@ class _MyHomePageState extends State<MyHomePage> {
                      ),
                     ),
                   ],
-                ),
-              ),
-            ),
-           ),
-         ),
-        );
-      }
-   }
+               
 
-               /* BaseWidgets.proTextField(
+                BaseWidgets.proTextField(
                       keyboardType: TextInputType.emailAddress,
                       decoration : const InputDecoration(
                       labelText: 'Email',

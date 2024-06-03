@@ -77,7 +77,7 @@ import 'package:flutter/material.dart';
            }
  
   // Method to create a LoadingButton
-   /*  static ElevatedButton proLoadingButton({
+     static ElevatedButton proLoadingButton({
          required VoidCallback onPressed,
          required bool isLoading,
          required Widget child,
@@ -158,7 +158,7 @@ import 'package:flutter/material.dart';
              textDirection: textDirection,
              applyTextScaling: applyTextScaling,
             );
-          }*/
+          }
 
     //add image...
   //Method to create an image
