@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:injector/injector.dart';
 import 'package:profinwhatsapp/core/view/base_widgets/biometric_widgets.dart';
 import 'package:profinwhatsapp/core/view/base_widgets/pinkeyboard_widgets.dart';
+import 'package:profinwhatsapp/core/view/base_widgets/splashscreen_widgets.dart';
 import 'package:profinwhatsapp/core/views/widgets/login_widgets/login_widget.dart';
 import 'core/dependencies/injector.dart';
 import 'core/views/base_widgets/base_widgets.dart';
@@ -40,12 +41,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'splash screen demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: MyHomePage(title: 'Demo Home Page'),
+       primarySwatch: Colors.blue
+        ),
+      home: SplashScreen(),
       routes: {
         '/loginview': (context) => LoginView(),
         '/loginpage': (context) => const LoginPage(),
@@ -69,6 +69,8 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
   
+  
+  
 
   void _incrementCounter() {
     setState(() {
@@ -76,12 +78,15 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
    
+
+   
   @override
   Widget build(BuildContext context) {
     BaseWidgets basewidgets = BaseWidgets();
     final injector = Injector.appInstance;
 
     // final authService = injector.get<AuthService>();
+
 
     FloatingActionButton(
       onPressed: _incrementCounter,
@@ -93,13 +98,23 @@ class _MyHomePageState extends State<MyHomePage> {
       '$_counter',
       style: Theme.of(context).textTheme.headlineMedium,
     );
+   
 
-      return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: const Text('Enter OTP'),
+    return Scaffold(
+        appBar: AppBar(
+           backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+       title: const Text(" this is Second Screen"),
       ),
-       body: Padding(
+    );
+  }
+}
+       
+        
+        
+        
+        
+        
+        /*Padding(
        padding: const EdgeInsets.all(16.0),
       
        child: Center(
@@ -108,15 +123,39 @@ class _MyHomePageState extends State<MyHomePage> {
           child: BaseWidgets.proContainer(
              padding: const EdgeInsets.all(8.0),
              decoration: BoxDecoration(
+              color : Colors.grey,
              border: Border.all(color: Colors.grey),
              borderRadius: BorderRadius.circular(8.0),
             ),
             child: Column(
+              
                crossAxisAlignment: CrossAxisAlignment.stretch,
 
 
                  children:[
-                  const SizedBox(height:50),
+                  
+                    // const SizedBox(height : 30),
+                       BaseWidgets.proElevatedButton(
+                      onPressed : (){
+                       // BiometricScreen().build(context);
+                        // navigate  to the biometric screen
+                        // Navigator.push(
+                        //   context,
+                        //   MaterialPageRoute(builder: (context)=> BiometricScreen(),
+                            
+                        //   ),
+                        // );
+                      },
+
+
+                        child :BaseWidgets.proText(
+                          data: 'Show Biometric Screen',
+                          style : const TextStyle(fontSize :16, fontWeight : FontWeight.bold),
+                          
+                          ),
+
+                       ),
+                  const SizedBox(height:40),
                    BaseWidgets.proText(
                     data: 'Enter 4 Digit Login PIN',
                     style: const  TextStyle(
@@ -167,11 +206,13 @@ class _MyHomePageState extends State<MyHomePage> {
                           fontSize : 20,
                           ),
                         ), 
-                      textAlign: TextAlign.center, 
-                      textDirection:TextDirection.ltr,
+                    
                      ),
-                     
-                    const SizedBox(height:90),
+
+                   
+                   
+                         
+                     const SizedBox(height:50),
                     SizedBox(
                     width:MediaQuery.sizeOf(context).width *0.50,
                     height : MediaQuery .sizeOf(context).height *0.40,
@@ -182,24 +223,29 @@ class _MyHomePageState extends State<MyHomePage> {
                       children:[
                           Flexible(
                             child: MpinKeyboard(
-                              onKeyPressed: (ValueKey), 
+                             label: '',
+                            onPressed: (String value) {  }, 
                               ),
                             ),
                          ],
                        ),
                     ),
-                  ],   
+                 ],
+                  ),  
                 ),  
               ),
-            ), 
-          ),
-        ), 
-       );   
-     }
-   }
+            ),
+           ),
+         );
+      }
+    }
+
+
+  
+   
                    
                  
-           /*   children: [
+             children: [
                 const SizedBox(height: 45),
                 BaseWidgets.proText(
                    data: 'OTP',
@@ -261,6 +307,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     width: MediaQuery.sizeOf(context).width *0.50,
                     height: MediaQuery.sizeOf(context).height *0.40,
               
+
                     child: BaseWidgets.proRow(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
 
@@ -273,6 +320,21 @@ class _MyHomePageState extends State<MyHomePage> {
                         ), 
                        ],
                      ),
+              children: [BaseWidgets.proGridViewBuilder(
+              children: [BaseWidgets.proGridView(
+
+               gridDelegate:  const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 3,),
+                  itemCount: 1, //only one item .which is our customerkeyboard
+                  itemBuilder: (context, index) {
+                    return  SizedBox(
+                      width: MediaQuery.of(context).size.width, // Set width to match parent's width
+                     height: 100, // Set height to a fixed value
+                   child:CustomKeyboard(
+                      '1', onPressed: (value){}),
+                       );
+                      }
+
                     ),
                   ],
                
@@ -686,27 +748,10 @@ class _MyHomePageState extends State<MyHomePage> {
                     title: Text('Item $index'),
                    );
                    },
-                  ),*/
+                  ), */
 
-              
-
+                  
              
-
-            
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            
+                
+                
+              

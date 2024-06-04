@@ -61,7 +61,7 @@ import 'package:flutter/material.dart';
          FocusNode? focusNode,
          bool autofocus = false,
          Clip clipBehavior = Clip.none,
-         required Widget child, required TextAlign textAlign, required TextDirection textDirection,
+         required Widget child, 
          }) {
             return TextButton(
              onPressed: onPressed,
@@ -142,7 +142,7 @@ import 'package:flutter/material.dart';
          List<Shadow>? shadows,
          String? semanticLabel,
          TextDirection? textDirection,
-         bool? applyTextScaling,
+         bool? applyTextScaling, 
          }){
            return Icon(
              icon,

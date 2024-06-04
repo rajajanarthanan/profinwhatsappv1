@@ -2,55 +2,62 @@
 import 'package:flutter/material.dart';
 import 'package:profinwhatsapp/core/views/base_widgets/base_widgets.dart';
 
-
-
-class BiometricScreen extends StatelessWidget {
-   final Function onAuthenticatePressed;
-
-
-   const BiometricScreen({
-        required this. onAuthenticatePressed
-   });
-
-  @override
-  Widget build(BuildContext context) {
-    return  Container(
-      color: Colors.transparent,
-      child : Center(
-        child : Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-      
-             children: [
-              BaseWidgets. proIcon(
-                icon: Icons.fingerprint,
-                size: 100,
-                color : Colors.blue,
-              ),
-
-              const SizedBox(height :30),
-              BaseWidgets.proText(
-                data: ' place on your finger on the sensor to authentication',
-                textAlign: TextAlign.center,
-                style : const TextStyle(fontSize:25),
-                ),
-               
-               const SizedBox(height :30),
-               BaseWidgets.proLoadingButton(
-                onPressed :() { },
-                child: const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 20,vertical: 10),
-                   child :Text(
-                    'authentication',
-                    style : TextStyle(fontSize :15),
-                    ),
-                   ), isLoading: false,
-                 ),
-               ],
-            ),
-        ),
-     );
-
-  }
+double opcaity({double i=0.0}){
+  return i;
 }
 
+class BiometricScreen extends StatefulWidget {
+  const BiometricScreen ({super.key});
+
+  @override
+  State<BiometricScreen> createState() => _BiometricScreenState();
+}
+
+
+
+class _BiometricScreenState extends State<BiometricScreen> {
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      backgroundColor : Colors.black.withOpacity(1.0),
+      title : BaseWidgets.proText(
+        data:'Biometric verification',
+         ),
+         content : Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment : CrossAxisAlignment.center,
+          children : [
+               BaseWidgets.proIcon(
+                icon: Icons.fingerprint,
+                size : 100,
+                color : Colors. blue,
+                 ),
+
+                 const SizedBox(height : 20),
+                  BaseWidgets.proText(
+                    data : 'Scanning',
+                    ),
+
+                  const SizedBox(height : 20),
+                  BaseWidgets.proText(
+                    data :' Biometric Authentication',
+                    style : const TextStyle(
+                      fontSize :25,
+                      fontWeight : FontWeight.bold,
+                    ),
+                 ),  
+              ],
+            ),
+              actions : [
+                 BaseWidgets.proTextButton(
+                  onPressed : () { 
+                  Navigator.of(context).pop();
+                  },
+                  child: const Text('Close'),
+                   ),
+                 ],
+               );
+    
+           }
+         }
 
