@@ -6,15 +6,16 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:injector/injector.dart';
-import 'package:profinwhatsapp/core/view/base_widgets/biometric_widgets.dart';
-import 'package:profinwhatsapp/core/view/base_widgets/pinkeyboard_widgets.dart';
-import 'package:profinwhatsapp/core/view/base_widgets/splashscreen_widgets.dart';
 import 'package:profinwhatsapp/core/views/widgets/login_widgets/login_widget.dart';
 import 'core/dependencies/injector.dart';
 import 'core/views/base_widgets/base_widgets.dart';
 import 'core/views/login_view.dart';
 import 'package:profinwhatsapp/core/view/base_widgets/keyboard_widgets.dart';
 import 'package:profinwhatsapp/core/views/base_widgets/base_widgets.dart';
+import 'package:profinwhatsapp/core/view/base_widgets/biometric_widgets.dart';
+import 'package:profinwhatsapp/core/view/base_widgets/pinkeyboard_widgets.dart';
+import 'package:profinwhatsapp/core/view/base_widgets/splash_screen.dart';
+import 'package:flutter_chat_ui/flutter_chat_ui.dart';
 
 
 Future<void> main() async {
@@ -41,11 +42,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'splash screen demo',
+      title: 'Flutter demo',
       theme: ThemeData(
-       primarySwatch: Colors.blue
+       primarySwatch: Colors.green,
         ),
-      home: SplashScreen(),
+      home: SplashScreen (),      
       routes: {
         '/loginview': (context) => LoginView(),
         '/loginpage': (context) => const LoginPage(),
@@ -55,7 +56,12 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
     );
   }
+  
+
 }
+
+
+
 
 class MyHomePage extends StatefulWidget {
   var title;
