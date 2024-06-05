@@ -3,19 +3,24 @@ import 'dart:ui';
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
+// ignore: unused_import
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:injector/injector.dart';
 import 'package:profinwhatsapp/core/views/widgets/login_widgets/login_widget.dart';
+import 'package:profinwhatsapp/screens/chat_screen.dart';
 import 'core/dependencies/injector.dart';
 import 'core/views/base_widgets/base_widgets.dart';
 import 'core/views/login_view.dart';
+// ignore: unused_import
 import 'package:profinwhatsapp/core/view/base_widgets/keyboard_widgets.dart';
 import 'package:profinwhatsapp/core/views/base_widgets/base_widgets.dart';
 import 'package:profinwhatsapp/core/view/base_widgets/biometric_widgets.dart';
 import 'package:profinwhatsapp/core/view/base_widgets/pinkeyboard_widgets.dart';
 import 'package:profinwhatsapp/core/view/base_widgets/splash_screen.dart';
 import 'package:flutter_chat_ui/flutter_chat_ui.dart';
+import 'package:profinwhatsapp/core/view/base_widgets/screens/chat_screen.dart';
+
 
 
 Future<void> main() async {
@@ -42,11 +47,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter demo',
+      title: 'Flutter Demo',
       theme: ThemeData(
        primarySwatch: Colors.green,
         ),
-      home: SplashScreen (),      
+      home: ChatScreen(),     
       routes: {
         '/loginview': (context) => LoginView(),
         '/loginpage': (context) => const LoginPage(),

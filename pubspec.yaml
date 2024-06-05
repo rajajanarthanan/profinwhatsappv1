@@ -47,6 +47,8 @@ dependencies:
   flutter_facebook_auth:
   flutter_secure_storage:
   flutter_chat_ui: ^1.6.13
+  flutter_chat_types: ^3.6.2
+  
 
 
 dev_dependencies:
@@ -92,7 +94,7 @@ flutter:
   assets:
     - assets/google_logo.png
     - assets/facebook_logo.png
-    - assets/splash_logo.png
+  
    # -images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
