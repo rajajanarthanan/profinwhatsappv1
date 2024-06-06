@@ -19,6 +19,7 @@ import 'package:profinwhatsapp/core/view/base_widgets/biometric_widgets.dart';
 import 'package:profinwhatsapp/core/view/base_widgets/pinkeyboard_widgets.dart';
 import 'package:profinwhatsapp/core/view/base_widgets/splash_screen.dart';
 import 'package:flutter_chat_ui/flutter_chat_ui.dart';
+ import 'package:flutter_chat_types/flutter_chat_types.dart' as chat_types;
 import 'package:profinwhatsapp/core/view/base_widgets/screens/chat_screen.dart';
 
 
@@ -51,7 +52,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
        primarySwatch: Colors.green,
         ),
-      home: ChatScreen(),     
+      home:ChatScreen(),     
       routes: {
         '/loginview': (context) => LoginView(),
         '/loginpage': (context) => const LoginPage(),
