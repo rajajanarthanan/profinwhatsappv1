@@ -1,7 +1,9 @@
 import 'dart:ui';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_chat_types/flutter_chat_types.dart' as chat_types ;
 import 'package:flutter_chat_ui/flutter_chat_ui.dart';
@@ -16,97 +18,67 @@ class ChatScreen extends StatefulWidget {
 class _ChatScreenState extends State<ChatScreen> {
   late TextEditingController _controller; 
 
-
   @override
-       void initState(){
-          super.initState();
-          _controller = TextEditingController();
-          }
-
-  @override
+  void initState(){
+    super.initState();
+    _controller = TextEditingController();
+  }
+  
+   @override
    void dispose(){
     _controller.dispose();
     super.dispose();
    }
-
-
   
-   
 
-   void _showAttachmentOptions(BuildContext context) async {
-    RenderBox renderBox = context.findRenderObject() as RenderBox;
-    Offset offset = renderBox.localToGlobal(Offset.zero);
+  void _showAttachmentOptions(BuildContext context) async {
+  RenderBox renderBox = context.findRenderObject() as RenderBox;
+  Offset offset = renderBox.localToGlobal(Offset.zero);
+  double iconSize = 40.0; // Size of the icons
+  double containerSize = iconSize * 5 + 17.5; // Width and height of the square container
 
-    await showMenu(
-      context: context,
-      position: RelativeRect.fromLTRB(
-        offset.dx - 50,
-        offset.dy - 120, // Adjust this value to position the menu above the button
-        offset.dx + renderBox.size.width,
-        offset.dy,
+  await showMenu(
+    context: context,
+    position: RelativeRect.fromLTRB(
+      offset.dx - 50, // Center the popup above the button
+      offset.dy - 240, // Adjust the position to be above the button
+      offset.dx +  renderBox.size.width,
+      offset.dy,
+    ),
+    items: [
+      PopupMenuItem(
+        padding: EdgeInsets.zero,
+        child: Container(
+          width: containerSize,
+          height: containerSize,
+          padding: EdgeInsets.all(16.25),
+          child: GridView.count(
+                   crossAxisCount: 3,
+             children:[            
+              Icon(Icons.image, size: iconSize, color: Colors.purple),
+              Icon(Icons. edit_document, size: iconSize, color: Colors.blue[900]),
+              Icon(Icons.payment, size: iconSize, color: Colors.teal),
+              Icon(Icons.location_on, size: iconSize, color : Colors.green[700]),
+              Icon(Icons.camera, size: iconSize,color : Colors.pink[600]), 
+            ],
+          ),
+        ),
       ),
-      items: [
-      const  PopupMenuItem(
-          value: 'Photo',
-          child: Row(
-            children: [
-              Icon(Icons.photo),
-              SizedBox(width: 8.0),
-              Text('Photo'),
-            ],
-          ),
-        ),
-       const  PopupMenuItem(
-          value: 'document',
-          child: Row(
-            children: [
-              Icon(Icons.videocam),
-              SizedBox(width: 8.0),
-              Text('document'),
-            ],
-          ),
-        ),
-        // Add more PopupMenuItem widgets for additional attachment options
-      ],
-    ).then((value) {
-      if (value != null) {
-        _handleMenuItemClick(value);
-      }
-    });
-  }
-
-  void _handleMenuItemClick(String value) {
-    switch (value) {
-      case 'Photo':
-        // Handle photo attachment
-        break;
-      case 'document':
-        // Handle video attachment
-        break;
-      // Add more cases for additional attachment options
+   ],
+  ).then((value) {
+    if (value != null) {
+      _handleMenuItemClick(value);
     }
-  }
-
+  });
+}
  
 
+void _handleMenuItemClick(String value) {
+  // Handle the selected item here
+}
 
-   /* void _handleMenuItemClick(String value) {
-    switch (value) {
-      case 'Photo':
-        // Handle photo attachment
-        break;
-      case 'document':
-        // Handle video attachment
-        break;
-      // Add more cases for additional attachment options
-    }
-  }*/
   
-
- 
-
- 
-  @override
+ @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -156,7 +128,7 @@ class _ChatScreenState extends State<ChatScreen> {
                 ),
 
                 IconButton(
-                   icon: Icon(Icons.attach_money),
+                   icon: Icon(Icons.attach_money_sharp),
                    onPressed: () { },
                    ),
                     

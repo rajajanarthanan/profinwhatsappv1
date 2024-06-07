@@ -45,12 +45,23 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   // This widget is the root of your application.
+
+void main() => runApp(
+  DevicePreview(
+    enabled: !kReleaseMode,
+    builder: (context) => MyApp(), // Wrap your app
+  ),
+);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      useInheritedMediaQuery: true,
+      locale: DevicePreview.locale(context),
+      builder: DevicePreview.appBuilder,
       title: 'Flutter Demo',
       theme: ThemeData(
-       primarySwatch: Colors.green,
+       primarySwatch: Colors.blue,
         ),
       home:ChatScreen(),     
       routes: {
