@@ -65,7 +65,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
        primarySwatch: Colors.green,
         ),
-      home: const MyKeyboard(),
+      home:  MyKeyboard(),
         //ChatScreen(),     
       routes: {
         '/loginview': (context) => LoginView(),

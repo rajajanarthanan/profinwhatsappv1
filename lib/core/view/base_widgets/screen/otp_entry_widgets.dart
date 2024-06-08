@@ -7,7 +7,7 @@ import 'package:profinwhatsapp/core/view/base_widgets/keyboard_widgets.dart';
 import 'package:profinwhatsapp/core/views/base_widgets/base_widgets.dart';
 
 class MyKeyboard extends StatelessWidget {
-  const MyKeyboard({super.key});
+ 
 
   @override
   Widget build(BuildContext context) {
@@ -27,10 +27,10 @@ class MyKeyboard extends StatelessWidget {
                  border: Border.all(color: Colors.grey),
                  borderRadius: BorderRadius.circular(8.0),
                  ),
+                 child: SingleChildScrollView(
                  child : Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
-                 
-            children :[
+                  children :[
                 const SizedBox(height: 45),
                 BaseWidgets.proText(
                    data: 'OTP',
@@ -109,7 +109,8 @@ class MyKeyboard extends StatelessWidget {
                 ],
               ),
             ),
-          );
+         ),
+         );
         }
       ),
     ),
