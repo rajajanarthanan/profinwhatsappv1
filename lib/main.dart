@@ -1,6 +1,8 @@
 
+
 import 'dart:ui';
 
+import 'package:device_preview/device_preview.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 // ignore: unused_import
@@ -38,30 +40,24 @@ Future<void> main() async {
   }
 
   await Firebase.initializeApp();
-  runApp(const MyApp());
+  runApp(
+    DevicePreview(
+      enabled: true,
+      builder: (context) => const MyApp()));
+    //const MyApp());
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   // This widget is the root of your application.
-
-void main() => runApp(
-  DevicePreview(
-    enabled: !kReleaseMode,
-    builder: (context) => MyApp(), // Wrap your app
-  ),
-);
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      useInheritedMediaQuery: true,
-      locale: DevicePreview.locale(context),
       builder: DevicePreview.appBuilder,
       title: 'Flutter Demo',
       theme: ThemeData(
-       primarySwatch: Colors.blue,
+       primarySwatch: Colors.green,
         ),
       home:ChatScreen(),     
       routes: {
@@ -91,19 +87,30 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
-  
-  
-  
 
-  void _incrementCounter() {
+ bool get web1 {
+    // replace condition
+    return true;
+  }
+
+  Widget web2() {
+    return Container(
+      color: Colors.white,
+      child: const Center(
+        child: Text('Web2 Content'),
+      ),
+    );
+  }
+  
+  
+   void _incrementCounter() {
     setState(() {
       _counter++;
     });
   }
    
 
-   
-  @override
+   @override
   Widget build(BuildContext context) {
     BaseWidgets basewidgets = BaseWidgets();
     final injector = Injector.appInstance;
@@ -125,13 +132,27 @@ class _MyHomePageState extends State<MyHomePage> {
 
     return Scaffold(
         appBar: AppBar(
-           backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-       title: const Text(" this is Second Screen"),
-      ),
-    );
+           title: const Text("Two colums"),
+           ),
+           body : Center(
+              child: Row (
+            children :[
+              Column(
+                children : [
+                (!kIsWeb) ? web2() : Container(),
+                ],
+               ),
+              Column(
+                children : [
+                   ChatScreen(),
+                ],
+              )
+            ]
+           )
+     ),
+      );
   }
-}
-       
+}   
         
         
         
