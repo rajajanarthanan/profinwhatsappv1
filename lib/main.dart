@@ -4,6 +4,7 @@ import 'dart:ui';
 
 import 'package:device_preview/device_preview.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 // ignore: unused_import
 import 'package:flutter/gestures.dart';
@@ -62,7 +63,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
        primarySwatch: Colors.green,
         ),
-      home:ChatScreen(),     
+      home: CustomKeyboard(label: '', onPressed: (String value){ }),
+        //ChatScreen(),     
       routes: {
         '/loginview': (context) => LoginView(),
         '/loginpage': (context) => const LoginPage(),
@@ -75,7 +77,7 @@ class MyApp extends StatelessWidget {
   }
 
 
-class MyHomePage extends StatefulWidget {
+/*class MyHomePage extends StatefulWidget {
   var title;
 
  MyHomePage({super.key, required this.title});
@@ -87,7 +89,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
- bool get KIsweb {
+ /*bool get KIsweb {
     // replace condition
     return true;
   }
@@ -103,7 +105,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
      ),
    );
-  }
+  }*/
   
   
    void _incrementCounter() {
@@ -135,11 +137,117 @@ class _MyHomePageState extends State<MyHomePage> {
 
     return Scaffold(
         appBar: AppBar(
-           title: const Text("Two colums"),
+           title: const Text(" enter OTP"),
            ),
            body : Center(
-              child: Row (
+            child:Padding(
+              padding: const EdgeInsets.all(16.0),
+              child:Center(
+                 child : LayoutBuilder(
+                 builder: (context, constraints) {
+                 return ConstrainedBox(
+                  constraints:  const BoxConstraints(maxWidth: 400),
+                 child: BaseWidgets.proContainer(
+                  padding: const EdgeInsets.all(8.0),
+                 decoration: BoxDecoration(
+                 color : Colors.white,
+                 border: Border.all(color: Colors.grey),
+                 borderRadius: BorderRadius.circular(8.0),
+                 ),
+                 child : Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                 
             children :[
+                const SizedBox(height: 45),
+                BaseWidgets.proText(
+                   data: 'OTP',
+                   style: const TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                   textAlign: TextAlign.start,
+                   ),
+
+                const SizedBox(height:8),
+                BaseWidgets.proText(data: 'Verification',
+                  style: const TextStyle(fontSize:35,fontWeight:FontWeight.bold),
+                  textAlign:TextAlign.start,
+                 ),
+
+                const SizedBox(height: 10),
+                 BaseWidgets.proText(
+                    data: 'Enter the OTP sent to +9187567****6',
+                    style:const TextStyle(fontSize:15,),
+                    textAlign: TextAlign.start,
+                  ),
+                const SizedBox(height: 50),
+                 BaseWidgets.proRow(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                     children: List.generate(
+                       6,
+                     (index) => Flexible(
+                      child: SizedBox(
+                         width: 50,
+                         child: Container(
+                           decoration: BoxDecoration(
+                              border:Border.all(width:1,color:Colors.black,),
+                              borderRadius: BorderRadius.circular(8),
+                             ),
+                    
+                      child: BaseWidgets.proTextField(
+                          style: Theme.of(context).textTheme.headlineMedium,
+                          keyboardType: TextInputType.number,
+                          textAlign: TextAlign.center,
+                           maxLength: 1,
+                          decoration: const InputDecoration(
+                          counterText: '',
+                          border: InputBorder.none
+                          ),
+                            maxLengthEnforcement: null,
+                            inputFormatters: null, 
+                            selectionHeightStyle: BoxHeightStyle.max,
+                            selectionWidthStyle: BoxWidthStyle.max, 
+                            dragStartBehavior: DragStartBehavior.start,
+                            onChanged: (value) {},
+                            validator: (value) {},
+                           ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+
+                  const SizedBox(height:70), // Add some spacing between the rows
+                  SizedBox(
+                    width: MediaQuery.sizeOf(context).width *0.50,
+                    height: MediaQuery.sizeOf(context).height *0.40,
+              
+
+                    child: BaseWidgets.proRow(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+
+                    children: [
+                    Flexible(
+                           child:CustomKeyboard(
+                           onPressed: (value){},
+                           label:'',
+                         ),
+                       ), 
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          );
+        }
+      ),
+    ),
+  ),
+    ),);
+    
+    }
+  }     
+               
+
+
               Column(
                 mainAxisSize: MainAxisSize.min,
                 children : [
@@ -151,34 +259,14 @@ class _MyHomePageState extends State<MyHomePage> {
                 children : [
                    ChatScreen(),
                  ],
-               ),
-             ],
-           ),
-         ),
-      );
-    }
-  }   
+               ), */
+           
         
    
-    /*Padding(
-       padding: const EdgeInsets.all(16.0),
-      
-       child: Center(
-        child: ConstrainedBox(
-          constraints: const BoxConstraints(maxWidth: 400),
-          child: BaseWidgets.proContainer(
-             padding: const EdgeInsets.all(8.0),
-             decoration: BoxDecoration(
-              color : Colors.grey,
-             border: Border.all(color: Colors.grey),
-             borderRadius: BorderRadius.circular(8.0),
-            ),
-            child: Column(
-              
-               crossAxisAlignment: CrossAxisAlignment.stretch,
+    
 
 
-                 children:[
+               /*  children:[
                   
                     // const SizedBox(height : 30),
                        BaseWidgets.proElevatedButton(
@@ -284,108 +372,19 @@ class _MyHomePageState extends State<MyHomePage> {
            ),
          );
       }
-    }
+    }  */
 
 
   
    
                    
                  
-             children: [
-                const SizedBox(height: 45),
-                BaseWidgets.proText(
-                   data: 'OTP',
-                   style: const TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-                   textAlign: TextAlign.start,
-                   ),
+            
 
-                const SizedBox(height:8),
-                BaseWidgets.proText(data: 'Verification',
-                  style: const TextStyle(fontSize:35,fontWeight:FontWeight.bold),
-                  textAlign:TextAlign.start,
-                 ),
 
-                const SizedBox(height: 10),
-                 BaseWidgets.proText(
-                    data: 'Enter the OTP sent to +9187567****6',
-                    style:const TextStyle(fontSize:15,),
-                    textAlign: TextAlign.start,
-                  ),
-                const SizedBox(height: 50),
-                 BaseWidgets.proRow(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                     children: List.generate(
-                       6,
-                     (index) => Flexible(
-                      child: SizedBox(
-                         width: 50,
-                         child: Container(
-                           decoration: BoxDecoration(
-                              border:Border.all(width:1,color:Colors.black,),
-                              borderRadius: BorderRadius.circular(8),
-                             ),
-                    
-                      child: BaseWidgets.proTextField(
-                          style: Theme.of(context).textTheme.headlineMedium,
-                          keyboardType: TextInputType.number,
-                          textAlign: TextAlign.center,
-                           maxLength: 1,
-                          decoration: const InputDecoration(
-                          counterText: '',
-                          border: InputBorder.none
-                          ),
-                            maxLengthEnforcement: null,
-                            inputFormatters: null, 
-                            selectionHeightStyle: BoxHeightStyle.max,
-                            selectionWidthStyle: BoxWidthStyle.max, 
-                            dragStartBehavior: DragStartBehavior.start,
-                            onChanged: (value) {},
-                            validator: (value) {},
-                           ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
 
-                  const SizedBox(height:70), // Add some spacing between the rows
-                  SizedBox(
-                    width: MediaQuery.sizeOf(context).width *0.50,
-                    height: MediaQuery.sizeOf(context).height *0.40,
-              
 
-                    child: BaseWidgets.proRow(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-
-                    children: [
-                    Flexible(
-                           child:CustomKeyboard(
-                           onPressed: (value){},
-                           label:'',
-                         ),
-                        ), 
-                       ],
-                     ),
-              children: [BaseWidgets.proGridViewBuilder(
-              children: [BaseWidgets.proGridView(
-
-               gridDelegate:  const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 3,),
-                  itemCount: 1, //only one item .which is our customerkeyboard
-                  itemBuilder: (context, index) {
-                    return  SizedBox(
-                      width: MediaQuery.of(context).size.width, // Set width to match parent's width
-                     height: 100, // Set height to a fixed value
-                   child:CustomKeyboard(
-                      '1', onPressed: (value){}),
-                       );
-                      }
-
-                    ),
-                  ],
-               
-
-                BaseWidgets.proTextField(
+              /*  BaseWidgets.proTextField(
                       keyboardType: TextInputType.emailAddress,
                       decoration : const InputDecoration(
                       labelText: 'Email',
