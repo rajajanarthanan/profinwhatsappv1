@@ -47,9 +47,12 @@ Future<void> main() async {
     //const MyApp());
 }
 
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
+ 
+ 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -67,13 +70,9 @@ class MyApp extends StatelessWidget {
         // Define the route
       },
       debugShowCheckedModeBanner: false,
-    );
+      );
+    }
   }
-  
-
-}
-
-
 
 
 class MyHomePage extends StatefulWidget {
@@ -94,12 +93,16 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Widget web2() {
-    return Container(
-      color: Colors.white,
-      child: const Center(
+    return SizedBox(
+      height: 500,
+      width: 500,
+      child:Container(
+        color: Colors.white,
+        child: const Center(
         child: Text('Web2 Content'),
       ),
-    );
+     ),
+   );
   }
   
   
@@ -138,27 +141,26 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Row (
             children :[
               Column(
+                mainAxisSize: MainAxisSize.min,
                 children : [
-                (!kIsWeb) ? web2() : Container(),
+                (kIsWeb) ? web2() : Container(),
                 ],
-               ),
+              ),
               Column(
+                mainAxisSize: MainAxisSize.min,
                 children : [
                    ChatScreen(),
-                ],
-              )
-            ]
-           )
-     ),
+                 ],
+               ),
+             ],
+           ),
+         ),
       );
-  }
-}   
+    }
+  }   
         
-        
-        
-        
-        
-        /*Padding(
+   
+    /*Padding(
        padding: const EdgeInsets.all(16.0),
       
        child: Center(
