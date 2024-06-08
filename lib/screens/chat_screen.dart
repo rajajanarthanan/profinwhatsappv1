@@ -133,7 +133,7 @@ void _handleMenuItemClick(String value) {
                   Builder(
                   builder: (context) {
                     return IconButton(
-                      icon: Icon(Icons.attach_file),
+                      icon: const  Icon(Icons.attach_file),
                       onPressed: () {
                         _showAttachmentOptions(context);
                       },
