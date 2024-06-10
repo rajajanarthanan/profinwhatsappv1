@@ -53,7 +53,7 @@ class _BiometricScreenState extends State<BiometricScreen> {
                   onPressed : () { 
                   Navigator.of(context).pop();
                   },
-                  child: const Text('Close'),
+                  child: const Text('Close'), textAlign: justify, textDirection: ltr,
                    ),
                  ],
                );
