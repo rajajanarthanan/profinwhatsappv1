@@ -5,7 +5,8 @@ import 'package:profinwhatsapp/core/view/base_widgets/screen/otp_entry_widgets.d
 
 
 void main() {
- testWidgets('OTP Entry Screen Widget Test', (WidgetTester tester) async {
+   group('OTP Entry Screen Tests', () {
+  testWidgets('Frontend View Test', (WidgetTester tester) async {
     // Build the widget under test
     await tester.pumpWidget(
       const MaterialApp(
@@ -15,30 +16,76 @@ void main() {
     ));
 
        
-  
-     // Verify the entered OTP
-       for (int i = 0; i < 6; i++) {
-        expect(find.text('$i'), findsOneWidget);
-      }
-      
-    
-     // Verify that the instruction text widget is present
-    expect(
-        find.text('Enter the OTP sent to +9187567****6'), findsOneWidget);
-
-    
-    // Verify that the OTP entry text fields are present
+   // Verify that the OTP entry text fields are present
     expect(find.byType(TextField), findsNWidgets(6));
 
 
     // Verify that the custom keyboard widget is present
     expect(find.byType(CustomKeyboard), findsOneWidget);
 
+
+    // Verify that the instruction text widget is present
+    expect(
+        find.text('Enter the OTP sent to +9187567****6'), findsOneWidget);
+    
+
+    // Verify the entered OTP
+       for (int i = 0; i < 6; i++) {
+        expect(find.text('$i'), findsOneWidget);
+      }
+
+      
+    // Enter OTP using the custom keyboard
+    for (int i = 0; i < 6; i++) {
+      await tester.enterText(find.byType(TextField).at(i), '$i');
+    }
+
     // Tap the submit button
-    await tester.tap(find.byKey(Key('keyboard_✓')));
+    await tester.tap(find.byKey(const Key('keyboard_✓')));
+    await tester.pump();
+
+    //simulate OnTap
+    await tester.tap(find.byKey( const Key('keyboard_1')));
     await tester.pump();
     
-   });
+    // verify onTap behavior
+    // adds your assertion here
+
+    //reset the widget tree
+    await tester.pumpAndSettle();
+
+    // simulate on DoubleTap
+    await tester.tap(find.byKey(const Key('keyboard_1'))); //first tap
+    await tester.tap(find.byKey(const Key('keyboard_2'))); // second tap
+    await tester.pump();
+
+    // verify DoubleTap behavior
+    // adds your assertion here
+
+    // enter 9-digit OTP and verify
+    await tester.enterText(find.byKey(Key('otpField')),'123456789');
+    await tester.pump();
+    expect(find.text('Invalid'),findsOneWidget,reason:'9 digits should be invalid' );
+
+     // enter 10-digit OTP and verify
+     await tester.enterText(find. byKey(Key('otpField')),'1234567890');
+     await tester.pump();
+     expect(find.text('valid'),findsOneWidget,reason:'10 digits should be valid');
+
+     // enter 11-digit OTP and verify
+     await tester.enterText(find.byKey(Key('otpfield')),'12345678901');
+     await tester.pump();
+     expect(find.text('invalid'),findsOneWidget,reason:'11 digits should be invalid' );
+    });
+  });
 }
+
+   
+   
+
+
+
+
      
- 
+
+
