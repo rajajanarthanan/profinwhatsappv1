@@ -11,7 +11,9 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:injector/injector.dart';
 import 'package:profinwhatsapp/core/view/base_widgets/screen/otp_entry_widgets.dart';
+import 'package:profinwhatsapp/core/view/base_widgets/screen/signup_widgets.dart';
 import 'package:profinwhatsapp/core/views/widgets/login_widgets/login_widget.dart';
+import 'package:profinwhatsapp/core/views/widgets/login_widgets/signup_widget.dart';
 import 'package:profinwhatsapp/screen/chat_screen.dart';
 import 'core/dependencies/injector.dart';
 import 'core/views/base_widgets/base_widgets.dart';
@@ -65,7 +67,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
        primarySwatch: Colors.green,
         ),
-      home: const OtpEntryScreen (),
+       home: const MySignupPage(),
+      //const OtpEntryScreen (),
         //ChatScreen(),     
       routes: {
         '/loginview': (context) => LoginView(),
@@ -77,7 +80,8 @@ class MyApp extends StatelessWidget {
       );
     }
   }
-
+  
+ 
 
 class MyHomePage extends StatefulWidget {
   var title;
@@ -502,7 +506,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
 
-              
+
   
                    
                 const SizedBox(height: 40),

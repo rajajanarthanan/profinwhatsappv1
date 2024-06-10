@@ -61,7 +61,7 @@ import 'package:flutter/material.dart';
          FocusNode? focusNode,
          bool autofocus = false,
          Clip clipBehavior = Clip.none,
-         required Widget child, 
+         required Widget child, required TextAlign textAlign, required TextDirection textDirection, 
          }) {
             return TextButton(
              onPressed: onPressed,

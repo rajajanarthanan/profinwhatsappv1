@@ -130,7 +130,7 @@ class OtpEntryScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Enter OTP'),
+        title: const Text(''),
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),

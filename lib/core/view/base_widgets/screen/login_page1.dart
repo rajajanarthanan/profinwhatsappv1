@@ -14,7 +14,7 @@ class MyLoginPage extends StatelessWidget {
         title: const Text("Enter OTP"),
       ),
       body: Center(
-        child: Column(
+        child: BaseWidgets.proColumn(
           children: [
             BaseWidgets.proTextField(
               keyboardType: TextInputType.emailAddress,

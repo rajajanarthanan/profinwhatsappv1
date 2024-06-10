@@ -14,7 +14,7 @@ class MySignupPage extends StatelessWidget {
         title: const Text("Enter OTP"),
       ),
       body: Center(
-        child: Column(
+        child: BaseWidgets.proColumn(
           children: [
              BaseWidgets.proText(
               data: 'Sign Up',
@@ -87,8 +87,8 @@ class MySignupPage extends StatelessWidget {
               onPressed: () {
                 // add reset password functionality here...
               },
-              child: const Text(
-                'Forget Password?',
+              child: BaseWidgets. proText(
+                data:  'Forget Password?',
               ),  textAlign: TextAlign.justify,
                   textDirection: TextDirection.ltr,
             ),
@@ -102,7 +102,8 @@ class MySignupPage extends StatelessWidget {
                   borderRadius: BorderRadius.circular(8.0),
                 ),
               ),
-              child: const Text('Continue'),
+              child: BaseWidgets.proText(
+                data:'Continue'),
             ),
             const SizedBox(height: 30),
             BaseWidgets.prolinearProgressIndicator(
@@ -135,7 +136,7 @@ class MySignupPage extends StatelessWidget {
                     fontSize: 16, fontWeight: FontWeight.bold),
                 elevation: 5,
               ),
-              child: Row(
+              child: BaseWidgets.proRow(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Image.asset(
@@ -162,7 +163,7 @@ class MySignupPage extends StatelessWidget {
                     fontSize: 16, fontWeight: FontWeight.bold),
                 elevation: 5,
               ),
-              child: Row(
+              child: BaseWidgets.proRow(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Image.asset(

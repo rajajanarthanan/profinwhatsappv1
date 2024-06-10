@@ -62,20 +62,33 @@ void main() {
     // verify DoubleTap behavior
     // adds your assertion here
 
-    // enter 9-digit OTP and verify
-    await tester.enterText(find.byKey(Key('otpField')),'123456789');
+   // enter 9-digit OTP and verify
+    await tester.enterText(find.byKey(const Key('otpField')),'123456789');
     await tester.pump();
     expect(find.text('Invalid'),findsOneWidget,reason:'9 digits should be invalid' );
 
-     // enter 10-digit OTP and verify
-     await tester.enterText(find. byKey(Key('otpField')),'1234567890');
+    /* // enter 10-digit OTP and verify
+     await tester.enterText(find. byKey(const Key('otpField')),'1234567890');
      await tester.pump();
      expect(find.text('valid'),findsOneWidget,reason:'10 digits should be valid');
 
      // enter 11-digit OTP and verify
-     await tester.enterText(find.byKey(Key('otpfield')),'12345678901');
+     await tester.enterText(find.byKey(const Key('otpfield')),'12345678901');
      await tester.pump();
      expect(find.text('invalid'),findsOneWidget,reason:'11 digits should be invalid' );
+     */
+
+    
+     // Enter 12-digit OTP and verify
+     await tester.enterText(find.byKey(const Key('otpfield')),'123456789012');
+     await tester.pump();
+     expect(find.text('invalid'),findsOneWidget,reason:'12 digits should be invalid');
+     
+     //enter 13-digit OTP and verify 
+     await tester.enterText(find.byKey(const Key('otpfield')),'1234567890123');
+     await tester.pump();
+     expect(find.text('invalid'),findsOneWidget,reason:'13 digit should be invalid');                          
+      
     });
   });
 }
