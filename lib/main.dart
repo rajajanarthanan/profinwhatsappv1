@@ -65,7 +65,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
        primarySwatch: Colors.green,
         ),
-      home:  MyKeyboard(),
+      home: const OtpEntryScreen (),
         //ChatScreen(),     
       routes: {
         '/loginview': (context) => LoginView(),

@@ -1,4 +1,4 @@
-import 'dart:ui';
+/*import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
@@ -115,8 +115,84 @@ class MyKeyboard extends StatelessWidget {
       ),
     ),
   ),
-    ),);
-    
-    }
-  }     
+ ),
+);
+ }
+}  */   
   
+import 'package:flutter/material.dart';
+import 'package:profinwhatsapp/core/view/base_widgets/keyboard_widgets.dart';
+
+class OtpEntryScreen extends StatelessWidget {
+  const OtpEntryScreen({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Enter OTP'),
+      ),
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            const SizedBox(height: 45),
+            const Text(
+              'OTP Verification',
+              style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+              textAlign: TextAlign.start,
+            ),
+            const SizedBox(height: 8),
+            const Text(
+              'Enter the OTP sent to +9187567****6',
+              style: TextStyle(fontSize: 15),
+              textAlign: TextAlign.start,
+            ),
+            const SizedBox(height: 50),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: List.generate(
+                6,
+                (index) => Flexible(
+                  child: SizedBox(
+                    width: 50,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        border: Border.all(width: 1, color: Colors.black),
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      child: TextField(
+                        key: Key('otpField_$index'), // Add keys to the text fields
+                        style: Theme.of(context).textTheme.headlineMedium,
+                        keyboardType: TextInputType.number,
+                        textAlign: TextAlign.center,
+                        maxLength: 1,
+                        decoration: const InputDecoration(
+                          counterText: '',
+                          border: InputBorder.none,
+                        ),
+                        onChanged: (value) {},
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(height: 70),
+            SizedBox(
+              width: MediaQuery.of(context).size.width * 0.50,
+              height: MediaQuery.of(context).size.height * 0.40,
+              child: CustomKeyboard(
+                onPressed: (value) {
+                  // Handle keyboard input
+                },
+                label: '',
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}

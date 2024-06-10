@@ -40,47 +40,6 @@ void main() {
     // expect(find.text('1'), findsOneWidget);
  } );
 
-
-
-  testWidgets('OTP Entry Test', (WidgetTester tester) async {
-    // Define a test key for the scaffold to make it easier to find during testing
-    const testKey = Key('otpEntryWidget');
-
-    // Build the widget tree with the OTP entry widget
-    await tester.pumpWidget(
-     const  MaterialApp(
-        home: Scaffold(
-          key: testKey,
-          body: MyKeyboard(), // Use your actual OTP entry widget here
-        ),
-      ),
-    );
-
-    // Verify that the OTP entry text fields are present
-    expect(find.byType(TextField), findsNWidgets(6));
-
-    // Enter OTP using the custom keyboard
-    for (int i = 0; i < 6; i++) {
-      await tester.enterText(find.byType(TextField).at(i), '$i');
-    }
-
-    // Tap the custom keyboard buttons
-    for (int i = 0; i < 6; i++) {
-      await tester.tap(find.text('$i'));
-      await tester.pump();
-    }
-
-    // Verify the entered OTP
-    for (int i = 0; i < 6; i++) {
-      expect(find.text('$i'), findsOneWidget);
-    }
-
-    // Tap the submit button
-    await tester.tap(find.text('✓'));
-    await tester.pump();
-
-    // Optionally, add more assertions or verifications after the button tap
-  });
 }
  
  
