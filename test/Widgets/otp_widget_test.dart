@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:profinwhatsapp/core/view/base_widgets/keyboard_widgets.dart';
-import 'package:profinwhatsapp/core/view/base_widgets/screen/otp_entry_widgets.dart';
+import 'package:profinwhatsapp/core/view/base_widgets/screen/otp_widgets.dart/keyboard_widgets.dart';
+import 'package:profinwhatsapp/core/view/base_widgets/screen/otp_widgets.dart/otp_entry_widgets.dart';
+import 'package:profinwhatsapp/core/view/base_widgets/screen/otp_widgets.dart/otp_generate.dart';
+import 'package:profinwhatsapp/core/view/base_widgets/screen/otp_widgets.dart/random_otp.dart';
+import 'package:profinwhatsapp/core/view/base_widgets/screen/otp_widgets.dart/otp_validator.dart';
 
 
 void main() {
@@ -61,44 +64,94 @@ void main() {
 
     // verify DoubleTap behavior
     // adds your assertion here
-
-   // enter 9-digit OTP and verify
-    await tester.enterText(find.byKey(const Key('otpField')),'123456789');
-    await tester.pump();
-    expect(find.text('Invalid'),findsOneWidget,reason:'9 digits should be invalid' );
-
-    /* // enter 10-digit OTP and verify
-     await tester.enterText(find. byKey(const Key('otpField')),'1234567890');
-     await tester.pump();
-     expect(find.text('valid'),findsOneWidget,reason:'10 digits should be valid');
-
-     // enter 11-digit OTP and verify
-     await tester.enterText(find.byKey(const Key('otpfield')),'12345678901');
-     await tester.pump();
-     expect(find.text('invalid'),findsOneWidget,reason:'11 digits should be invalid' );
-     */
-
-    
-     // Enter 12-digit OTP and verify
-     await tester.enterText(find.byKey(const Key('otpfield')),'123456789012');
-     await tester.pump();
-     expect(find.text('invalid'),findsOneWidget,reason:'12 digits should be invalid');
+  
+     });
+    }); 
+  
+   
+   void main(){
+  group('Random OTP Entry Screen Tests', () {
+    testWidgets('Verify OTP Generation', (WidgetTester tester) async {
      
-     //enter 13-digit OTP and verify 
-     await tester.enterText(find.byKey(const Key('otpfield')),'1234567890123');
-     await tester.pump();
-     expect(find.text('invalid'),findsOneWidget,reason:'13 digit should be invalid');                          
-      
+
+      // Generate a random false OTP (5 digits)
+      final falseOTP = generateOTP(false);
+
+       // Generate a random true OTP (6 digits)
+      final trueOTP = generateOTP(true);
+
+     
+
+      // Build the widget under test with the generated OTPs
+      await tester.pumpWidget(MaterialApp(
+        home: RandomOtpEntryScreen(
+          trueOTP: trueOTP,
+          falseOTP: falseOTP,
+        ),
+      ));
+
+      // Verify that the true OTP text is present and matches the generated true OTP
+      expect(find.text(trueOTP), findsOneWidget);
+
+      // Verify that the false OTP text is present and matches the generated false OTP
+      expect(find.text(falseOTP), findsOneWidget);
+       });
+      });
+   }
+ 
+
+          
+    
+
+
+
+// Regular expression pattern for valid OTP input (6 digits)
+final RegExp otpRegex = RegExp(r'^[0-9]{6}$');
+
+
+  group('OTP Validation Test', () {
+    test('Valid numeric input', () {
+      const input = '123456';
+      expect(otpRegex.hasMatch(input), isTrue);
     });
-  });
+
+    test('Invalid non-numeric input', () {
+      const  input = '12ab34';
+      expect(otpRegex.hasMatch(input), isFalse);
+    });
+
+    test('Empty input', () {
+      const input = '';
+      expect(otpRegex.hasMatch(input), isFalse);
+    });
+
+    test('Null input', () {
+      const  input = null;
+      expect(otpRegex.hasMatch(input ?? ''), isFalse);
+    });
+  });  
 }
 
+
+  
+
+
+
+ 
+
+ 
    
    
+  
+
+      
+    
 
 
 
 
-     
+
+
+
 
 

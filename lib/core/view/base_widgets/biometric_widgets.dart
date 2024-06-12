@@ -20,27 +20,27 @@ class _BiometricScreenState extends State<BiometricScreen> {
   Widget build(BuildContext context) {
     return AlertDialog(
       backgroundColor : Colors.black.withOpacity(1.0),
-      title : BaseWidgets.proText(
-        data:'Biometric verification',
+      title : const  ProText(
+        'Biometric verification',
          ),
-         content : Column(
+         content :const  ProColumn(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment : CrossAxisAlignment.center,
           children : [
-               BaseWidgets.proIcon(
-                icon: Icons.fingerprint,
-                size : 100,
-                color : Colors. blue,
-                 ),
+               ProIcon(
+              
+               Icons.fingerprint, 
+              
+               ),
 
-                 const SizedBox(height : 20),
-                  BaseWidgets.proText(
-                    data : 'Scanning',
+                 SizedBox(height : 20),
+                const   ProText(
+                     'Scanning',
                     ),
 
                   const SizedBox(height : 20),
-                  BaseWidgets.proText(
-                    data :' Biometric Authentication',
+                 const  ProText(
+                    ' Biometric Authentication',
                     style : const TextStyle(
                       fontSize :25,
                       fontWeight : FontWeight.bold,
@@ -49,13 +49,14 @@ class _BiometricScreenState extends State<BiometricScreen> {
               ],
             ),
               actions : [
-                 BaseWidgets.proTextButton(
+                 ProTextButton(
                   onPressed : () { 
                   Navigator.of(context).pop();
                   },
-                  child: const Text('Close'),  textAlign: TextAlign.justify,
-                  textDirection: TextDirection.ltr,
-                   ),
+                  child: const  ProText(
+                    'Close'
+                    ),  
+                  ),
                  ],
                );
     

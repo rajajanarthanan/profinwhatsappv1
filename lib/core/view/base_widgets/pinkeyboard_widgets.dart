@@ -21,7 +21,7 @@ class MpinKeyboard extends StatelessWidget {
           return Container(
              height: Constraints.maxHeight,
              color:Colors.black12,
-            child: BaseWidgets.proGridViewBuilder(
+            child: ProGridViewBuilder(
              physics: const  NeverScrollableScrollPhysics(), 
              gridDelegate:SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 3,
@@ -58,24 +58,24 @@ class MpinKeyboard extends StatelessWidget {
     onTap: () {
         onPressed(value);
       },
-    child: Container(
+    child: ProContainer(
         margin: const  EdgeInsets.all(4),
         decoration:  BoxDecoration(
           color: Colors.black12,
             borderRadius: BorderRadius.circular(10.0),  
           ),
+             color: Colors.white,
              child: Center(
              child: Text(
              value,
             style: const TextStyle(
               fontSize: 24,),
+            ),
           ),
         ),
-      ),
-    );
+      );
     }
-
-}
+  }
 
     
   

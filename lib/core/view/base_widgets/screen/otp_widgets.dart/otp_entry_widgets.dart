@@ -3,9 +3,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:profinwhatsapp/core/view/base_widgets/keyboard_widgets.dart';
-import 'package:profinwhatsapp/core/views/base_widgets/base_widgets.dart';
+import 'package:flutter_form_builder/flutter_form_builder.dart';
 
+import 'package:profinwhatsapp/core/views/base_widgets/base_widgets.dart';
+import 'package:profinwhatsapp/core/view/base_widgets/screen/otp_widgets.dart/keyboard_widgets.dart';
 class MyKeyboard extends StatelessWidget {
  
 
@@ -20,38 +21,40 @@ class MyKeyboard extends StatelessWidget {
                  builder: (context, constraints) {
                  return ConstrainedBox(
                   constraints:  const BoxConstraints(maxWidth: 400),
-                 child: BaseWidgets.proContainer(
+                 child: ProContainer(
                   padding: const EdgeInsets.all(8.0),
                  decoration: BoxDecoration(
                  color : Colors.white,
                  border: Border.all(color: Colors.grey),
                  borderRadius: BorderRadius.circular(8.0),
                  ),
+                 color: Colors.white,
                  child: SingleChildScrollView(
                  child : Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children :[
                 const SizedBox(height: 45),
-                BaseWidgets.proText(
-                   data: 'OTP',
+              const  ProText(
+                    'OTP',
                    style: const TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
                    textAlign: TextAlign.start,
                    ),
 
                 const SizedBox(height:8),
-                BaseWidgets.proText(data: 'Verification',
+              const  ProText(
+                   'Verification',
                   style: const TextStyle(fontSize:35,fontWeight:FontWeight.bold),
                   textAlign:TextAlign.start,
                  ),
 
                 const SizedBox(height: 10),
-                 BaseWidgets.proText(
-                    data: 'Enter the OTP sent to +9187567****6',
+               const  ProText(
+                   'Enter the OTP sent to +9187567****6',
                     style:const TextStyle(fontSize:15,),
                     textAlign: TextAlign.start,
                   ),
                 const SizedBox(height: 50),
-                 BaseWidgets.proRow(
+                 ProRow(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                      children: List.generate(
                        6,
@@ -64,7 +67,7 @@ class MyKeyboard extends StatelessWidget {
                               borderRadius: BorderRadius.circular(8),
                              ),
                     
-                      child: BaseWidgets.proTextField(
+                      child: FormBuilderTextField(
                           style: Theme.of(context).textTheme.headlineMedium,
                           keyboardType: TextInputType.number,
                           textAlign: TextAlign.center,
@@ -79,7 +82,7 @@ class MyKeyboard extends StatelessWidget {
                             selectionWidthStyle: BoxWidthStyle.max, 
                             dragStartBehavior: DragStartBehavior.start,
                             onChanged: (value) {},
-                            validator: (value) {},
+                            validator: (value) {}, name: '',
                            ),
                           ),
                         ),
@@ -93,7 +96,7 @@ class MyKeyboard extends StatelessWidget {
                     height: MediaQuery.sizeOf(context).height *0.40,
               
 
-                    child: BaseWidgets.proRow(
+                    child: ProRow(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
 
                     children: [
@@ -118,10 +121,12 @@ class MyKeyboard extends StatelessWidget {
  ),
 );
  }
-}  */   
+}  */
   
 import 'package:flutter/material.dart';
-import 'package:profinwhatsapp/core/view/base_widgets/keyboard_widgets.dart';
+import 'package:flutter_form_builder/flutter_form_builder.dart';
+import 'package:profinwhatsapp/core/view/base_widgets/screen/otp_widgets.dart/keyboard_widgets.dart';
+import 'package:profinwhatsapp/core/views/base_widgets/base_widgets.dart';
 
 class OtpEntryScreen extends StatelessWidget {
   const OtpEntryScreen({Key? key}) : super(key: key);
@@ -130,39 +135,41 @@ class OtpEntryScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(''),
+        title: const ProText(''),
       ),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
+          child: Padding(padding: EdgeInsets.all(16.0), 
+           child: ProColumn(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             const SizedBox(height: 45),
-            const Text(
+
+            const ProText(
               'OTP Verification',
-              style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 30.0, fontWeight: FontWeight.bold, inherit: true,),
               textAlign: TextAlign.start,
-            ),
+              ),
             const SizedBox(height: 8),
-            const Text(
+             const ProText(
               'Enter the OTP sent to +9187567****6',
-              style: TextStyle(fontSize: 15),
+              style: TextStyle(fontSize: 15.0, inherit: true),
               textAlign: TextAlign.start,
             ),
             const SizedBox(height: 50),
-            Row(
+            ProRow(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: List.generate(
                 6,
                 (index) => Flexible(
                   child: SizedBox(
-                    width: 50,
-                    child: Container(
+                    width: 60,
+                    child: ProContainer(
                       decoration: BoxDecoration(
-                        border: Border.all(width: 1, color: Colors.black),
-                        borderRadius: BorderRadius.circular(8),
+                        border: Border.all(width: 2, color: Colors.black),
+                        borderRadius: BorderRadius.circular(13),
                       ),
-                      child: TextField(
+                      color: Colors.white,
+                      child: FormBuilderTextField(
                         key: Key('otpField_$index'), // Add keys to the text fields
                         style: Theme.of(context).textTheme.headlineMedium,
                         keyboardType: TextInputType.number,
@@ -172,7 +179,7 @@ class OtpEntryScreen extends StatelessWidget {
                           counterText: '',
                           border: InputBorder.none,
                         ),
-                        onChanged: (value) {},
+                        onChanged: (value) {}, name: '',
                       ),
                     ),
                   ),
@@ -193,6 +200,8 @@ class OtpEntryScreen extends StatelessWidget {
           ],
         ),
       ),
-    );
+    ),);
+     
   }
 }
+

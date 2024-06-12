@@ -8,6 +8,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_chat_types/flutter_chat_types.dart' as chat_types ;
 import 'package:flutter_chat_ui/flutter_chat_ui.dart';
+import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:profinwhatsapp/core/views/base_widgets/base_widgets.dart';
 
@@ -15,8 +16,7 @@ import 'package:profinwhatsapp/core/views/base_widgets/base_widgets.dart';
 class ChatScreen extends StatefulWidget {
 
 
-
-  @override
+ @override
   _ChatScreenState createState() => _ChatScreenState();
 
 }
@@ -60,10 +60,11 @@ class _ChatScreenState extends State<ChatScreen> {
    items: [
       PopupMenuItem(
         padding: EdgeInsets.zero,
-        child: BaseWidgets.proContainer(
+        child: ProContainer(
            width: containerSize,
            height: containerSize,
            padding: const EdgeInsets.all(8.0),
+           color: Colors.white,
            child: GridView.count(
                  crossAxisCount: 3,
                     children:[ 
@@ -94,7 +95,7 @@ void _handleMenuItemClick(String value) {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-         title: const Text(
+         title:  const ProText(
             'Chat',
             style : TextStyle(
             fontSize : 24, 
@@ -103,36 +104,38 @@ void _handleMenuItemClick(String value) {
         ),
       ),
       
-      body: Column(
+      body: ProColumn(
         children :[
             const Expanded(
              child:Center(
-                child: Text('')),
+                child: ProText('')),
           ),
              Padding(
-            padding: EdgeInsets.all(16.0),
-            child :  BaseWidgets.proRow(
+            padding: const  EdgeInsets.all(16.0),
+            child :  ProRow(
                 children: [
                     Expanded(
-                      child:BaseWidgets.proTextField(
+                      child:FormBuilderTextField(
                         controller : _controller,
                         decoration: const InputDecoration(
                           hintText: 'Type a Message',
                           border: InputBorder.none,
                           contentPadding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 12.0),
-                      ), maxLengthEnforcement: null, 
+                        ), 
+                         name: '',
+                        maxLengthEnforcement: null, 
                          inputFormatters: null, 
                          selectionHeightStyle:  BoxHeightStyle.max, 
                          selectionWidthStyle: BoxWidthStyle.max, 
                          dragStartBehavior: DragStartBehavior.start,
-                         onChanged: (String ) {  }, 
+                         onChanged: (value ) {  }, 
                          validator: (value) {  }
                       ),
                     ),
                       
                   Builder(
                   builder: (context) {
-                    return IconButton(
+                    return ProIconButton(
                       icon: const  Icon(Icons.attach_file),
                       onPressed: () {
                         _showAttachmentOptions(context);
@@ -141,13 +144,13 @@ void _handleMenuItemClick(String value) {
                   },
                 ),
 
-                IconButton(
+                 ProIconButton(
                    icon:const Icon(Icons.attach_money_sharp),
-                   onPressed: () { },
+                   onPressed: () { }, 
                    ),
                     
 
-                     IconButton(
+                  ProIconButton(
                   icon:const  Icon(Icons.send),
                   onPressed: () {
                     // handle sending message

@@ -10,7 +10,11 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:injector/injector.dart';
-import 'package:profinwhatsapp/core/view/base_widgets/screen/otp_entry_widgets.dart';
+import 'package:profinwhatsapp/core/view/base_widgets/screen/login_page1.dart';
+import 'package:profinwhatsapp/core/view/base_widgets/screen/otp_widgets.dart/otp_entry_widgets.dart';
+import 'package:profinwhatsapp/core/view/base_widgets/screen/otp_widgets.dart/otp_generate.dart';
+import 'package:profinwhatsapp/core/view/base_widgets/screen/otp_widgets.dart/otp_validator.dart';
+import 'package:profinwhatsapp/core/view/base_widgets/screen/otp_widgets.dart/random_otp.dart';
 import 'package:profinwhatsapp/core/view/base_widgets/screen/signup_widgets.dart';
 import 'package:profinwhatsapp/core/views/widgets/login_widgets/login_widget.dart';
 import 'package:profinwhatsapp/core/views/widgets/login_widgets/signup_widget.dart';
@@ -19,16 +23,15 @@ import 'core/dependencies/injector.dart';
 import 'core/views/base_widgets/base_widgets.dart';
 import 'core/views/login_view.dart';
 // ignore: unused_import
-import 'package:profinwhatsapp/core/view/base_widgets/keyboard_widgets.dart';
+import 'package:profinwhatsapp/core/view/base_widgets/screen/otp_widgets.dart/keyboard_widgets.dart';
 import 'package:profinwhatsapp/core/views/base_widgets/base_widgets.dart';
 import 'package:profinwhatsapp/core/view/base_widgets/biometric_widgets.dart';
 import 'package:profinwhatsapp/core/view/base_widgets/pinkeyboard_widgets.dart';
 import 'package:profinwhatsapp/core/view/base_widgets/splash_screen.dart';
 import 'package:flutter_chat_ui/flutter_chat_ui.dart';
  import 'package:flutter_chat_types/flutter_chat_types.dart' as chat_types;
-import 'package:profinwhatsapp/core/view/base_widgets/screen/chat_screen.dart';
 
-
+import 'package:profinwhatsapp/core/view/base_widgets/screen/otp_widgets.dart/otp_validator.dart';
 
 
 Future<void> main() async {
@@ -61,14 +64,28 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+   
+     // Generate a random true OTP (6 digits)
+    final trueOTP = generateOTP(true);
+
+    // Generate a random false OTP (5 digits)
+   final falseOTP = generateOTP(false);
+   
     return MaterialApp(
       builder: DevicePreview.appBuilder,
       title: 'Flutter Demo',
       theme: ThemeData(
        primarySwatch: Colors.green,
         ),
-       home: const MySignupPage(),
-      //const OtpEntryScreen (),
+       home: 
+       OtpEntryScreen(),
+       //SplashScreen(),
+       //MySignupPage(),
+       // MyLoginPage(),
+       //const OtpRegex(),
+       //const RandomOtpEntryScreen(trueOTP: '', falseOTP: '', ),
+      // const MySignupPage(),
+     // const OtpEntryScreen (),
         //ChatScreen(),     
       routes: {
         '/loginview': (context) => LoginView(),
@@ -112,7 +129,9 @@ class _MyHomePageState extends State<MyHomePage> {
      ),
    );
   }*/
-  
+   
+ 
+
   
    void _incrementCounter() {
     setState(() {
@@ -126,6 +145,7 @@ class _MyHomePageState extends State<MyHomePage> {
     BaseWidgets basewidgets = BaseWidgets();
     final injector = Injector.appInstance;
 
+   
     // final authService = injector.get<AuthService>();
 
 
@@ -145,6 +165,8 @@ class _MyHomePageState extends State<MyHomePage> {
         appBar: AppBar(
            title: const Text(" enter OTP"),
            ),
+  
+
     );
   }
 }

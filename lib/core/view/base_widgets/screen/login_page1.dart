@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:profinwhatsapp/core/views/base_widgets/base_widgets.dart';
 
 class MyLoginPage extends StatelessWidget {
@@ -14,9 +15,9 @@ class MyLoginPage extends StatelessWidget {
         title: const Text("Enter OTP"),
       ),
       body: Center(
-        child: BaseWidgets.proColumn(
+        child: ProColumn(
           children: [
-            BaseWidgets.proTextField(
+            FormBuilderTextField(
               keyboardType: TextInputType.emailAddress,
               decoration: const InputDecoration(
                 labelText: 'Email',
@@ -24,6 +25,7 @@ class MyLoginPage extends StatelessWidget {
                 prefixIcon: Icon(Icons.email),
                 border: OutlineInputBorder(),
               ),
+                 name: '',
                  maxLengthEnforcement: null,
                   inputFormatters: null,
                   cursorHeight: 20.0,
@@ -36,7 +38,7 @@ class MyLoginPage extends StatelessWidget {
                   validator: (value) {},
                ),
             const SizedBox(height: 30),
-            BaseWidgets.proTextField(
+              FormBuilderTextField(
               keyboardType: TextInputType.visiblePassword,
               decoration: const InputDecoration(
                 labelText: 'Password',
@@ -44,7 +46,8 @@ class MyLoginPage extends StatelessWidget {
                 prefixIcon: Icon(Icons.password),
                 border: OutlineInputBorder(),
               ),
-              maxLengthEnforcement: null,
+                  name: '',
+                  maxLengthEnforcement: null,
                   inputFormatters: null,
                   cursorHeight: 20.0,
                   selectionHeightStyle: BoxHeightStyle.includeLineSpacingTop,
@@ -53,10 +56,10 @@ class MyLoginPage extends StatelessWidget {
                   onChanged: (value) {
                     // No return type required for onChanged callback
                   },
-                  validator: (value) {},
+                  validator: (value) {}, 
                ),
             const SizedBox(height: 30),
-            BaseWidgets.proElevatedButton(
+            ProElevatedButton(
               onPressed: () {},
               child: const Text("Login"),
             ),

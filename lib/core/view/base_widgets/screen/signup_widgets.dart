@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:profinwhatsapp/core/views/base_widgets/base_widgets.dart';
 
 class MySignupPage extends StatelessWidget {
@@ -14,10 +15,10 @@ class MySignupPage extends StatelessWidget {
         title: const Text("Enter OTP"),
       ),
       body: Center(
-        child: BaseWidgets.proColumn(
+        child: ProColumn(
           children: [
-             BaseWidgets.proText(
-              data: 'Sign Up',
+           const  ProText(
+               'Sign Up',
               textAlign: TextAlign.center,
               style: const TextStyle(
                 fontSize: 35,
@@ -25,14 +26,15 @@ class MySignupPage extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 50),
-            BaseWidgets.proTextField(
+              FormBuilderTextField(
               keyboardType: TextInputType.name,
               decoration: const InputDecoration(
                 labelText: 'User Name',
                 hintText: 'Enter User Name',
                 border: OutlineInputBorder(),
-              ),
-              maxLengthEnforcement: null,
+                ),
+                  name: '',
+                  maxLengthEnforcement: null,
                   inputFormatters: null,
                   cursorHeight: 20.0,
                   selectionHeightStyle: BoxHeightStyle.includeLineSpacingTop,
@@ -42,16 +44,18 @@ class MySignupPage extends StatelessWidget {
                     // No return type required for onChanged callback
                   },
                   validator: (value) {},
-               ),
+                 ),
               
             const SizedBox(height: 40),
-            BaseWidgets.proTextField(
-              keyboardType: TextInputType.emailAddress,
-              decoration: const InputDecoration(
+            FormBuilderTextField(
+                keyboardType: TextInputType.emailAddress,
+                decoration: const InputDecoration(
                 labelText: 'Email',
                 hintText: 'Enter Email Address',
                 border: OutlineInputBorder(),
-              ),maxLengthEnforcement: null,
+                ),
+                  name: '',
+                  maxLengthEnforcement: null,
                   inputFormatters: null,
                   cursorHeight: 20.0,
                   selectionHeightStyle: BoxHeightStyle.includeLineSpacingTop,
@@ -60,17 +64,19 @@ class MySignupPage extends StatelessWidget {
                   onChanged: (value) {
                     // No return type required for onChanged callback
                   },
-                  validator: (value) {},
+                  validator: (value) {}, 
                ),
               
             const SizedBox(height: 40),
-            BaseWidgets.proTextField(
-              keyboardType: TextInputType.visiblePassword,
-              decoration: const InputDecoration(
+            FormBuilderTextField(
+                keyboardType: TextInputType.visiblePassword,
+                decoration: const InputDecoration(
                 labelText: 'Password',
                 hintText: 'Enter Password',
                 border: OutlineInputBorder(),
-              ),maxLengthEnforcement: null,
+                ),
+                  name:'',
+                  maxLengthEnforcement: null,
                   inputFormatters: null,
                   cursorHeight: 20.0,
                   selectionHeightStyle: BoxHeightStyle.includeLineSpacingTop,
@@ -80,20 +86,19 @@ class MySignupPage extends StatelessWidget {
                     // No return type required for onChanged callback
                   },
                   validator: (value) {},
-               ),
+                ),
             
-            const SizedBox(height: 10),
-            BaseWidgets.proTextButton(
-              onPressed: () {
+               const SizedBox(height: 10),
+                ProTextButton(
+                  onPressed: () {
                 // add reset password functionality here...
-              },
-              child: BaseWidgets. proText(
-                data:  'Forget Password?',
-              ),  textAlign: TextAlign.justify,
-                  textDirection: TextDirection.ltr,
-            ),
+                 },
+                 child: const  ProText(
+                        'Forget Password?' ),
+                 ),
+
             const SizedBox(height: 20),
-            BaseWidgets.proElevatedButton(
+            ProElevatedButton(
               onPressed: () {
                 // add submit button here
               },
@@ -102,31 +107,35 @@ class MySignupPage extends StatelessWidget {
                   borderRadius: BorderRadius.circular(8.0),
                 ),
               ),
-              child: BaseWidgets.proText(
-                data:'Continue'),
-            ),
+
+              child: const ProText(
+                'Continue'),
+               ),
+
             const SizedBox(height: 30),
-            BaseWidgets.prolinearProgressIndicator(
+           const  ProLinearProgressIndicator(
               value: 0.1,
               backgroundColor: Colors.black,
               color: Colors.black,
               semanticsLabel: 'loading...',
             ),
+
             const SizedBox(height: 10),
-            BaseWidgets.proText(
-              data: 'or',
+            const  ProText(
+               'or',
               textAlign: TextAlign.center,
               style: const TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            const SizedBox(height: 30),
-            BaseWidgets.proElevatedButton(
-              onPressed: () {
+
+              const SizedBox(height: 30),
+              ProElevatedButton(
+                  onPressed: () {
                 // Add Google login functionality here
-              },
-              style: ElevatedButton.styleFrom(
+                 },
+                style: ElevatedButton.styleFrom(
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(8.0),
                 ),
@@ -136,7 +145,8 @@ class MySignupPage extends StatelessWidget {
                     fontSize: 16, fontWeight: FontWeight.bold),
                 elevation: 5,
               ),
-              child: BaseWidgets.proRow(
+
+              child: ProRow(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Image.asset(
@@ -149,7 +159,8 @@ class MySignupPage extends StatelessWidget {
                 ],
               ),
             ),
-            BaseWidgets.proElevatedButton(
+
+            ProElevatedButton(
               onPressed: () {
                 // Add Facebook login functionality here
               },
@@ -163,7 +174,8 @@ class MySignupPage extends StatelessWidget {
                     fontSize: 16, fontWeight: FontWeight.bold),
                 elevation: 5,
               ),
-              child: BaseWidgets.proRow(
+
+              child: ProRow(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Image.asset(
@@ -175,11 +187,12 @@ class MySignupPage extends StatelessWidget {
                 ],
               ),
             ),
+
             const SizedBox(height: 20),
-            BaseWidgets.proText(
-              data: 'Already have an account?',
+            const ProText(
+               'Already have an account?',
               textAlign: TextAlign.center,
-              style: const TextStyle(fontSize: 15),
+              style: TextStyle(fontSize: 15),
             ),
           ],
         ),
