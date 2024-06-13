@@ -34,7 +34,7 @@ class _BiometricScreenState extends State<BiometricScreen> {
                ),
 
                  SizedBox(height : 20),
-                const   ProText(
+                   ProText(
                      'Scanning',
                     ),
 

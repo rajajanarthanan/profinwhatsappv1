@@ -6,10 +6,10 @@ class RandomOtpEntryScreen extends StatelessWidget {
   final String falseOTP;
 
   const RandomOtpEntryScreen({
-    Key? key,
+    super.key,
     required this.trueOTP,
     required this.falseOTP,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

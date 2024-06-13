@@ -50,6 +50,7 @@ dependencies:
   flutter_chat_types:
   device_preview: 
   flutter_form_builder: ^9.3.0
+  get:
 
 
 

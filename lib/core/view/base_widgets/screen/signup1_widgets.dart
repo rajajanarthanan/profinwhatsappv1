@@ -20,7 +20,7 @@ class MySignupPage extends StatelessWidget {
            const  ProText(
                'Sign Up',
               textAlign: TextAlign.center,
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 35,
                 fontWeight: FontWeight.bold,
               ),
@@ -43,7 +43,9 @@ class MySignupPage extends StatelessWidget {
                   onChanged: (value) {
                     // No return type required for onChanged callback
                   },
-                  validator: (value) {},
+                  validator: (value) {
+                    return null;
+                  },
                  ),
               
             const SizedBox(height: 40),
@@ -64,7 +66,10 @@ class MySignupPage extends StatelessWidget {
                   onChanged: (value) {
                     // No return type required for onChanged callback
                   },
-                  validator: (value) {}, 
+                  validator: (value) {
+                    return null;
+
+                  }, 
                ),
               
             const SizedBox(height: 40),
@@ -85,7 +90,9 @@ class MySignupPage extends StatelessWidget {
                   onChanged: (value) {
                     // No return type required for onChanged callback
                   },
-                  validator: (value) {},
+                  validator: (value) {
+                    return null;
+                  },
                 ),
             
                const SizedBox(height: 10),
@@ -124,7 +131,7 @@ class MySignupPage extends StatelessWidget {
             const  ProText(
                'or',
               textAlign: TextAlign.center,
-              style: const TextStyle(
+              style:  TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
               ),
@@ -191,10 +198,11 @@ class MySignupPage extends StatelessWidget {
             const SizedBox(height: 20),
             const ProText(
                'Already have an account?',
-              textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 15),
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 15),
             ),
-          ],
+
+           ] ,
         ),
       ),
     );

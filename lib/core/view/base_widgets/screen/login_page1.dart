@@ -35,7 +35,9 @@ class MyLoginPage extends StatelessWidget {
                   onChanged: (value) {
                     // No return type required for onChanged callback
                   },
-                  validator: (value) {},
+                  validator: (value) {
+                    return null;
+                  },
                ),
             const SizedBox(height: 30),
               FormBuilderTextField(
@@ -56,7 +58,9 @@ class MyLoginPage extends StatelessWidget {
                   onChanged: (value) {
                     // No return type required for onChanged callback
                   },
-                  validator: (value) {}, 
+                  validator: (value) {
+                    return null;
+                  }, 
                ),
             const SizedBox(height: 30),
             ProElevatedButton(

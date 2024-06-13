@@ -209,7 +209,7 @@ class ProImage extends Image {
     List<Shadow>? shadows,
     String? semanticLabel,
     TextDirection? textDirection,
-    bool? applyTextScaling, 
+    bool? applyTextScaling,
    } ):super(
       icon,
       key: key,
@@ -281,7 +281,7 @@ class ProImage extends Image {
 class ProText extends Text {
   // ignore: use_super_parameters
   const ProText(
-    dynamic data, {
+    dynamic data,{
     Key? key,
     TextStyle? style,
     StrutStyle? strutStyle,
@@ -378,7 +378,7 @@ class ProTextField extends FormBuilderTextField {
     Widget Function(BuildContext, EditableTextState)? contextMenuBuilder,
     TextMagnifierConfiguration? magnifierConfiguration,
     ContentInsertionConfiguration? contentInsertionConfiguration,
-    SpellCheckConfiguration? spellCheckConfiguration,
+    SpellCheckConfiguration? spellCheckConfiguration, 
   }) : super(
           key: key,
           name: name,
@@ -463,7 +463,7 @@ class ProGridView extends GridView {
     int? semanticChildCount,
     Clip clipBehavior = Clip.hardEdge,
     ScrollViewKeyboardDismissBehavior keyboardDismissBehavior =
-        ScrollViewKeyboardDismissBehavior.manual,
+        ScrollViewKeyboardDismissBehavior.manual, required int itemCount, required Container Function(dynamic context, dynamic index) itemBuilder,
   }) : super(
           key: key,
           scrollDirection: scrollDirection,
@@ -485,101 +485,6 @@ class ProGridView extends GridView {
         );
 }
  
-class ProGridViewBuilder extends GridView {
-   // ignore: use_super_parameters
-  ProGridViewBuilder({
-    Key? key,
-    Axis scrollDirection = Axis.vertical,
-    bool reverse = false,
-    ScrollController? controller,
-    bool? primary,
-    ScrollPhysics? physics,
-    bool shrinkWrap = false,
-    EdgeInsetsGeometry? padding,
-    required SliverGridDelegate gridDelegate,
-    required Widget Function(BuildContext, int) itemBuilder,
-    int? Function(Key)? findChildIndexCallback,
-    int? itemCount,
-    bool addAutomaticKeepAlives = true,
-    bool addRepaintBoundaries = true,
-    bool addSemanticIndexes = true,
-    double? cacheExtent,
-    int? semanticChildCount,
-    DragStartBehavior dragStartBehavior = DragStartBehavior.start,
-    ScrollViewKeyboardDismissBehavior keyboardDismissBehavior =
-        ScrollViewKeyboardDismissBehavior.manual,
-    String? restorationId,
-    Clip clipBehavior = Clip.hardEdge,
-  }) : super(
-          key: key,
-          scrollDirection: scrollDirection,
-          reverse: reverse,
-          controller: controller,
-          primary: primary,
-          physics: physics,
-          shrinkWrap: shrinkWrap,
-          padding: padding,
-          gridDelegate: gridDelegate,
-         // itemBuilder: itemBuilder,
-        //  findChildIndexCallback: findChildIndexCallback,
-         // itemCount: itemCount,
-          addAutomaticKeepAlives: addAutomaticKeepAlives,
-          addRepaintBoundaries: addRepaintBoundaries,
-          addSemanticIndexes: addSemanticIndexes,
-          cacheExtent: cacheExtent,
-          semanticChildCount: semanticChildCount,
-          dragStartBehavior: dragStartBehavior,
-          keyboardDismissBehavior: keyboardDismissBehavior,
-          restorationId: restorationId,
-          clipBehavior: clipBehavior,
-        );
-}
-
-
-class ProTable extends Table {
-  // ignore: use_super_parameters
-  ProTable({
-    Key? key,
-    required List<List<String>> data,
-    required int columnCount,
-    Map<int, TableColumnWidth>? columnWidths,
-    TableBorder? border,
-    TableCellVerticalAlignment defaultVerticalAlignment =
-        TableCellVerticalAlignment.middle,
-    TextStyle? headerStyle,
-    TextStyle? cellStyle,
-    EdgeInsetsGeometry? cellPadding,
-    AlignmentGeometry? cellAlignment,
-  }) : super(
-          key: key,
-          border: border ?? TableBorder.all(),
-          columnWidths: columnWidths,
-          defaultVerticalAlignment: defaultVerticalAlignment,
-          children: List<TableRow>.generate(
-            data.length,
-            (rowIndex) {
-              return TableRow(
-                children: List<Widget>.generate(
-                  columnCount,
-                  (colIndex) {
-                    bool isHeader = rowIndex == 0;
-                    return Padding(
-                      padding: cellPadding ?? const EdgeInsets.all(8.0),
-                      child: Align(
-                        alignment: cellAlignment ?? Alignment.center,
-                        child: Text(
-                          data[rowIndex][colIndex],
-                          style: isHeader ? headerStyle : cellStyle,
-                        ),
-                      ),
-                    );
-                  },
-                ),
-              );
-            },
-          ),
-        );
-}
 
 class ProLinearProgressIndicator extends LinearProgressIndicator {
   // ignore: use_super_parameters
@@ -708,6 +613,7 @@ class ProCheckboxGroup extends FormBuilderCheckboxGroup {
     ControlAffinity controlAffinity = ControlAffinity.leading,
     OptionsOrientation orientation = OptionsOrientation.wrap,
     BoxDecoration? itemDecoration,
+    required List selectedOptions,
   }) : super(
           key: key,
           name: name,
@@ -785,6 +691,7 @@ class ProChoiceChip extends FormBuilderChoiceChip<dynamic> {
     TextDirection? textDirection,
     VerticalDirection verticalDirection = VerticalDirection.down,
     VisualDensity? visualDensity,
+     required selectedValues,
   }) : super(
           autovalidateMode: autovalidateMode,
           enabled: enabled,
@@ -895,7 +802,8 @@ class ProDateRangePicker extends FormBuilderDateRangePicker {
     String? saveText,
     bool useRootNavigator = true,
     bool allowClear = false,
-    Widget? clearIcon,
+    Widget? clearIcon, 
+    required Null Function(dynamic dateRange) onDateRangeSelected,
   }) : super(
           key: key,
           name: name,
@@ -1037,7 +945,10 @@ class ProDateTimePicker extends FormBuilderDateTimePicker {
     StrutStyle? strutStyle,
     bool Function(DateTime)? selectableDayPredicate,
     Offset? anchorPoint,
-    void Function(TimePickerEntryMode)? onEntryModeChanged, required EdgeInsets margin, required ProText child,
+    void Function(TimePickerEntryMode)? onEntryModeChanged, 
+    required EdgeInsets margin, 
+    required ProText child, 
+    required Null Function(dynamic dateTime) onDaterTimeSelected,
   }) : super(
           key: key,
           name: name,
@@ -1143,7 +1054,9 @@ class ProDropdown extends FormBuilderDropdown {
     double? menuMaxHeight,
     bool? enableFeedback,
     BorderRadius? borderRadius,
-    AlignmentGeometry alignment = AlignmentDirectional.centerStart,
+    AlignmentGeometry alignment = AlignmentDirectional.centerStart, 
+    required String hint, 
+    required padding,
   }) : super(
           key: key,
           name: name,
@@ -1222,7 +1135,10 @@ class ProFilterChip extends FormBuilderFilterChip {
     VerticalDirection verticalDirection = VerticalDirection.down,
     void Function(List<dynamic>?)? onChanged,
     dynamic Function(List<dynamic>?)? valueTransformer,
-    void Function()? onReset,
+    void Function()? onReset, 
+    required Null Function(bool isSelected) OnSelected, 
+    required bool selected,
+    required Icon avatar,
   }) : super(
           key: key,
           autovalidateMode: autovalidateMode,
@@ -1298,7 +1214,9 @@ class ProRadioGroup extends FormBuilderRadioGroup<dynamic> {
     dynamic Function(dynamic)? valueTransformer,
     void Function()? onReset,
     String? restorationId,
-    BoxDecoration? itemDecoration,
+    BoxDecoration? itemDecoration, 
+    required Axis direction, 
+    required TextStyle textStyle,
   }) : super(
           key: key,
           autovalidateMode: autovalidateMode,
@@ -1362,7 +1280,15 @@ class ProRangeSlider extends FormBuilderRangeSlider {
     Widget Function(String)? minValueWidget,
     Widget Function(String)? valueWidget,
     Widget Function(String)? maxValueWidget,
-    NumberFormat? numberFormat,
+    NumberFormat? numberFormat, 
+    required int lowerValue, 
+    required int upperValue,
+    required MaterialColor thumbColor, 
+    required int thumbRadius, 
+    required int thumbStrokeWidth, 
+    required Icon leftchild, 
+    required Icon rightchild, 
+    required Color thumbStrokeColor,
   }) : super(
           key: key,
           name: name,
@@ -1424,7 +1350,10 @@ class ProSlider extends FormBuilderSlider {
     MouseCursor? mouseCursor,
     Widget Function(String)? maxValueWidget,
     Widget Function(String)? minValueWidget,
-    Widget Function(String)? valueWidget,
+    Widget Function(String)? valueWidget, 
+    required int thumbStrokeWidth,
+    required int thumbRadius, 
+   required Color thumbColor,
   }) : super(
           key: key,
           name: name,
@@ -1486,7 +1415,13 @@ class ProSwitch extends FormBuilderSwitch {
     ListTileControlAffinity controlAffinity = ListTileControlAffinity.trailing,
     EdgeInsets contentPadding = EdgeInsets.zero,
     bool autofocus = false,
-    bool selected = false,
+    bool selected = false, 
+    required bool value,
+    required MaterialColor inactiveColor,
+    required Color thumbColor, 
+    required int thumbRadius, 
+    required MaterialColor thumbStrokeColor,
+    required int thumbStrokeWidth,
   }) : super(
           key: key,
           name: name,

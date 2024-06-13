@@ -5,10 +5,12 @@ import 'package:profinwhatsapp/core/views/widgets/login_widgets/login_widget.dar
 
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

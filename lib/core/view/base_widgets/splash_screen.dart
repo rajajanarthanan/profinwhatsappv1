@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {
-  @override
+  const SplashScreen({super.key});
+  
+    @override
+  // ignore: library_private_types_in_public_api
   _SplashScreenState createState() => _SplashScreenState();
 }
 
@@ -67,7 +70,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
 
 
 class SecondScreen extends StatelessWidget {
-  const SecondScreen({Key? key}) : super(key: key);
+  const SecondScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

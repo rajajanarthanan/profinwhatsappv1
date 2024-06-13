@@ -14,7 +14,7 @@ void main() {
     await tester.pumpWidget(
       const MaterialApp(
       home: Scaffold(
-        body: OtpEntryScreen(),
+        body:  OtpEntryScreen(),
       ),
     ));
 
@@ -50,7 +50,7 @@ void main() {
     //simulate OnTap
     await tester.tap(find.byKey( const Key('keyboard_1')));
     await tester.pump();
-    
+  
     // verify onTap behavior
     // adds your assertion here
 

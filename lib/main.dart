@@ -11,11 +11,12 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:injector/injector.dart';
 import 'package:profinwhatsapp/core/view/base_widgets/screen/login_page1.dart';
+import 'package:profinwhatsapp/core/view/base_widgets/screen/new_widgets.dart';
 import 'package:profinwhatsapp/core/view/base_widgets/screen/otp_widgets.dart/otp_entry_widgets.dart';
 import 'package:profinwhatsapp/core/view/base_widgets/screen/otp_widgets.dart/otp_generate.dart';
 import 'package:profinwhatsapp/core/view/base_widgets/screen/otp_widgets.dart/otp_validator.dart';
 import 'package:profinwhatsapp/core/view/base_widgets/screen/otp_widgets.dart/random_otp.dart';
-import 'package:profinwhatsapp/core/view/base_widgets/screen/signup_widgets.dart';
+import 'package:profinwhatsapp/core/view/base_widgets/screen/signup1_widgets.dart';
 import 'package:profinwhatsapp/core/views/widgets/login_widgets/login_widget.dart';
 import 'package:profinwhatsapp/core/views/widgets/login_widgets/signup_widget.dart';
 import 'package:profinwhatsapp/screen/chat_screen.dart';
@@ -77,14 +78,16 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
        primarySwatch: Colors.green,
         ),
-       home: 
-       OtpEntryScreen(),
+       home:
+      //MyNewWidget(),
+       // MyKeyboard (), 
+      // OtpEntryScreen(),
        //SplashScreen(),
-       //MySignupPage(),
+      //const MySignupPage(),
        // MyLoginPage(),
        //const OtpRegex(),
        //const RandomOtpEntryScreen(trueOTP: '', falseOTP: '', ),
-      // const MySignupPage(),
+       const MySignupPage(),
      // const OtpEntryScreen (),
         //ChatScreen(),     
       routes: {

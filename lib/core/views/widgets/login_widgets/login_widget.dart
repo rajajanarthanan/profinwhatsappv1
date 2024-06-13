@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_form_builder/flutter_form_builder.dart';
+import 'package:profinwhatsapp/core/views/base_widgets/base_widgets.dart';
 import 'signup_widget.dart'; // Import the sign-up page
 import 'forgot_password_widget.dart'; // Import the forgot password page
 import 'package:profinwhatsapp/core/data/network/services/firebase_authentication.dart';
@@ -17,54 +19,54 @@ class LoginPage extends StatefulWidget {
       appBar: AppBar(
         title: const Text('Login Page'),
       ),
-      body: const Padding(
+      body: Padding(
         padding: EdgeInsets.all(16.0),
-        child: Column(
+        child: ProColumn(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            TextField(
-              decoration: InputDecoration(labelText: 'Email'),
-            ),
-            TextField(
-              decoration: InputDecoration(labelText: 'Password'),
+            FormBuilderTextField(
+              decoration: const InputDecoration(labelText: 'Email'), name: '',
+               ),
+            FormBuilderTextField(
+              decoration: InputDecoration(labelText: 'Password'), name: '',
               obscureText: true,
             ),
          /*   const SizedBox(height: 20),
-            ElevatedButton(
+            ProElevatedButton(
               onPressed: () {
                 // Add login functionality here
               },
-              child: const Text('Login'),
+              child: const ProText('Login'),
             ),
-            ElevatedButton(
+            ProElevatedButton(
               onPressed: () {
                 // Add Google login functionality here
               },
-              child: const Text('Login with Google'),
+              child: const ProText('Login with Google'),
             ),
-            ElevatedButton(
+            ProElevatedButton(
               onPressed: () {
                 // Add Facebook login functionality here
               },
-              child: const Text('Login with Facebook'),
+              child: const ProText('Login with Facebook'),
             ),
-            TextButton(
+            ProTextButton(
               onPressed: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => ForgotPasswordPage()),
                 );
               },
-              child: const Text('Forgot Password?'),
+              child: const ProText('Forgot Password?'),
             ),
-            TextButton(
+            ProTextButton(
               onPressed: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => SignUpPage()),
                 );
               },
-              child: const Text('Don\'t have an account? Sign Up'),
+              child: const ProText('Don\'t have an account? Sign Up'),
             ),*/
           ],
         ),
