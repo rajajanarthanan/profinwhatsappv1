@@ -40,7 +40,7 @@ class MyLoginPage extends StatelessWidget {
                     return null;
                   },
                ),
-            const SizedBox(height: 40),
+            const SizedBox(height: 50),
               ProTextField(
               keyboardType: TextInputType.visiblePassword,
               decoration: const InputDecoration(

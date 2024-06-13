@@ -162,7 +162,7 @@ class MySignupPage extends StatelessWidget {
                     width: 50,
                   ),
                   const SizedBox(width: 10),
-                  const ProText('Login with Google')
+                  const ProText('Signup with Google')
                 ],
               ),
             ),
@@ -190,7 +190,7 @@ class MySignupPage extends StatelessWidget {
                     height: 50,
                     width: 50,
                   ),
-                  const ProText('Login with Facebook'),
+                  const ProText('Signup with Facebook'),
                 ],
               ),
             ),
