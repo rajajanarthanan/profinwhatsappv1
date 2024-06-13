@@ -28,7 +28,6 @@ class _BiometricScreenState extends State<BiometricScreen> {
           crossAxisAlignment : CrossAxisAlignment.center,
           children : [
                ProIcon(
-              
                Icons.fingerprint, 
               
                ),
@@ -38,10 +37,10 @@ class _BiometricScreenState extends State<BiometricScreen> {
                      'Scanning',
                     ),
 
-                  const SizedBox(height : 20),
-                 const  ProText(
+                  SizedBox(height : 20),
+                  ProText(
                     ' Biometric Authentication',
-                    style : const TextStyle(
+                    style : TextStyle(
                       fontSize :25,
                       fontWeight : FontWeight.bold,
                     ),

@@ -26,7 +26,7 @@ class MySignupPage extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 50),
-              FormBuilderTextField(
+             ProTextField(
               keyboardType: TextInputType.name,
               decoration: const InputDecoration(
                 labelText: 'User Name',
@@ -49,7 +49,7 @@ class MySignupPage extends StatelessWidget {
                  ),
               
             const SizedBox(height: 40),
-            FormBuilderTextField(
+            ProTextField(
                 keyboardType: TextInputType.emailAddress,
                 decoration: const InputDecoration(
                 labelText: 'Email',
@@ -73,7 +73,7 @@ class MySignupPage extends StatelessWidget {
                ),
               
             const SizedBox(height: 40),
-            FormBuilderTextField(
+            ProTextField(
                 keyboardType: TextInputType.visiblePassword,
                 decoration: const InputDecoration(
                 labelText: 'Password',
@@ -162,7 +162,7 @@ class MySignupPage extends StatelessWidget {
                     width: 50,
                   ),
                   const SizedBox(width: 10),
-                  const Text('Login with Google')
+                  const ProText('Login with Google')
                 ],
               ),
             ),
@@ -190,7 +190,7 @@ class MySignupPage extends StatelessWidget {
                     height: 50,
                     width: 50,
                   ),
-                  const Text('Login with Facebook'),
+                  const ProText('Login with Facebook'),
                 ],
               ),
             ),

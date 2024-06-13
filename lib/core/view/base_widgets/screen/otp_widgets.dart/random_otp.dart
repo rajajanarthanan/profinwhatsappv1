@@ -15,7 +15,7 @@ class RandomOtpEntryScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Random OTP Entry'),
+        title: const ProText('Random OTP Entry'),
       ),
       body: Center(
         child: ProColumn(

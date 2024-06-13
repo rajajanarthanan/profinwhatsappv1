@@ -84,10 +84,10 @@ class MyApp extends StatelessWidget {
       // OtpEntryScreen(),
        //SplashScreen(),
       //const MySignupPage(),
-       // MyLoginPage(),
+       MyLoginPage(),
        //const OtpRegex(),
        //const RandomOtpEntryScreen(trueOTP: '', falseOTP: '', ),
-       const MySignupPage(),
+      // const MySignupPage(),
      // const OtpEntryScreen (),
         //ChatScreen(),     
       routes: {

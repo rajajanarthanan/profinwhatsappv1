@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:profinwhatsapp/core/views/base_widgets/base_widgets.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -76,7 +77,7 @@ class SecondScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const  Text(
+        title: const  ProText(
           'Home Page',
           style: TextStyle(
             fontSize : 24,
@@ -85,7 +86,7 @@ class SecondScreen extends StatelessWidget {
         ),
       ),
       body: const Center(
-        child: Text(
+        child: ProText(
           'Welcome To Home Page!',
           style : TextStyle(
             fontSize : 24,

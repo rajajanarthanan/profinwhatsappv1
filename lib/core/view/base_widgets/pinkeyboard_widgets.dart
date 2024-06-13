@@ -67,7 +67,7 @@ class MpinKeyboard extends StatelessWidget {
           ),
              color: Colors.white,
              child: Center(
-             child: Text(
+             child: ProText(
              value,
             style: const TextStyle(
               fontSize: 24,),

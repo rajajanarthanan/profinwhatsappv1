@@ -16,8 +16,8 @@ class ForgotPasswordPage extends StatelessWidget {
         child: ProColumn(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            FormBuilderTextField(
-              decoration: InputDecoration(labelText: 'Email'),
+            ProTextField(
+              decoration:const  InputDecoration(labelText: 'Email'),
               name: '',
             ),
           const   SizedBox(height: 20),

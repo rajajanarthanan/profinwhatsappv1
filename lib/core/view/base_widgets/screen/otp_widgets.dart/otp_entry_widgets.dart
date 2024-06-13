@@ -50,7 +50,7 @@ class OtpEntryScreen extends StatelessWidget {
                         borderRadius: BorderRadius.circular(13),
                       ),
                       color: Colors.white,
-                      child: FormBuilderTextField(
+                      child: ProTextField(
                         key: Key('otpField_$index'), // Add keys to the text fields
                         style: Theme.of(context).textTheme.headlineMedium,
                         keyboardType: TextInputType.number,
@@ -60,7 +60,9 @@ class OtpEntryScreen extends StatelessWidget {
                           counterText: '',
                           border: InputBorder.none,
                         ),
-                        onChanged: (value) {}, name: '',
+                        onChanged: (value) {
+                          
+                        }, name: '',
                       ),
                     ),
                   ),

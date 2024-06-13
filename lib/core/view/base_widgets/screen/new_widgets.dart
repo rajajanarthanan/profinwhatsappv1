@@ -13,7 +13,7 @@ class MyNewWidget extends GetResponsiveView {
         title: const  ProText('new widgets')
       ),
          body:  Center(
-        child: Column(
+        child: ProColumn(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
         /*   ProContainer(

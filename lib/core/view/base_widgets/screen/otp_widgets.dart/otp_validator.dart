@@ -1,5 +1,7 @@
 
 import 'package:flutter/material.dart';
+import 'package:profinwhatsapp/core/views/base_widgets/base_widgets.dart';
+
 
 class OtpRegex extends StatelessWidget {
   const OtpRegex({super.key});
@@ -12,6 +14,6 @@ class OtpRegex extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return ProContainer(color: Colors.white,);
   }
 }

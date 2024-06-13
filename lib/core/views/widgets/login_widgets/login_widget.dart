@@ -92,13 +92,13 @@ class LoginPage extends StatefulWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Authentication"),
+        title: const ProText("Authentication"),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: Column(
+        child: ProColumn(
           children: [
-            TextField(
+            FormTextField(
               controller: emailController,
               decoration: const InputDecoration(labelText: 'Email'),
             ),
