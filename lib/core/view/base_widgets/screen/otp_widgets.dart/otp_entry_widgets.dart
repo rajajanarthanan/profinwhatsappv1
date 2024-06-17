@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:profinwhatsapp/core/views/base_widgets/base_widgets.dart';
 import 'package:profinwhatsapp/core/view/base_widgets/screen/otp_widgets.dart/keyboard_widgets.dart';
 
@@ -61,7 +60,7 @@ class OtpEntryScreen extends StatelessWidget {
                           border: InputBorder.none,
                         ),
                         onChanged: (value) {
-                          
+
                         }, name: '',
                       ),
                     ),

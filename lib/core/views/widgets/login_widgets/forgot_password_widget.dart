@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:profinwhatsapp/core/views/base_widgets/base_widgets.dart';
 
 class ForgotPasswordPage extends StatelessWidget {

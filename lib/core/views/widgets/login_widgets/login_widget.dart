@@ -1,26 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:profinwhatsapp/core/views/base_widgets/base_widgets.dart';
-import 'signup_widget.dart'; // Import the sign-up page
-import 'forgot_password_widget.dart'; // Import the forgot password page
-import 'package:profinwhatsapp/core/data/network/services/firebase_authentication.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+// import 'signup_widget.dart'; // Import the sign-up page
+// import 'forgot_password_widget.dart'; // Import the forgot password page
+// import 'package:profinwhatsapp/core/data/network/services/firebase_authentication.dart';
+// import 'package:firebase_auth/firebase_auth.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
-  @override
   // ignore: library_private_types_in_public_api
   //_LoginPageState createState() => _LoginPageState();
 
 
   @override
+  // ignore: override_on_non_overriding_member
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Login Page'),
       ),
       body: Padding(
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         child: ProColumn(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -28,7 +28,7 @@ class LoginPage extends StatefulWidget {
               decoration: const InputDecoration(labelText: 'Email'), name: '',
                ),
             FormBuilderTextField(
-              decoration: InputDecoration(labelText: 'Password'), name: '',
+              decoration: const InputDecoration(labelText: 'Password'), name: '',
               obscureText: true,
             ),
          /*   const SizedBox(height: 20),
@@ -75,11 +75,10 @@ class LoginPage extends StatefulWidget {
   }
   
   @override
+  // ignore: no_logic_in_create_state
   State<StatefulWidget> createState() {
-    // TODO: implement createState
-    throw UnimplementedError();
+     throw UnimplementedError();
   }
-  
 }
 
 

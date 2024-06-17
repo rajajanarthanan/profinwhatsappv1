@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:profinwhatsapp/core/view/base_widgets/screen/otp_widgets.dart/keyboard_widgets.dart';
 import 'package:profinwhatsapp/core/view/base_widgets/screen/otp_widgets.dart/otp_entry_widgets.dart';
-import 'package:profinwhatsapp/core/view/base_widgets/screen/otp_widgets.dart/otp_generate.dart';
-import 'package:profinwhatsapp/core/view/base_widgets/screen/otp_widgets.dart/random_otp.dart';
-import 'package:profinwhatsapp/core/view/base_widgets/screen/otp_widgets.dart/otp_validator.dart';
+//import 'package:profinwhatsapp/core/view/base_widgets/screen/otp_widgets.dart/otp_generate.dart';
+//import 'package:profinwhatsapp/core/view/base_widgets/screen/otp_widgets.dart/random_otp.dart';
+//import 'package:profinwhatsapp/core/view/base_widgets/screen/otp_widgets.dart/otp_validator.dart';
 
 
 void main() {
@@ -69,42 +69,7 @@ void main() {
     }); 
   
    
-   void main(){
-  group('Random OTP Entry Screen Tests', () {
-    testWidgets('Verify OTP Generation', (WidgetTester tester) async {
-     
-
-      // Generate a random false OTP (5 digits)
-      final falseOTP = generateOTP(false);
-
-       // Generate a random true OTP (6 digits)
-      final trueOTP = generateOTP(true);
-
-     
-
-      // Build the widget under test with the generated OTPs
-      await tester.pumpWidget(MaterialApp(
-        home: RandomOtpEntryScreen(
-          trueOTP: trueOTP,
-          falseOTP: falseOTP,
-        ),
-      ));
-
-      // Verify that the true OTP text is present and matches the generated true OTP
-      expect(find.text(trueOTP), findsOneWidget);
-
-      // Verify that the false OTP text is present and matches the generated false OTP
-      expect(find.text(falseOTP), findsOneWidget);
-       });
-      });
-   }
  
-
-          
-    
-
-
-
 // Regular expression pattern for valid OTP input (6 digits)
 final RegExp otpRegex = RegExp(r'^[0-9]{6}$');
 

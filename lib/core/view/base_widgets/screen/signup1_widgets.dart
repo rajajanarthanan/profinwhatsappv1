@@ -2,7 +2,6 @@ import 'dart:ui';
 
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:profinwhatsapp/core/views/base_widgets/base_widgets.dart';
 
 class MySignupPage extends StatelessWidget {
@@ -12,7 +11,7 @@ class MySignupPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Enter OTP"),
+        title: const ProText("Enter OTP"),
       ),
       body: Center(
         child: ProColumn(

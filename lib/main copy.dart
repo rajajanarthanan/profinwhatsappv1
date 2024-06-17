@@ -1,7 +1,9 @@
+// ignore_for_file: unused_local_variable
+
 import 'package:flutter/material.dart';
 import 'package:injector/injector.dart';
 import 'core/dependencies/injector.dart';
-import 'core/views/base_widgets/base_widgets.dart';
+//import 'core/views/base_widgets/base_widgets.dart';
 
 
 void main() {
@@ -21,7 +23,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: MyHomePage(title: 'Demo flutter Page'),
+      home: const MyHomePage(title: 'Demo flutter Page'),
      
       debugShowCheckedModeBanner: false,
     );
@@ -156,6 +158,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
+// ignore: camel_case_types
 class Base_Widgets {
 }
 

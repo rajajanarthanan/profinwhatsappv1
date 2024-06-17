@@ -1,20 +1,22 @@
 // import 'package:flutter/src/foundation/change_notifier.dart';
 // import 'package:flutter/src/widgets/framework.dart';
+// ignore_for_file: unused_local_variable
+
 import 'package:flutter/material.dart';
 import 'package:injector/injector.dart';
-import 'package:profinwhatsapp/core/base/base_viewmodel.dart';
+//import 'package:profinwhatsapp/core/base/base_viewmodel.dart';
 import 'package:profinwhatsapp/core/views/base_widgets/base_widgets.dart';
 import 'package:profinwhatsapp/core/base/base_view.dart';
 
 class TestView extends BaseView {
+  TestView({super.key});
   // TestView() {
   //   final vm = dep.get<BaseViewModel>();
   // }
 
   @override
   Widget buildView(BuildContext context) {
-    // TODO: implement buildView
-    return MaterialApp(
+     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
@@ -68,23 +70,23 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
 
       body: Center(
-        child: Column(
+        child: ProColumn(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
            // const Text(
            //   'You have pushed the button this many times:',
            // ),
             text,
-           // BaseWidgets.proElevatedButton(
+           // ProElevatedButton(
             //    onPressed: () {}, child: Text("clickMe")),
-           // BaseWidgets.proTextButton(onPressed: () {}, child: Text("OK")),
-           // BaseWidgets.proLoadingButton(
+           // ProTextButton(onPressed: () {}, child: Text("OK")),
+           // ProLoadingButton(
            //     onPressed: () {
                   // Handle button press
             //    },
               //  isLoading: true, // Change this to false to hide loading state
               //  child: Text("Loading Button")),
-            //BaseWidgets.proAsyncButton(
+            // BaseWidgets.proAsyncButton(
               //text: 'Click Me',
              // onPressed: () async {
              //   await Future.delayed(Duration(seconds: 1));

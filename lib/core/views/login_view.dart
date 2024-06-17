@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:injector/injector.dart';
+//import 'package:injector/injector.dart';
 import 'package:profinwhatsapp/core/base/base_view.dart';
-import 'package:profinwhatsapp/core/views/base_widgets/base_widgets.dart';
+//import 'package:profinwhatsapp/core/views/base_widgets/base_widgets.dart';
 import 'package:profinwhatsapp/core/views/widgets/login_widgets/login_widget.dart';
 
 class LoginView extends BaseView {
+  LoginView({super.key});
+
   @override
   Widget buildView(BuildContext context) {
     return MaterialApp(
@@ -13,7 +15,7 @@ class LoginView extends BaseView {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: LoginPage(),
+        home: const LoginPage(),
         debugShowCheckedModeBanner: false);
   }
 
@@ -43,9 +45,9 @@ class _LoginPageState extends State<LoginPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            BaseWidgets.proElevatedButton(
+            ProElevatedButton(
                 onPressed: () {}, child: Text("clickMe")),
-            BaseWidgets.proTextButton(onPressed: () {}, child: Text("OK")),
+            ProTextButton(onPressed: () {}, child: Text("OK")),
           ],
         ),
       ),

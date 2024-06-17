@@ -2,7 +2,6 @@ import 'dart:ui';
 
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:profinwhatsapp/core/views/base_widgets/base_widgets.dart';
 
 class MyLoginPage extends StatelessWidget {
@@ -15,159 +14,171 @@ class MyLoginPage extends StatelessWidget {
         title: const ProText("Enter OTP"),
       ),
       body: Center(
-        child: ProColumn(
-          children: [
-            const SizedBox(height:50),
-            ProTextField(
-              keyboardType: TextInputType.emailAddress,
-              decoration: const InputDecoration(
-                labelText: 'Email',
-                hintText: 'Enter email',
-                prefixIcon: Icon(Icons.email),
-                border: OutlineInputBorder(),
-              ),
-                 name: '',
-                 maxLengthEnforcement: null,
-                  inputFormatters: null,
-                  cursorHeight: 20.0,
-                  selectionHeightStyle: BoxHeightStyle.includeLineSpacingTop,
-                  selectionWidthStyle: BoxWidthStyle.max,
-                  dragStartBehavior: DragStartBehavior.down,
-                  onChanged: (value) {
-                    // No return type required for onChanged callback
-                  },
-                  validator: (value) {
-                    return null;
-                  },
-               ),
-            const SizedBox(height: 50),
+        child: Padding(
+          padding: const EdgeInsets.all(16.0), 
+          child: ProColumn(
+            children: [
+              const SizedBox(height: 50),
               ProTextField(
-              keyboardType: TextInputType.visiblePassword,
-              decoration: const InputDecoration(
-                labelText: 'Password',
-                hintText: 'Enter Password',
-                prefixIcon: Icon(Icons.password),
-                border: OutlineInputBorder(),
+                keyboardType: TextInputType.emailAddress,
+                decoration: const InputDecoration(
+                  labelText: 'Email',
+                  hintText: 'Enter email',
+                  prefixIcon: Icon(Icons.email),
+                  border: OutlineInputBorder(),
+                ),
+                name: '',
+                maxLengthEnforcement: null,
+                inputFormatters: null,
+                cursorHeight: 20.0,
+                selectionHeightStyle: BoxHeightStyle.includeLineSpacingTop,
+                selectionWidthStyle: BoxWidthStyle.max,
+                dragStartBehavior: DragStartBehavior.down,
+                onChanged: (value) {
+                  // No return type required for onChanged callback
+                },
+                validator: (value) {
+                  return null;
+                },
               ),
-                  name: '',
-                  maxLengthEnforcement: null,
-                  inputFormatters: null,
-                  cursorHeight: 20.0,
-                  selectionHeightStyle: BoxHeightStyle.includeLineSpacingTop,
-                  selectionWidthStyle: BoxWidthStyle.max,
-                  dragStartBehavior: DragStartBehavior.down,
-                  onChanged: (value) {
-                    // No return type required for onChanged callback
-                  },
-                  validator: (value) {
-                    return null;
-                  }, 
-                 ),
-
-               const SizedBox(height: 20),
-                ProTextButton(
-                  onPressed: () {
-                // add reset password functionality here...
-                 },
-                 child: const  ProText(
-                        'Forget Password?' ),
-                 ),
-
-
-                const SizedBox(height: 20),
-                ProElevatedButton(
-                     onPressed: () {
-                // add submit button here
-                  },
-                 style: ElevatedButton.styleFrom(
-                   shape: RoundedRectangleBorder(
-                     borderRadius: BorderRadius.circular(8.0),
-                  ),
-                 ),
-                  child: const ProText('login'),
-                    ),
-
-              const SizedBox(height: 60),
-              const  ProLinearProgressIndicator(
-              value: 0.1,
-              backgroundColor: Colors.black,
-              color: Colors.black,
-              semanticsLabel: 'loading...',
-            ),
-
-            const SizedBox(height: 10),
-            const  ProText(
-               'or',
-              textAlign: TextAlign.center,
-              style:  TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
+              const SizedBox(height: 50),
+              ProTextField(
+                keyboardType: TextInputType.visiblePassword,
+                decoration: const InputDecoration(
+                  labelText: 'Password',
+                  hintText: 'Enter Password',
+                  prefixIcon: Icon(Icons.password),
+                  border: OutlineInputBorder(),
+                ),
+                name: '',
+                maxLengthEnforcement: null,
+                inputFormatters: null,
+                cursorHeight: 20.0,
+                selectionHeightStyle: BoxHeightStyle.includeLineSpacingTop,
+                selectionWidthStyle: BoxWidthStyle.max,
+                dragStartBehavior: DragStartBehavior.down,
+                onChanged: (value) {
+                  // No return type required for onChanged callback
+                },
+                validator: (value) {
+                  return null;
+                },
               ),
-            ),
 
-            const SizedBox(height: 30),
-            ProElevatedButton(
-                  onPressed: () {
-                // Add Google login functionality here
-                 },
+               ProCheckbox(
+                name: '', 
+                title: const ProText('Remember me'),
+                initialValue: true,
+                onChanged: (value) {
+                  // onChanged functionality here.
+                }
+               ),
+              const SizedBox(height: 20),
+              ProTextButton(
+                onPressed: () {
+                  // add reset password functionality here...
+                },
+                child: const ProText('Forget Password?'),
+              ),
+              const SizedBox(height: 20),
+              ProElevatedButton(
+                onPressed: () {
+                  // add submit button here
+                },
                 style: ElevatedButton.styleFrom(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8.0),
-                ),
-                padding: const EdgeInsets.symmetric(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8.0),
+                  ),
+                  padding:const  EdgeInsets.symmetric(
                     vertical: 8.0, horizontal: 12.0),
-                textStyle: const TextStyle(
-                    fontSize: 16, fontWeight: FontWeight.bold),
-                elevation: 5,
+                    textStyle: const TextStyle(
+                      fontSize: 16, fontWeight: FontWeight.bold),
+                   ),
+                 child: const ProText('Login'),
               ),
-
-              child: ProRow(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Image.asset(
-                    'assets/google_logo.png',
-                    height: 50,
-                    width: 50,
-                  ),
-                  const SizedBox(width: 10),
-                  const ProText('Login with Google')
-                ],
+          
+              const SizedBox(height: 60),
+              const ProLinearProgressIndicator(
+                value: 0.1,
+                backgroundColor: Colors.black,
+                color: Colors.black,
+                semanticsLabel: 'loading...',
               ),
-            ),
-             
-             const SizedBox(height:30),
-             ProElevatedButton(
-              onPressed: () {
-                // Add Facebook login functionality here
-              },
-              style: ElevatedButton.styleFrom(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8.0),
+              const SizedBox(height: 20),
+              const ProText(
+                'or',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
                 ),
-                padding: const EdgeInsets.symmetric(
-                    vertical: 8.0, horizontal: 8.0),
-                textStyle: const TextStyle(
-                    fontSize: 16, fontWeight: FontWeight.bold),
-                elevation: 5,
               ),
-
-              child: ProRow(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Image.asset(
-                    'assets/facebook_logo.png',
-                    height: 50,
-                    width: 50,
-                  ),
-                  const ProText('Login with Facebook'),
-                ],
+              const SizedBox(height: 30),
+              Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ProElevatedButton(
+                      onPressed: () {
+                        // Add Google login functionality here
+                      },
+                      style: ElevatedButton.styleFrom(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 8.0, horizontal: 12.0),
+                        textStyle: const TextStyle(
+                            fontSize: 16, fontWeight: FontWeight.bold),
+                        elevation: 5,
+                      ),
+                      child: ProRow(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Image.asset(
+                            'assets/google_logo.png',
+                            height: 50,
+                            width: 50,
+                          ),
+                          const SizedBox(width: 10),
+                          const ProText('Login with Google')
+                        ],
+                      ),
+                    ),
+                    const SizedBox(height: 30),
+                    ProElevatedButton(
+                      onPressed: () {
+                        // Add Facebook login functionality here
+                      },
+                      style: ElevatedButton.styleFrom(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 8.0, horizontal: 12.0),
+                        textStyle: const TextStyle(
+                            fontSize: 16, fontWeight: FontWeight.bold),
+                        elevation: 5,
+                      ),
+                      child: ProRow(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Image.asset(
+                            'assets/facebook_logo.png',
+                            height: 50,
+                            width: 50,
+                          ),
+                          const ProText('Login with Facebook'),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
               ),
-            ),
-
-        ],
+            ],
+          ),
+        ),
       ),
-    ),
-  );
+    );
   }
-}   
-           
+}

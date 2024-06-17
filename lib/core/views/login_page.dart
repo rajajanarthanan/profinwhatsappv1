@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:profinwhatsapp/core/views/base_widgets/base_widgets.dart';
 
 
 import 'package:profinwhatsapp/core/views/widgets/login_widgets/login_widget.dart';
@@ -16,17 +17,17 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('My App'),
+          title: const ProText('My App'),
         ),
         body: Center(
-          child: ElevatedButton(
+          child: ProElevatedButton(
             onPressed: () {
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => const LoginPage()), // Navigate to the login page
               );
             },
-            child: const Text('Go to Login Page'),
+            child: const ProText('Go to Login Page'),
           ),
         ),
       ),

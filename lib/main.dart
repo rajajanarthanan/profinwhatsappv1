@@ -1,37 +1,38 @@
 
 
-import 'dart:ui';
+//import 'dart:ui';
+
+// ignore_for_file: unused_local_variable
 
 import 'package:device_preview/device_preview.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
-// ignore: unused_import
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:injector/injector.dart';
 import 'package:profinwhatsapp/core/view/base_widgets/screen/login_page1.dart';
-import 'package:profinwhatsapp/core/view/base_widgets/screen/new_widgets.dart';
 import 'package:profinwhatsapp/core/view/base_widgets/screen/otp_widgets.dart/otp_entry_widgets.dart';
+import 'package:profinwhatsapp/core/views/widgets/login_widgets/login_widget.dart';
+import 'core/dependencies/injector.dart';
+import 'core/views/base_widgets/base_widgets.dart';
+import 'core/views/login_view.dart';
 import 'package:profinwhatsapp/core/view/base_widgets/screen/otp_widgets.dart/otp_generate.dart';
+
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/gestures.dart';
+import 'package:profinwhatsapp/core/view/base_widgets/screen/new_widgets.dart';
 import 'package:profinwhatsapp/core/view/base_widgets/screen/otp_widgets.dart/otp_validator.dart';
 import 'package:profinwhatsapp/core/view/base_widgets/screen/otp_widgets.dart/random_otp.dart';
 import 'package:profinwhatsapp/core/view/base_widgets/screen/signup1_widgets.dart';
 import 'package:profinwhatsapp/core/views/widgets/login_widgets/login_widget.dart';
 import 'package:profinwhatsapp/core/views/widgets/login_widgets/signup_widget.dart';
 import 'package:profinwhatsapp/screen/chat_screen.dart';
-import 'core/dependencies/injector.dart';
-import 'core/views/base_widgets/base_widgets.dart';
-import 'core/views/login_view.dart';
-// ignore: unused_import
 import 'package:profinwhatsapp/core/view/base_widgets/screen/otp_widgets.dart/keyboard_widgets.dart';
 import 'package:profinwhatsapp/core/views/base_widgets/base_widgets.dart';
 import 'package:profinwhatsapp/core/view/base_widgets/biometric_widgets.dart';
 import 'package:profinwhatsapp/core/view/base_widgets/pinkeyboard_widgets.dart';
 import 'package:profinwhatsapp/core/view/base_widgets/splash_screen.dart';
 import 'package:flutter_chat_ui/flutter_chat_ui.dart';
- import 'package:flutter_chat_types/flutter_chat_types.dart' as chat_types;
-
+import 'package:flutter_chat_types/flutter_chat_types.dart' as chat_types;
 import 'package:profinwhatsapp/core/view/base_widgets/screen/otp_widgets.dart/otp_validator.dart';
 
 
@@ -67,10 +68,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
    
      // Generate a random true OTP (6 digits)
-    final trueOTP = generateOTP(true);
+    generateOTP(true);
 
     // Generate a random false OTP (5 digits)
-   final falseOTP = generateOTP(false);
+   generateOTP(false);
    
     return MaterialApp(
       builder: DevicePreview.appBuilder,
@@ -78,18 +79,17 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
        primarySwatch: Colors.green,
         ),
-       home:
-      //MyNewWidget(),
-       // MyKeyboard (), 
-      // OtpEntryScreen(),
-       //SplashScreen(),
-      //const MySignupPage(),
-       MyLoginPage(),
-       //const OtpRegex(),
-       //const RandomOtpEntryScreen(trueOTP: '', falseOTP: '', ),
-      // const MySignupPage(),
-     // const OtpEntryScreen (),
-        //ChatScreen(),     
+       home: 
+           // MyNewWidget(),
+           // MyKeyboard (), 
+           // OtpEntryScreen(),
+           // SplashScreen(),
+           // MySignupPage(),
+            const MyLoginPage(),
+           // OtpRegex(),
+           // RandomOtpEntryScreen(trueOTP: '', falseOTP: '', ),
+           // MySignupPage(),
+           // ChatScreen(),     
       routes: {
         '/loginview': (context) => LoginView(),
         '/loginpage': (context) => const LoginPage(),
@@ -103,8 +103,10 @@ class MyApp extends StatelessWidget {
   
  
 
+// ignore: must_be_immutable
 class MyHomePage extends StatefulWidget {
-  var title;
+   // ignore: prefer_typing_uninitialized_variables
+   var title;
 
  MyHomePage({super.key, required this.title});
 
@@ -144,8 +146,9 @@ class _MyHomePageState extends State<MyHomePage> {
    
 
    @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context){ 
     BaseWidgets basewidgets = BaseWidgets();
+  
     final injector = Injector.appInstance;
 
    

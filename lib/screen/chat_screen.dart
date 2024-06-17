@@ -1,22 +1,24 @@
 
 import 'dart:ui';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter_chat_types/flutter_chat_types.dart' as chat_types ;
-import 'package:flutter_chat_ui/flutter_chat_ui.dart';
-import 'package:flutter_form_builder/flutter_form_builder.dart';
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:profinwhatsapp/core/views/base_widgets/base_widgets.dart';
+
+// import 'package:flutter/rendering.dart';
+// import 'package:flutter/widgets.dart';
+// import 'package:flutter/cupertino.dart';
+// import 'package:flutter_chat_types/flutter_chat_types.dart' as chat_types ;
+// import 'package:flutter_chat_ui/flutter_chat_ui.dart';
+// import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+
 
 
 class ChatScreen extends StatefulWidget {
+ const  ChatScreen({super.key});
 
 
  @override
+  // ignore: library_private_types_in_public_api
   _ChatScreenState createState() => _ChatScreenState();
 
 }
@@ -66,18 +68,18 @@ class _ChatScreenState extends State<ChatScreen> {
            padding: const EdgeInsets.all(8.0),
            color: Colors.white,
            child: GridView.count(
-                 crossAxisCount: 3,
-                    children:[ 
-                              Icon(Icons.image, size: iconSize, color: Colors.purple),
-                              Icon(Icons. edit_document, size: iconSize, color: Colors.blue[900]),
-                              Icon(Icons.payment, size: iconSize, color: Colors.teal),
-                              Icon(Icons.location_on, size: iconSize, color : Colors.green[700]),
-                              Icon(Icons.camera, size: iconSize,color : Colors.pink[600]), 
-                            ],
-                         ),
-                       ),
-                     ), 
-               ],
+             crossAxisCount: 3,
+                children:[ 
+                      Icon(Icons.image, size: iconSize, color: Colors.purple),
+                      Icon(Icons. edit_document, size: iconSize, color: Colors.blue[900]),
+                      Icon(Icons.payment, size: iconSize, color: Colors.teal),
+                      Icon(Icons.location_on, size: iconSize, color : Colors.green[700]),
+                      Icon(Icons.camera, size: iconSize,color : Colors.pink[600]), 
+                  ],
+              ),
+          ),
+      ), 
+  ],
  ).then((value) {
     if (value != null) {
       _handleMenuItemClick(value);
@@ -115,7 +117,7 @@ void _handleMenuItemClick(String value) {
             child :  ProRow(
                 children: [
                     Expanded(
-                      child:FormBuilderTextField(
+                      child:ProTextField(
                         controller : _controller,
                         decoration: const InputDecoration(
                           hintText: 'Type a Message',
@@ -129,7 +131,9 @@ void _handleMenuItemClick(String value) {
                          selectionWidthStyle: BoxWidthStyle.max, 
                          dragStartBehavior: DragStartBehavior.start,
                          onChanged: (value ) {  }, 
-                         validator: (value) {  }
+                         validator: (value) { 
+                          return null;
+                          }
                       ),
                     ),
                       

@@ -1,4 +1,4 @@
-// ignore_for_file: use_super_parameters
+// ignore_for_file: use_super_parameters, duplicate_ignore
 
 import 'dart:ui';
 
@@ -279,6 +279,7 @@ class ProImage extends Image {
  } 
 
 class ProText extends Text {
+  // ignore: duplicate_ignore
   // ignore: use_super_parameters
   const ProText(
     dynamic data,{
@@ -444,6 +445,7 @@ class ProTextField extends FormBuilderTextField {
 }
 
 class ProGridView extends GridView {
+  // ignore: duplicate_ignore
   // ignore: use_super_parameters
   ProGridView({
     Key? key,
@@ -1136,7 +1138,7 @@ class ProFilterChip extends FormBuilderFilterChip {
     void Function(List<dynamic>?)? onChanged,
     dynamic Function(List<dynamic>?)? valueTransformer,
     void Function()? onReset, 
-    required Null Function(bool isSelected) OnSelected, 
+   // required Null Function(bool isSelected) OnSelected, 
     required bool selected,
     required Icon avatar,
   }) : super(
